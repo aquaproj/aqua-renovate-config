@@ -7,12 +7,14 @@ on:
     paths:
     - .github/workflows/renovate-config-validator.yaml
     - default.json
+    - renovate.json5
   push:
     branches:
     - main
     paths:
     - .github/workflows/renovate-config-validator.yaml
     - default.json
+    - renovate.json5
 
 jobs:
   validate:
@@ -22,3 +24,6 @@ jobs:
     - uses: rinchsan/renovate-config-validator@v0.0.7
       with:
         pattern: default.json
+    - uses: rinchsan/renovate-config-validator@v0.0.7
+      with:
+        pattern: renovate.json5
