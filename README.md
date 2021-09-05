@@ -13,6 +13,19 @@
 }
 ```
 
+Add the comment `# renovate: depName=(?<depName>.*)` in aqua.yaml for Renovate's Regex Manager.
+
+```yaml
+registries:
+- type: standard
+  ref: v0.2.1 # renovate: depName=suzuki-shunsuke/aqua-registry
+
+packages:
+- name: conftest
+  registry: standard
+  version: v0.27.0 # renovate: depName=open-policy-agent/conftest
+```
+
 ## License
 
 [MIT](LICENSE)
