@@ -24,7 +24,7 @@ registries:
 packages:
 - name: conftest
   registry: standard
-  version: v0.26.0 # renovate: depName=open-policy-agent/conftest
+  version: v0.27.0 # renovate: depName=open-policy-agent/conftest
 ```
 
 ## License
