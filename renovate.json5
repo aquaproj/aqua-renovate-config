@@ -1,11 +1,12 @@
 {
-  "regexManagers": [
+  automerge: true,
+  regexManagers: [
     {
-      "fileMatch": ["README\\.md"],
-      "matchStrings": [
-        "(version|ref): \"?(?<currentValue>.*)\"? # renovate: depName=(?<depName>.*)"
+      fileMatch: ["README\\.md"],
+      matchStrings: [
+        "(version|ref): \"?(?<currentValue>.*)\"? +# renovate: depName=(?<depName>.*)"
       ],
-      "datasourceTemplate": "github-releases"
+      datasourceTemplate: "github-releases",
     }
   ]
 }
