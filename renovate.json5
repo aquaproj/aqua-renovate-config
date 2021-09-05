@@ -1,0 +1,11 @@
+{
+  "regexManagers": [
+    {
+      "fileMatch": ["README\\.md"],
+      "matchStrings": [
+        "(version|ref): \"?(?<currentValue>.*)\"? # renovate: depName=(?<depName>.*)"
+      ],
+      "datasourceTemplate": "github-releases"
+    }
+  ]
+}
