@@ -3,7 +3,7 @@
     {
       "fileMatch": ["\\.?aqua\\.ya?ml"],
       "matchStrings": [
-        "(version|ref): \"?(?<currentValue>.*)\"? # renovate: depName=(?<depName>.*)"
+        "(version|ref): \"?(?<currentValue>.*)\"? +# renovate: depName=(?<depName>.*)"
       ],
       "datasourceTemplate": "github-releases"
     }
