@@ -19,7 +19,7 @@ e.g.
 ```yaml
 registries:
 - type: standard
-  ref: v0.3.0 # renovate: depName=suzuki-shunsuke/aqua-registry
+  ref: v0.3.1 # renovate: depName=suzuki-shunsuke/aqua-registry
 
 packages:
 - name: conftest
