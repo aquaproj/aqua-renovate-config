@@ -22,7 +22,7 @@ registries:
   ref: v0.5.0 # renovate: depName=suzuki-shunsuke/aqua-registry
 
 packages:
-- name: conftest
+- name: open-policy-agent/conftest
   registry: standard
   version: v0.27.0 # renovate: depName=open-policy-agent/conftest
 ```
