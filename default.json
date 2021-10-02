@@ -3,7 +3,12 @@
     {
       "fileMatch": ["\\.?aqua\\.ya?ml"],
       "matchStrings": [
-        "(version|ref): \"?(?<currentValue>.*)\"? +# renovate: depName=(?<depName>.*)"
+        " +(version|ref): (?<currentValue>[^'\"\\n]*) +# renovate: depName=(?<depName>[^\\n]+)",
+        " +(version|ref): \"(?<currentValue>[^'\"\\n]*)\" +# renovate: depName=(?<depName>[^\\n]+)",
+        " +(version|ref): '(?<currentValue>[^'\"\\n]*)' +# renovate: depName=(?<depName>[^\\n]+)",
+        " +name: (?<depName>[^'\"\\n]*)@(?<currentValue>[^'\"\\n]+)",
+        " +name: \"(?<depName>[^'\\n]*)@(?<currentValue>[^'\"\\n]+)\"",
+        " +name: '(?<depName>[^\"\\n]*)@(?<currentValue>[^'\"\\n]+)'"
       ],
       "datasourceTemplate": "github-releases"
     }
