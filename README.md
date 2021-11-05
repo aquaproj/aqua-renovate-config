@@ -27,6 +27,20 @@ packages:
   version: v0.28.3 # renovate: depName=open-policy-agent/conftest
 ```
 
+### Parameterize `fileMatch`
+
+https://docs.renovatebot.com/config-presets/#preset-parameters
+
+```json
+{
+  "extends": [
+    "config:base",
+    "github>suzuki-shunsuke/aqua-renovate-config",
+    "github>suzuki-shunsuke/aqua-renovate-config:file(aqua/.*\\.ya?ml)"
+  ]
+}
+```
+
 ## License
 
 [MIT](LICENSE)
