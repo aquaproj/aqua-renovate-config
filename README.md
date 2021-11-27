@@ -1,13 +1,13 @@
 # aqua-renovate-config
 
-[Renovate Configuration](https://docs.renovatebot.com/config-presets/) to update packages and registries of [aqua](https://github.com/suzuki-shunsuke/aqua).
+[Renovate Configuration](https://docs.renovatebot.com/config-presets/) to update packages and registries of [aqua](https://github.com/aquaproj/aqua).
 
 ## How to use
 
 ```json
 {
   "extends": [
-    "github>suzuki-shunsuke/aqua-renovate-config"
+    "github>aquaproj/aqua-renovate-config"
   ]
 }
 ```
@@ -19,7 +19,7 @@ e.g.
 ```yaml
 registries:
 - type: standard
-  ref: v0.10.8 # renovate: depName=suzuki-shunsuke/aqua-registry
+  ref: v0.10.8 # renovate: depName=aquaproj/aqua-registry
 
 packages:
 - name: open-policy-agent/conftest
@@ -35,8 +35,8 @@ https://docs.renovatebot.com/config-presets/#preset-parameters
 {
   "extends": [
     "config:base",
-    "github>suzuki-shunsuke/aqua-renovate-config",
-    "github>suzuki-shunsuke/aqua-renovate-config:file(aqua/.*\\.ya?ml)"
+    "github>aquaproj/aqua-renovate-config",
+    "github>aquaproj/aqua-renovate-config:file(aqua/.*\\.ya?ml)"
   ]
 }
 ```
