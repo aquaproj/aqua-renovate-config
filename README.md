@@ -19,7 +19,7 @@ e.g.
 ```yaml
 registries:
 - type: standard
-  ref: v0.10.11 # renovate: depName=aquaproj/aqua-registry
+  ref: v0.10.12 # renovate: depName=aquaproj/aqua-registry
 
 packages:
 - name: open-policy-agent/conftest
