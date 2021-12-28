@@ -1,0 +1,12 @@
+{
+  "regexManagers": [
+    {
+      "fileMatch": ["^\\.github/.*\\.ya?ml$"],
+      "matchStrings": [
+        "aqua_version: (?<currentValue>.*?)"
+      ],
+      "depNameTemplate": "aquaproj/aqua",
+      "datasourceTemplate": "github-releases"
+    }
+  ]
+}
