@@ -7,7 +7,7 @@
 ```json
 {
   "extends": [
-    "github>aquaproj/aqua-renovate-config#0.1.0"
+    "github>aquaproj/aqua-renovate-config#0.1.1"
   ]
 }
 ```
@@ -34,8 +34,8 @@ https://docs.renovatebot.com/config-presets/#preset-parameters
 ```json
 {
   "extends": [
-    "github>aquaproj/aqua-renovate-config#0.1.0",
-    "github>aquaproj/aqua-renovate-config:file#0.1.0(aqua/.*\\.ya?ml)"
+    "github>aquaproj/aqua-renovate-config#0.1.1",
+    "github>aquaproj/aqua-renovate-config:file#0.1.1(aqua/.*\\.ya?ml)"
   ]
 }
 ```
