@@ -3,7 +3,8 @@
     {
       "fileMatch": ["^\\.github/.*\\.ya?ml$"],
       "matchStrings": [
-        "aqua_version: (?<currentValue>.*?)"
+        "aqua_version: (?<currentValue>.*?)\\n",
+        "aqua_version: (?<currentValue>.*?) +#.*\\n"
       ],
       "depNameTemplate": "aquaproj/aqua",
       "datasourceTemplate": "github-releases"
