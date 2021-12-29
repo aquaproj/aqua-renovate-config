@@ -26,7 +26,7 @@ https://aquaproj.github.io/
 
 We recommend specifying the Prset version.
 
-* :thumbsup: "github>aquaproj/aqua-renovate-config#0.1.1"
+* :thumbsup: "github>aquaproj/aqua-renovate-config#0.1.2"
 * :thumbsdown: "github>aquaproj/aqua-renovate-config"
 
 ### `default` Preset
@@ -34,7 +34,7 @@ We recommend specifying the Prset version.
 ```json
 {
   "extends": [
-    "github>aquaproj/aqua-renovate-config#0.1.1"
+    "github>aquaproj/aqua-renovate-config#0.1.2"
   ]
 }
 ```
@@ -79,7 +79,7 @@ https://aquaproj.github.io/docs/tutorial-extras/split-config
 ```json
 {
   "extends": [
-    "github>aquaproj/aqua-renovate-config:file#0.1.1(aqua/.*\\.ya?ml)"
+    "github>aquaproj/aqua-renovate-config:file#0.1.2(aqua/.*\\.ya?ml)"
   ]
 }
 ```
