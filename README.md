@@ -15,7 +15,7 @@ https://aquaproj.github.io/
 
 ## List of Presets
 
-* [default](default.json): Update aqua.yaml and GitHub Actions [aquaproj/aqua-installer](https://github.com/aquaproj/aqua-installer)'s `aqua_version`
+* [default](default.json): Update aqua.yaml and GitHub Actions [aquaproj/aqua-installer](https://github.com/aquaproj/aqua-installer)'s `aqua_version` and [aquaproj/aqua-renovate-config](https://github.com/aquaproj/aqua-renovate-config)
   * `base` and `action` presets are included
 * [base](base.json): Update aqua.yaml
 * [action](action.json): Update GitHub Actions [aquaproj/aqua-installer](https://github.com/aquaproj/aqua-installer)'s `aqua_version`
