@@ -3,20 +3,15 @@
     {
       "fileMatch": ["\\.?aqua\\.ya?ml"],
       "matchStrings": [
-        " +(version|ref): (?<currentValue>[^'\" \\n]+?) +# renovate: depName=(?<depName>[^\\n]+)",
-        " +(version|ref): \"(?<currentValue>[^'\" \\n]+?)\" +# renovate: depName=(?<depName>[^\\n]+)",
-        " +(version|ref): '(?<currentValue>[^'\" \\n]+?)' +# renovate: depName=(?<depName>[^\\n]+)",
-        " +name: (?<depName>[^'\"\\n]*)@(?<currentValue>[^'\" \\n]+)",
-        " +name: \"(?<depName>[^'\\n]*)@(?<currentValue>[^'\" \\n]+)\"",
-        " +name: '(?<depName>[^\"\\n]*)@(?<currentValue>[^'\" \\n]+)'"
+        " +['\"]?(version|ref)['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
+        " +['\"]?name['\"]? *: +['\"]?(?<depName>[^'\" @/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
       ],
       "datasourceTemplate": "github-releases"
     },
     {
       "fileMatch": ["^\\.github/.*\\.ya?ml$"],
       "matchStrings": [
-        "aqua_version: (?<currentValue>[^'\" \\n]+?) *\\n",
-        "aqua_version: (?<currentValue>[^'\" \\n]+?) +#.*\\n"
+        " +['\"]?aqua_version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]?"
       ],
       "depNameTemplate": "aquaproj/aqua",
       "datasourceTemplate": "github-releases"
