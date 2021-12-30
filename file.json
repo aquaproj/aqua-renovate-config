@@ -3,12 +3,8 @@
     {
       "fileMatch": ["{{arg0}}"],
       "matchStrings": [
-        " +(version|ref): (?<currentValue>[^'\"\\n]*) +# renovate: depName=(?<depName>[^\\n]+)",
-        " +(version|ref): \"(?<currentValue>[^'\"\\n]*)\" +# renovate: depName=(?<depName>[^\\n]+)",
-        " +(version|ref): '(?<currentValue>[^'\"\\n]*)' +# renovate: depName=(?<depName>[^\\n]+)",
-        " +name: (?<depName>[^'\"\\n]*)@(?<currentValue>[^'\"\\n]+)",
-        " +name: \"(?<depName>[^'\\n]*)@(?<currentValue>[^'\"\\n]+)\"",
-        " +name: '(?<depName>[^\"\\n]*)@(?<currentValue>[^'\"\\n]+)'"
+        " +['\"]?(version|ref)['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
+        " +['\"]?name['\"]? *: +['\"]?(?<depName>[^'\" @/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
       ],
       "datasourceTemplate": "github-releases"
     }
