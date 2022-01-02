@@ -15,12 +15,21 @@ https://aquaproj.github.io/
 
 ## List of Presets
 
-* [default](default.json): Update aqua.yaml and GitHub Actions [aquaproj/aqua-installer](https://github.com/aquaproj/aqua-installer)'s `aqua_version` and [aquaproj/aqua-renovate-config](https://github.com/aquaproj/aqua-renovate-config)
-  * `base` and `action` presets are included
-* [base](base.json): Update aqua.yaml
-* [action](action.json): Update GitHub Actions [aquaproj/aqua-installer](https://github.com/aquaproj/aqua-installer)'s `aqua_version`
-* [file](file.json): Update aqua.yaml. `fileMatch` is parameterized
-* [installer-script](installer-script.json): Update the shell script [aquaproj/aqua-installer](https://github.com/aquaproj/aqua-installer). `fileMatch` is parameterized
+* [default](default.json)
+  * aqua.yaml
+  * GitHub Actions [aquaproj/aqua-installer](https://github.com/aquaproj/aqua-installer)'s `aqua_version`
+  * [aquaproj/aqua-renovate-config](https://github.com/aquaproj/aqua-renovate-config)
+  * [kubernetes-sigs/kustomize](https://github.com/kubernetes-sigs/kustomize)
+* [base](base.json)
+  * aqua.yaml
+* [action](action.json)
+  * GitHub Actions [aquaproj/aqua-installer](https://github.com/aquaproj/aqua-installer)'s `aqua_version`
+* [file](file.json)
+  * aqua.yaml. `fileMatch` is parameterized
+* [installer-script](installer-script.json)
+  * the shell script [aquaproj/aqua-installer](https://github.com/aquaproj/aqua-installer). `fileMatch` is parameterized
+* [kubernetes-sigs-kustomize](kubernetes-sigs-kustomize.json)
+  * [kubernetes-sigs/kustomize](https://github.com/kubernetes-sigs/kustomize). `fileMatch` is parameterized
 
 ## How to use
 
