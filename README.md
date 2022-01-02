@@ -4,6 +4,8 @@
 
 https://aquaproj.github.io/
 
+Example: https://github.com/aquaproj/test-aqua-renovate-config
+
 ## Reference about Renovate
 
 * [Renovate documentation](https://docs.renovatebot.com/)
@@ -41,7 +43,7 @@ https://aquaproj.github.io/
 
 We recommend specifying the Prset version.
 
-* :thumbsup: "github>aquaproj/aqua-renovate-config#0.1.2"
+* :thumbsup: "github>aquaproj/aqua-renovate-config#0.1.8"
 * :thumbsdown: "github>aquaproj/aqua-renovate-config"
 
 ### `default` Preset
@@ -49,7 +51,7 @@ We recommend specifying the Prset version.
 ```json
 {
   "extends": [
-    "github>aquaproj/aqua-renovate-config#0.1.2"
+    "github>aquaproj/aqua-renovate-config#0.1.8"
   ]
 }
 ```
@@ -81,7 +83,7 @@ The default preset updates GitHub Actions [aquaproj/aqua-installer](https://gith
 ```yaml
 - uses: aquaproj/aqua-installer@v0.4.0
   with:
-    aqua_version: v0.8.7
+    aqua_version: v0.8.12
 ```
 
 ### `file` Preset
@@ -94,7 +96,7 @@ https://aquaproj.github.io/docs/tutorial-extras/split-config
 ```json
 {
   "extends": [
-    "github>aquaproj/aqua-renovate-config:file#0.1.2(aqua/.*\\.ya?ml)"
+    "github>aquaproj/aqua-renovate-config:file#0.1.8(aqua/.*\\.ya?ml)"
   ]
 }
 ```
@@ -107,7 +109,7 @@ You have to pass fileMatch as parameter.
 ```json
 {
   "extends": [
-    "github>aquaproj/aqua-renovate-config:installer-script#0.1.2(scripts/.*\\.sh)"
+    "github>aquaproj/aqua-renovate-config:installer-script#0.1.8(scripts/.*\\.sh)"
   ]
 }
 ```
