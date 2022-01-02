@@ -20,6 +20,7 @@ https://aquaproj.github.io/
   * GitHub Actions [aquaproj/aqua-installer](https://github.com/aquaproj/aqua-installer)'s `aqua_version`
   * [aquaproj/aqua-renovate-config](https://github.com/aquaproj/aqua-renovate-config)
   * [kubernetes-sigs/kustomize](https://github.com/kubernetes-sigs/kustomize)
+  * [golang/go](https://github.com/golang/go)
 * [base](base.json)
   * aqua.yaml
 * [action](action.json)
@@ -30,6 +31,8 @@ https://aquaproj.github.io/
   * the shell script [aquaproj/aqua-installer](https://github.com/aquaproj/aqua-installer). `fileMatch` is parameterized
 * [kubernetes-sigs-kustomize](kubernetes-sigs-kustomize.json)
   * [kubernetes-sigs/kustomize](https://github.com/kubernetes-sigs/kustomize). `fileMatch` is parameterized
+* [golang-go](golang-go.json)
+  * [golang/go](https://github.com/golang/go). `fileMatch` is parameterized
 
 ## How to use
 
