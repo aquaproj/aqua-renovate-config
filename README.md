@@ -19,8 +19,9 @@ https://aquaproj.github.io/
   * aqua.yaml
   * GitHub Actions [aquaproj/aqua-installer](https://github.com/aquaproj/aqua-installer)'s `aqua_version`
   * [aquaproj/aqua-renovate-config](https://github.com/aquaproj/aqua-renovate-config)
-  * [kubernetes-sigs/kustomize](https://github.com/kubernetes-sigs/kustomize)
   * [golang/go](https://github.com/golang/go)
+  * [kubernetes-sigs/kustomize](https://github.com/kubernetes-sigs/kustomize)
+  * [kubernetes/kubectl](https://github.com/kubernetes/kubectl)
 * [base](base.json)
   * aqua.yaml
 * [action](action.json)
@@ -29,10 +30,12 @@ https://aquaproj.github.io/
   * aqua.yaml. `fileMatch` is parameterized
 * [installer-script](installer-script.json)
   * the shell script [aquaproj/aqua-installer](https://github.com/aquaproj/aqua-installer). `fileMatch` is parameterized
-* [kubernetes-sigs-kustomize](kubernetes-sigs-kustomize.json)
-  * [kubernetes-sigs/kustomize](https://github.com/kubernetes-sigs/kustomize). `fileMatch` is parameterized
 * [golang-go](golang-go.json)
   * [golang/go](https://github.com/golang/go). `fileMatch` is parameterized
+* [kubernetes-sigs-kustomize](kubernetes-sigs-kustomize.json)
+  * [kubernetes-sigs/kustomize](https://github.com/kubernetes-sigs/kustomize). `fileMatch` is parameterized
+* [kubernetes-kubectl](kubernetes-kubectl.json)
+  * [kubernetes/kubectl](https://github.com/kubernetes/kubectl). `fileMatch` is parameterized
 
 ## How to use
 
