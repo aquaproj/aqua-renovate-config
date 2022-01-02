@@ -35,7 +35,7 @@
     {
       "fileMatch": ["\\.?aqua\\.ya?ml"],
       "matchStrings": [
-        " +['\"]?version['\"]? *: +['\"]?kustomize/(?<currentValue>[^'\" \\n]+)['\"]?",
+        " +['\"]?version['\"]? *: +['\"]?kustomize/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=kubernetes-sigs/kustomize[ \\n]",
         " +['\"]?name['\"]? *: +['\"]?kubernetes-sigs/kustomize@kustomize/(?<currentValue>[^'\" \\n]+)['\"]?"
       ],
       "extractVersionTemplate": "^kustomize/(?<version>.*)$",
