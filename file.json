@@ -7,6 +7,36 @@
         " +['\"]?name['\"]? *: +['\"]?(?<depName>[^'\" @/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
       ],
       "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["{{arg0}}"],
+      "matchStrings": [
+        " +['\"]?version['\"]? *: +['\"]?kustomize/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=kubernetes-sigs/kustomize[ \\n]",
+        " +['\"]?name['\"]? *: +['\"]?kubernetes-sigs/kustomize@kustomize/(?<currentValue>[^'\" \\n]+)['\"]?"
+      ],
+      "extractVersionTemplate": "^kustomize/(?<version>.*)$",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "kubernetes-sigs/kustomize"
+    },
+    {
+      "fileMatch": ["{{arg0}}"],
+      "matchStrings": [
+        " +['\"]?version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=golang/go[ \\n]",
+        " +['\"]?name['\"]? *: +['\"]?golang/go@(?<currentValue>[^'\" \\n]+)['\"]?"
+      ],
+      "extractVersionTemplate": "^go(?<version>.*)$",
+      "datasourceTemplate": "github-tags",
+      "depNameTemplate": "golang/go"
+    },
+    {
+      "fileMatch": ["{{arg0}}"],
+      "matchStrings": [
+        " +['\"]?version['\"]? *: +['\"]?v(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=kubernetes/kubectl[ \\n]",
+        " +['\"]?name['\"]? *: +['\"]?kubernetes/kubectl@v(?<currentValue>[^'\" \\n]+)['\"]?"
+      ],
+      "extractVersionTemplate": "^kubernetes-(?<version>.*)$",
+      "datasourceTemplate": "github-tags",
+      "depNameTemplate": "kubernetes/kubectl"
     }
   ]
 }
