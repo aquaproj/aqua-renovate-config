@@ -31,6 +31,16 @@
       ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "aquaproj/aqua-renovate-config"
+    },
+    {
+      "fileMatch": ["\\.?aqua\\.ya?ml"],
+      "matchStrings": [
+        " +['\"]?version['\"]? *: +['\"]?kustomize/(?<currentValue>[^'\" \\n]+)['\"]?",
+        " +['\"]?name['\"]? *: +['\"]?kubernetes-sigs/kustomize@kustomize/(?<currentValue>[^'\" \\n]+)['\"]?"
+      ],
+      "extractVersionTemplate": "^kustomize/(?<version>.*)$",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "kubernetes-sigs/kustomize"
     }
   ]
 }
