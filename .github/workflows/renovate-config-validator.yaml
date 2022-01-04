@@ -24,6 +24,4 @@ jobs:
     - uses: rinchsan/renovate-config-validator@v0.0.10
       with:
         pattern: default.json
-    - uses: rinchsan/renovate-config-validator@v0.0.10
-      with:
-        pattern: renovate.json5
+    - uses: suzuki-shunsuke/github-action-renovate-config-validator@v0.1.2
