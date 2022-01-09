@@ -56,8 +56,6 @@ We recommend specifying the Prset version.
 }
 ```
 
-Add the comment `# renovate: depName=<repository full name>` in aqua.yaml for [Renovate's Regex Manager](https://docs.renovatebot.com/modules/manager/regex/).
-
 e.g.
 
 ```yaml
@@ -67,15 +65,7 @@ registries:
 
 packages:
 - name: open-policy-agent/conftest@v0.28.3
-```
-
-If the package full name is different from the GitHub Repository name,
-add the comment `# renovate: depName=<repository full name>`.
-
-```yaml
-packages:
-- name: GoogleCloudPlatform/terraformer/aws
-  version: 0.8.18 # renovate: depName=GoogleCloudPlatform/terraformer
+- name: GoogleCloudPlatform/terraformer/aws@0.8.18
 ```
 
 The default preset updates GitHub Actions [aquaproj/aqua-installer](https://github.com/aquaproj/aqua-installer)'s `aqua_version` in `.github` too.
@@ -83,7 +73,7 @@ The default preset updates GitHub Actions [aquaproj/aqua-installer](https://gith
 ```yaml
 - uses: aquaproj/aqua-installer@v0.4.0
   with:
-    aqua_version: v0.8.12
+    aqua_version: v0.8.13
 ```
 
 ### `file` Preset
