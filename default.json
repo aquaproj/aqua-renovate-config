@@ -71,6 +71,16 @@
       "extractVersionTemplate": "^cmd/protoc-gen-go-grpc/(?<version>.*)$",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "grpc/grpc-go"
+    },
+    {
+      "fileMatch": ["\\.?aqua\\.ya?ml"],
+      "matchStrings": [
+        " +['\"]?version['\"]? *: +['\"]?gping-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=orf/gping[ \\n]",
+        " +['\"]?name['\"]? *: +['\"]?orf/gping@gping-(?<currentValue>[^'\" \\n]+)['\"]?"
+      ],
+      "extractVersionTemplate": "^gping-(?<version>.*)$",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "orf/gping"
     }
   ]
 }
