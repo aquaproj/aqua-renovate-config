@@ -37,6 +37,36 @@
       "extractVersionTemplate": "^kubernetes-(?<version>.*)$",
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "kubernetes/kubectl"
+    },
+    {
+      "fileMatch": ["{{arg0}}"],
+      "matchStrings": [
+        " +['\"]?version['\"]? *: +['\"]?cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=grpc/grpc-go[ \\n]",
+        " +['\"]?name['\"]? *: +['\"]?grpc/grpc-go/protoc-gen-go-grpc@cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)['\"]?"
+      ],
+      "extractVersionTemplate": "^cmd/protoc-gen-go-grpc/(?<version>.*)$",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "grpc/grpc-go"
+    },
+    {
+      "fileMatch": ["{{arg0}}"],
+      "matchStrings": [
+        " +['\"]?version['\"]? *: +['\"]?gping-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=orf/gping[ \\n]",
+        " +['\"]?name['\"]? *: +['\"]?orf/gping@gping-(?<currentValue>[^'\" \\n]+)['\"]?"
+      ],
+      "extractVersionTemplate": "^gping-(?<version>.*)$",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "orf/gping"
+    },
+    {
+      "fileMatch": ["{{arg0}}"],
+      "matchStrings": [
+        " +['\"]?version['\"]? *: +['\"]?gopls/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=golang/tools/gopls[ \\n]",
+        " +['\"]?name['\"]? *: +['\"]?golang/tools/gopls@gopls/(?<currentValue>[^'\" \\n]+)['\"]?"
+      ],
+      "extractVersionTemplate": "^gopls/(?<version>.*)$",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "golang/tools"
     }
   ]
 }
