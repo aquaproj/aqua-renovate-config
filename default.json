@@ -81,6 +81,16 @@
       "extractVersionTemplate": "^gping-(?<version>.*)$",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "orf/gping"
+    },
+    {
+      "fileMatch": ["\\.?aqua\\.ya?ml"],
+      "matchStrings": [
+        " +['\"]?version['\"]? *: +['\"]?gopls/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=golang/tools/gopls[ \\n]",
+        " +['\"]?name['\"]? *: +['\"]?golang/tools/gopls@gopls/(?<currentValue>[^'\" \\n]+)['\"]?"
+      ],
+      "extractVersionTemplate": "^gopls/(?<version>.*)$",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "golang/tools"
     }
   ]
 }
