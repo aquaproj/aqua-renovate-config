@@ -42,7 +42,7 @@ Example: https://github.com/aquaproj/test-aqua-renovate-config
 
 ## How to use
 
-We recommend specifying the Prset version.
+We recommend specifying the Preset version.
 
 * :thumbsup: "github>aquaproj/aqua-renovate-config#0.1.8"
 * :thumbsdown: "github>aquaproj/aqua-renovate-config"
