@@ -44,8 +44,8 @@ Example: https://github.com/aquaproj/test-aqua-renovate-config
 
 We recommend specifying the Preset version.
 
-* :thumbsup: "github>aquaproj/aqua-renovate-config#1.1.0"
-* :thumbsdown: "github>aquaproj/aqua-renovate-config"
+* :thumbsup: `"github>aquaproj/aqua-renovate-config#1.1.0"`
+* :thumbsdown: `"github>aquaproj/aqua-renovate-config"`
 
 ### `default` Preset
 
