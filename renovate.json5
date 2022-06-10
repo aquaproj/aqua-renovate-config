@@ -10,6 +10,32 @@
         "(version|ref): \"?(?<currentValue>.*)\"? +# renovate: depName=(?<depName>.*)"
       ],
       datasourceTemplate: "github-releases",
+    },
+    {
+      fileMatch: ["README\\.md"],
+      "matchStrings": [
+        "\"github>aquaproj/aqua-renovate-config#(?<currentValue>[^\" \\n\\(]+)",
+        "\"github>aquaproj/aqua-renovate-config:.*#(?<currentValue>[^\" \\n\\(]+)",
+        "\"github>aquaproj/aqua-renovate-config/.*#(?<currentValue>[^\" \\n\\(]+)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "aquaproj/aqua-renovate-config"
+    },
+    {
+      fileMatch: ["README\\.md"],
+      "matchStrings": [
+        " +['\"]?aqua_version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]?"
+      ],
+      "depNameTemplate": "aquaproj/aqua",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      fileMatch: ["README\\.md"],
+      "matchStrings": [
+        "raw\\.githubusercontent\\.com/aquaproj/aqua-installer/(?<currentValue>.*?)/aqua-installer"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "aquaproj/aqua-installer"
     }
   ]
 }
