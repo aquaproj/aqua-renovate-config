@@ -3,6 +3,9 @@
     "config:base",
   ],
   automerge: true,
+  prHourlyLimit: 0,
+  prConcurrentLimit: 0,
+  branchConcurrentLimit: 0,
   regexManagers: [
     {
       fileMatch: ["README\\.md"],
