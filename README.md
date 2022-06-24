@@ -74,7 +74,7 @@ The default preset updates GitHub Actions [aquaproj/aqua-installer](https://gith
 ```yaml
 - uses: aquaproj/aqua-installer@v0.4.0
   with:
-    aqua_version: v1.12.1
+    aqua_version: v1.13.0
 ```
 
 ### `file` Preset
