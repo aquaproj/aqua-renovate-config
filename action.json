@@ -3,9 +3,9 @@
     {
       "fileMatch": ["^\\.github/.*\\.ya?ml$"],
       "matchStrings": [
-        " +['\"]?aqua_version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]?"
+        " +['\"]?clivm_version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]?"
       ],
-      "depNameTemplate": "clivm/aqua",
+      "depNameTemplate": "clivm/clivm",
       "datasourceTemplate": "github-releases"
     }
   ]

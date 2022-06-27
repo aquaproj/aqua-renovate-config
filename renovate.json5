@@ -18,28 +18,28 @@
     {
       fileMatch: ["README\\.md"],
       "matchStrings": [
-        "\"github>clivm/aqua-renovate-config#(?<currentValue>[^\" \\n\\(]+)",
-        "\"github>clivm/aqua-renovate-config:.*#(?<currentValue>[^\" \\n\\(]+)",
-        "\"github>clivm/aqua-renovate-config/.*#(?<currentValue>[^\" \\n\\(]+)"
+        "\"github>clivm/clivm-renovate-config#(?<currentValue>[^\" \\n\\(]+)",
+        "\"github>clivm/clivm-renovate-config:.*#(?<currentValue>[^\" \\n\\(]+)",
+        "\"github>clivm/clivm-renovate-config/.*#(?<currentValue>[^\" \\n\\(]+)"
       ],
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "clivm/aqua-renovate-config"
+      "depNameTemplate": "clivm/clivm-renovate-config"
     },
     {
       fileMatch: ["README\\.md"],
       "matchStrings": [
-        " +['\"]?aqua_version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]?"
+        " +['\"]?clivm_version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]?"
       ],
-      "depNameTemplate": "clivm/aqua",
+      "depNameTemplate": "clivm/clivm",
       "datasourceTemplate": "github-releases"
     },
     {
       fileMatch: ["README\\.md"],
       "matchStrings": [
-        "raw\\.githubusercontent\\.com/clivm/aqua-installer/(?<currentValue>.*?)/aqua-installer"
+        "raw\\.githubusercontent\\.com/clivm/clivm-installer/(?<currentValue>.*?)/clivm-installer"
       ],
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "clivm/aqua-installer"
+      "depNameTemplate": "clivm/clivm-installer"
     }
   ]
 }

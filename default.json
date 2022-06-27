@@ -1,7 +1,7 @@
 {
   "regexManagers": [
     {
-      "fileMatch": ["\\.?aqua\\.ya?ml"],
+      "fileMatch": ["\\.?clivm\\.ya?ml"],
       "matchStrings": [
         " +['\"]?(version|ref)['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
         " +['\"]?name['\"]? *: +['\"]?(?<depName>[^'\" @/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
@@ -11,9 +11,9 @@
     {
       "fileMatch": ["^\\.github/.*\\.ya?ml$"],
       "matchStrings": [
-        " +['\"]?aqua_version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]?"
+        " +['\"]?clivm_version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]?"
       ],
-      "depNameTemplate": "clivm/aqua",
+      "depNameTemplate": "clivm/clivm",
       "datasourceTemplate": "github-releases"
     },
     {
@@ -25,15 +25,15 @@
         "^\\.renovaterc$"
       ],
       "matchStrings": [
-        "\"github>clivm/aqua-renovate-config#(?<currentValue>[^\" \\n\\(]+)",
-        "\"github>clivm/aqua-renovate-config:.*#(?<currentValue>[^\" \\n\\(]+)",
-        "\"github>clivm/aqua-renovate-config/.*#(?<currentValue>[^\" \\n\\(]+)"
+        "\"github>clivm/clivm-renovate-config#(?<currentValue>[^\" \\n\\(]+)",
+        "\"github>clivm/clivm-renovate-config:.*#(?<currentValue>[^\" \\n\\(]+)",
+        "\"github>clivm/clivm-renovate-config/.*#(?<currentValue>[^\" \\n\\(]+)"
       ],
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "clivm/aqua-renovate-config"
+      "depNameTemplate": "clivm/clivm-renovate-config"
     },
     {
-      "fileMatch": ["\\.?aqua\\.ya?ml"],
+      "fileMatch": ["\\.?clivm\\.ya?ml"],
       "matchStrings": [
         " +['\"]?version['\"]? *: +['\"]?kustomize/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=kubernetes-sigs/kustomize[ \\n]",
         " +['\"]?name['\"]? *: +['\"]?kubernetes-sigs/kustomize@kustomize/(?<currentValue>[^'\" \\n]+)['\"]?"
@@ -43,7 +43,7 @@
       "depNameTemplate": "kubernetes-sigs/kustomize"
     },
     {
-      "fileMatch": ["\\.?aqua\\.ya?ml"],
+      "fileMatch": ["\\.?clivm\\.ya?ml"],
       "matchStrings": [
         " +['\"]?version['\"]? *: +['\"]?(go)?(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=golang/go[ \\n]",
         " +['\"]?name['\"]? *: +['\"]?golang/go@(go)?(?<currentValue>[^'\" \\n]+)['\"]?"
@@ -53,7 +53,7 @@
       "depNameTemplate": "golang/go"
     },
     {
-      "fileMatch": ["\\.?aqua\\.ya?ml"],
+      "fileMatch": ["\\.?clivm\\.ya?ml"],
       "matchStrings": [
         " +['\"]?version['\"]? *: +['\"]?v(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=kubernetes/kubectl[ \\n]",
         " +['\"]?name['\"]? *: +['\"]?kubernetes/kubectl@v(?<currentValue>[^'\" \\n]+)['\"]?"
@@ -63,7 +63,7 @@
       "depNameTemplate": "kubernetes/kubectl"
     },
     {
-      "fileMatch": ["\\.?aqua\\.ya?ml"],
+      "fileMatch": ["\\.?clivm\\.ya?ml"],
       "matchStrings": [
         " +['\"]?version['\"]? *: +['\"]?cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=grpc/grpc-go[ \\n]",
         " +['\"]?name['\"]? *: +['\"]?grpc/grpc-go/protoc-gen-go-grpc@cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)['\"]?"
@@ -73,7 +73,7 @@
       "depNameTemplate": "grpc/grpc-go"
     },
     {
-      "fileMatch": ["\\.?aqua\\.ya?ml"],
+      "fileMatch": ["\\.?clivm\\.ya?ml"],
       "matchStrings": [
         " +['\"]?version['\"]? *: +['\"]?gping-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=orf/gping[ \\n]",
         " +['\"]?name['\"]? *: +['\"]?orf/gping@gping-(?<currentValue>[^'\" \\n]+)['\"]?"
@@ -83,7 +83,7 @@
       "depNameTemplate": "orf/gping"
     },
     {
-      "fileMatch": ["\\.?aqua\\.ya?ml"],
+      "fileMatch": ["\\.?clivm\\.ya?ml"],
       "matchStrings": [
         " +['\"]?version['\"]? *: +['\"]?gopls/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=golang/tools/gopls[ \\n]",
         " +['\"]?name['\"]? *: +['\"]?golang/tools/gopls@gopls/(?<currentValue>[^'\" \\n]+)['\"]?"

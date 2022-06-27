@@ -3,10 +3,10 @@
     {
       "fileMatch": ["{{arg0}}"],
       "matchStrings": [
-        "raw\\.githubusercontent\\.com/clivm/aqua-installer/(?<currentValue>.*?)/aqua-installer"
+        "raw\\.githubusercontent\\.com/clivm/clivm-installer/(?<currentValue>.*?)/clivm-installer"
       ],
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "clivm/aqua-installer"
+      "depNameTemplate": "clivm/clivm-installer"
     }
   ]
 }
