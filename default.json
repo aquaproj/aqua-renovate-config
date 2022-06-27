@@ -13,7 +13,7 @@
       "matchStrings": [
         " +['\"]?aqua_version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]?"
       ],
-      "depNameTemplate": "aquaproj/aqua",
+      "depNameTemplate": "clivm/aqua",
       "datasourceTemplate": "github-releases"
     },
     {
@@ -25,12 +25,12 @@
         "^\\.renovaterc$"
       ],
       "matchStrings": [
-        "\"github>aquaproj/aqua-renovate-config#(?<currentValue>[^\" \\n\\(]+)",
-        "\"github>aquaproj/aqua-renovate-config:.*#(?<currentValue>[^\" \\n\\(]+)",
-        "\"github>aquaproj/aqua-renovate-config/.*#(?<currentValue>[^\" \\n\\(]+)"
+        "\"github>clivm/aqua-renovate-config#(?<currentValue>[^\" \\n\\(]+)",
+        "\"github>clivm/aqua-renovate-config:.*#(?<currentValue>[^\" \\n\\(]+)",
+        "\"github>clivm/aqua-renovate-config/.*#(?<currentValue>[^\" \\n\\(]+)"
       ],
       "datasourceTemplate": "github-releases",
-      "depNameTemplate": "aquaproj/aqua-renovate-config"
+      "depNameTemplate": "clivm/aqua-renovate-config"
     },
     {
       "fileMatch": ["\\.?aqua\\.ya?ml"],

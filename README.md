@@ -1,10 +1,10 @@
 # aqua-renovate-config
 
-[Renovate Config Preset](https://docs.renovatebot.com/config-presets/) to update [aqua](https://github.com/aquaproj/aqua), [aqua-installer](https://github.com/aquaproj/aqua-installer), packages, and registries.
+[Renovate Config Preset](https://docs.renovatebot.com/config-presets/) to update [aqua](https://github.com/clivm/aqua), [aqua-installer](https://github.com/clivm/aqua-installer), packages, and registries.
 
-https://aquaproj.github.io/
+https://clivm.github.io/
 
-Example: https://github.com/aquaproj/test-aqua-renovate-config
+Example: https://github.com/clivm/test-aqua-renovate-config
 
 ## Reference about Renovate
 
@@ -19,8 +19,8 @@ Example: https://github.com/aquaproj/test-aqua-renovate-config
 
 * [default](default.json)
   * aqua.yaml
-  * GitHub Actions [aquaproj/aqua-installer](https://github.com/aquaproj/aqua-installer)'s `aqua_version`
-  * [aquaproj/aqua-renovate-config](https://github.com/aquaproj/aqua-renovate-config)
+  * GitHub Actions [clivm/aqua-installer](https://github.com/clivm/aqua-installer)'s `aqua_version`
+  * [clivm/aqua-renovate-config](https://github.com/clivm/aqua-renovate-config)
   * [golang/go](https://github.com/golang/go)
   * [kubernetes-sigs/kustomize](https://github.com/kubernetes-sigs/kustomize)
   * [kubernetes/kubectl](https://github.com/kubernetes/kubectl)
@@ -28,11 +28,11 @@ Example: https://github.com/aquaproj/test-aqua-renovate-config
 * [base](base.json)
   * aqua.yaml
 * [action](action.json)
-  * GitHub Actions [aquaproj/aqua-installer](https://github.com/aquaproj/aqua-installer)'s `aqua_version`
+  * GitHub Actions [clivm/aqua-installer](https://github.com/clivm/aqua-installer)'s `aqua_version`
 * [file](file.json)
   * aqua.yaml. `fileMatch` is parameterized
 * [installer-script](installer-script.json)
-  * the shell script [aquaproj/aqua-installer](https://github.com/aquaproj/aqua-installer). `fileMatch` is parameterized
+  * the shell script [clivm/aqua-installer](https://github.com/clivm/aqua-installer). `fileMatch` is parameterized
 * [golang-go](golang-go.json)
   * [golang/go](https://github.com/golang/go). `fileMatch` is parameterized
 * [kubernetes-sigs-kustomize](kubernetes-sigs-kustomize.json)
@@ -44,15 +44,15 @@ Example: https://github.com/aquaproj/test-aqua-renovate-config
 
 We recommend specifying the Preset version.
 
-* :thumbsup: `"github>aquaproj/aqua-renovate-config#1.1.0"`
-* :thumbsdown: `"github>aquaproj/aqua-renovate-config"`
+* :thumbsup: `"github>clivm/aqua-renovate-config#1.1.0"`
+* :thumbsdown: `"github>clivm/aqua-renovate-config"`
 
 ### `default` Preset
 
 ```json
 {
   "extends": [
-    "github>aquaproj/aqua-renovate-config#1.1.0"
+    "github>clivm/aqua-renovate-config#1.1.0"
   ]
 }
 ```
@@ -62,17 +62,17 @@ e.g.
 ```yaml
 registries:
 - type: standard
-  ref: v3.3.0 # renovate: depName=aquaproj/aqua-registry
+  ref: v3.3.0 # renovate: depName=clivm/aqua-registry
 
 packages:
 - name: open-policy-agent/conftest@v0.28.3
 - name: GoogleCloudPlatform/terraformer/aws@0.8.18
 ```
 
-The default preset updates GitHub Actions [aquaproj/aqua-installer](https://github.com/aquaproj/aqua-installer)'s `aqua_version` in `.github` too.
+The default preset updates GitHub Actions [clivm/aqua-installer](https://github.com/clivm/aqua-installer)'s `aqua_version` in `.github` too.
 
 ```yaml
-- uses: aquaproj/aqua-installer@v0.4.0
+- uses: clivm/aqua-installer@v0.4.0
   with:
     aqua_version: v1.14.0
 ```
@@ -82,12 +82,12 @@ The default preset updates GitHub Actions [aquaproj/aqua-installer](https://gith
 You can specify the file path aqua.yaml.
 This is especially useful when you split the list of packages.
 
-https://aquaproj.github.io/docs/tutorial-extras/split-config
+https://clivm.github.io/docs/tutorial-extras/split-config
 
 ```json
 {
   "extends": [
-    "github>aquaproj/aqua-renovate-config:file#1.1.0(aqua/.*\\.ya?ml)"
+    "github>clivm/aqua-renovate-config:file#1.1.0(aqua/.*\\.ya?ml)"
   ]
 }
 ```
@@ -100,13 +100,13 @@ You have to pass fileMatch as parameter.
 ```json
 {
   "extends": [
-    "github>aquaproj/aqua-renovate-config:installer-script#1.1.0(scripts/.*\\.sh)"
+    "github>clivm/aqua-renovate-config:installer-script#1.1.0(scripts/.*\\.sh)"
   ]
 }
 ```
 
 ```sh
-curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v1.0.0/aqua-installer | bash
+curl -sSfL https://raw.githubusercontent.com/clivm/aqua-installer/v1.0.0/aqua-installer | bash
 ```
 
 ## License

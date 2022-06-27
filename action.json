@@ -5,7 +5,7 @@
       "matchStrings": [
         " +['\"]?aqua_version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]?"
       ],
-      "depNameTemplate": "aquaproj/aqua",
+      "depNameTemplate": "clivm/aqua",
       "datasourceTemplate": "github-releases"
     }
   ]
