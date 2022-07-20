@@ -67,6 +67,14 @@
       "extractVersionTemplate": "^gopls/(?<version>.*)$",
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "golang/tools"
+    },
+    {
+      "fileMatch": ["{{arg0}}"],
+      "matchStrings": [
+        " +['\"]?(version|ref)['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
+        " +['\"]?name['\"]? *: +['\"]?(?<depName>[^\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
+      ],
+      "datasourceTemplate": "go"
     }
   ]
 }
