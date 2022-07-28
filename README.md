@@ -25,6 +25,7 @@ Example: https://github.com/aquaproj/test-aqua-renovate-config
   * [kubernetes-sigs/kustomize](https://github.com/kubernetes-sigs/kustomize)
   * [kubernetes/kubectl](https://github.com/kubernetes/kubectl)
   * [grpc/grpc-go/protoc-gen-go-grpc](https://github.com/grpc/grpc-go)
+  * [golang.org/x/tools/cmd/goimports](https://github.com/golang/tools)
 * [base](base.json)
   * aqua.yaml
 * [action](action.json)
