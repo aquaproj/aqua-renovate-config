@@ -106,7 +106,7 @@ You have to pass fileMatch as parameter.
 ```
 
 ```sh
-curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v1.0.0/aqua-installer | bash
+curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v1.1.0/aqua-installer | bash
 ```
 
 ## License
