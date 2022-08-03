@@ -73,6 +73,16 @@
       "depNameTemplate": "grpc/grpc-go"
     },
     {
+      "fileMatch": ["{{arg0}}"],
+      "matchStrings": [
+        " +['\"]?version['\"]? *: +['\"](?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=grpc/grpc-go[ \\n]",
+        " +['\"]?name['\"]? *: +['\"]?golang.org/x/tools/cmd/goimports@(?<currentValue>[^'\" \\n]+)['\"]?"
+      ],
+      "extractVersionTemplate": "^(?<version>.*)$",
+      "datasourceTemplate": "github-tags",
+      "depNameTemplate": "golang/tools"
+    },
+    {
       "fileMatch": ["\\.?aqua\\.ya?ml"],
       "matchStrings": [
         " +['\"]?version['\"]? *: +['\"]?gping-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=orf/gping[ \\n]",
