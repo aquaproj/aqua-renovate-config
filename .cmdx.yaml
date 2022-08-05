@@ -1,0 +1,16 @@
+---
+# the configuration file of cmdx - task runner
+# https://github.com/suzuki-shunsuke/cmdx
+tasks:
+  - name: release
+    short: r
+    description: release the new version
+    usage: release the new version
+    script: |
+      git tag -m "chore: release {{.version}}" "{{.version}}"
+      git push origin "{{.version}}"
+    args:
+      - name: version
+        required: true
+        validate:
+          - regexp: "^\\d+\\.\\d+.\\d+(-\\d+)?$"
