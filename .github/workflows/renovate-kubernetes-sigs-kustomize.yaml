@@ -1,0 +1,23 @@
+name: Validate kubernetes-sigs-kustomize.json
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - kubernetes-sigs-kustomize.json
+      - .github/workflows/renovate-kubernetes-sigs-kustomize.yaml
+  push:
+    branches:
+      - main
+    paths:
+      - kubernetes-sigs-kustomize.json
+      - .github/workflows/renovate-kubernetes-sigs-kustomize.yaml
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: suzuki-shunsuke/github-action-renovate-config-validator@v0.1.2
+        with:
+          config_file_path: kubernetes-sigs-kustomize.json

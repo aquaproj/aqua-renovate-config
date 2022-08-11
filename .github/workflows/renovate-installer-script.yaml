@@ -1,0 +1,23 @@
+name: Validate installer-script.json
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - installer-script.json
+      - .github/workflows/renovate-installer-script.yaml
+  push:
+    branches:
+      - main
+    paths:
+      - installer-script.json
+      - .github/workflows/renovate-installer-script.yaml
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: suzuki-shunsuke/github-action-renovate-config-validator@v0.1.2
+        with:
+          config_file_path: installer-script.json

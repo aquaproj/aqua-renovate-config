@@ -1,0 +1,23 @@
+name: Validate base.json
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - base.json
+      - .github/workflows/renovate-base.yaml
+  push:
+    branches:
+      - main
+    paths:
+      - base.json
+      - .github/workflows/renovate-base.yaml
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: suzuki-shunsuke/github-action-renovate-config-validator@v0.1.2
+        with:
+          config_file_path: base.json
