@@ -1,0 +1,23 @@
+name: Validate default.json
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - default.json
+      - .github/workflows/renovate-default.yaml
+  push:
+    branches:
+      - main
+    paths:
+      - default.json
+      - .github/workflows/renovate-default.yaml
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: suzuki-shunsuke/github-action-renovate-config-validator@v0.1.2
+        with:
+          config_file_path: default.json

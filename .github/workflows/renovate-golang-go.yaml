@@ -1,0 +1,23 @@
+name: Validate golang-go.json
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - golang-go.json
+      - .github/workflows/renovate-golang-go.yaml
+  push:
+    branches:
+      - main
+    paths:
+      - golang-go.json
+      - .github/workflows/renovate-golang-go.yaml
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: suzuki-shunsuke/github-action-renovate-config-validator@v0.1.2
+        with:
+          config_file_path: golang-go.json

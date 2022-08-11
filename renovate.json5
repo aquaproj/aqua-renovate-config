@@ -1,6 +1,7 @@
 {
   extends: [
     "config:base",
+    "github>aquaproj/aqua-renovate-config#1.2.2",
   ],
   automerge: true,
   platformAutomerge: true,
