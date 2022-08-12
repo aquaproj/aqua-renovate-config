@@ -1,4 +1,46 @@
 {
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "golang/go",
+        "golang/tools",
+        "kubernetes/kubectl"
+      ],
+      "matchPaths": [
+        ".aqua.yaml",
+        ".aqua.yml",
+        "aqua.yaml",
+        "aqua.yml"
+      ],
+      "matchDatasources": ["github-releases"],
+      "enabled": false
+    },
+    {
+      "matchPaths": [
+        ".aqua.yaml",
+        ".aqua.yml",
+        "aqua.yaml",
+        "aqua.yml"
+      ],
+      "matchDatasources": ["github-tags"],
+      "enabled": false
+    },
+    {
+      "matchPackageNames": [
+        "golang/go",
+        "golang/tools",
+        "kubernetes/kubectl"
+      ],
+      "matchPaths": [
+        ".aqua.yaml",
+        ".aqua.yml",
+        "aqua.yaml",
+        "aqua.yml"
+      ],
+      "matchDatasources": ["github-tags"],
+      "enabled": true
+    }
+  ],
   "regexManagers": [
     {
       "fileMatch": ["\\.?aqua\\.ya?ml"],
@@ -7,6 +49,14 @@
         " +['\"]?name['\"]? *: +['\"]?(?<depName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
       ],
       "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["\\.?aqua\\.ya?ml"],
+      "matchStrings": [
+        " +['\"]?(version|ref)['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
+        " +['\"]?name['\"]? *: +['\"]?(?<depName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
+      ],
+      "datasourceTemplate": "github-tags"
     },
     {
       "fileMatch": ["^\\.github/.*\\.ya?ml$"],
