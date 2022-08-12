@@ -1,4 +1,37 @@
 {
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "golang/go",
+        "golang/tools",
+        "kubernetes/kubectl"
+      ],
+      "matchPaths": [
+        "{{arg0}}"
+      ],
+      "matchDatasources": ["github-releases"],
+      "enabled": false
+    },
+    {
+      "matchPaths": [
+        "{{arg0}}"
+      ],
+      "matchDatasources": ["github-tags"],
+      "enabled": false
+    },
+    {
+      "matchPackageNames": [
+        "golang/go",
+        "golang/tools",
+        "kubernetes/kubectl"
+      ],
+      "matchPaths": [
+        "{{arg0}}"
+      ],
+      "matchDatasources": ["github-tags"],
+      "enabled": true
+    }
+  ],
   "regexManagers": [
     {
       "fileMatch": ["{{arg0}}"],
@@ -7,6 +40,14 @@
         " +['\"]?name['\"]? *: +['\"]?(?<depName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
       ],
       "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": ["{{arg0}}"],
+      "matchStrings": [
+        " +['\"]?(version|ref)['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
+        " +['\"]?name['\"]? *: +['\"]?(?<depName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
+      ],
+      "datasourceTemplate": "github-tags"
     },
     {
       "fileMatch": ["{{arg0}}"],
