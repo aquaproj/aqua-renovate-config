@@ -44,7 +44,7 @@ Example: https://github.com/aquaproj/test-aqua-renovate-config
 
 We recommend specifying the Preset version.
 
-* :thumbsup: `"github>aquaproj/aqua-renovate-config#1.2.2"`
+* :thumbsup: `"github>aquaproj/aqua-renovate-config#1.2.3"`
 * :thumbsdown: `"github>aquaproj/aqua-renovate-config"`
 
 ### `default` Preset
@@ -52,7 +52,7 @@ We recommend specifying the Preset version.
 ```json
 {
   "extends": [
-    "github>aquaproj/aqua-renovate-config#1.2.2"
+    "github>aquaproj/aqua-renovate-config#1.2.3"
   ]
 }
 ```
@@ -87,7 +87,7 @@ https://aquaproj.github.io/docs/tutorial-extras/split-config
 ```json
 {
   "extends": [
-    "github>aquaproj/aqua-renovate-config:file#1.2.2(aqua/.*\\.ya?ml)"
+    "github>aquaproj/aqua-renovate-config:file#1.2.3(aqua/.*\\.ya?ml)"
   ]
 }
 ```
@@ -100,7 +100,7 @@ You have to pass fileMatch as parameter.
 ```json
 {
   "extends": [
-    "github>aquaproj/aqua-renovate-config:installer-script#1.2.2(scripts/.*\\.sh)"
+    "github>aquaproj/aqua-renovate-config:installer-script#1.2.3(scripts/.*\\.sh)"
   ]
 }
 ```
