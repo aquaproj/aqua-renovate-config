@@ -4,7 +4,8 @@
       "matchPackageNames": [
         "golang/go",
         "golang/tools",
-        "kubernetes/kubectl"
+        "kubernetes/kubectl",
+        "twistedpair/google-cloud-sdk"
       ],
       "matchPaths": [
         ".aqua.yaml",
@@ -29,7 +30,8 @@
       "matchPackageNames": [
         "golang/go",
         "golang/tools",
-        "kubernetes/kubectl"
+        "kubernetes/kubectl",
+        "twistedpair/google-cloud-sdk"
       ],
       "matchPaths": [
         ".aqua.yaml",
