@@ -151,6 +151,16 @@
         " +['\"]?name['\"]? *: +['\"]?(?<depName>[^\\n]+\\.[^\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
       ],
       "datasourceTemplate": "go"
+    },
+    {
+      "fileMatch": ["\\.?aqua\\.ya?ml"],
+      "matchStrings": [
+        " +['\"]?version['\"]? *: +['\"]?bun-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=oven-sh/bun[ \\n]",
+        " +['\"]?name['\"]? *: +['\"]?oven-sh/bun@bun-(?<currentValue>[^'\" \\n]+)['\"]?"
+      ],
+      "extractVersionTemplate": "^bun-(?<version>.*)$",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "oven-sh/bun"
     }
   ]
 }
