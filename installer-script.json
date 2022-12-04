@@ -11,7 +11,7 @@
     {
       "fileMatch": ["{{arg0}}"],
       "matchStrings": [
-        "aqua-installer \\| bash -s -- -v (?<currentValue>[^'\" \\n]+)[\\n|\\s].*"
+        "aqua-installer +(\\| +(ba|z)?sh +-s +-- +)?(-i +\\S+ +)?-v +['\"]?(?<currentValue>[^'\" \\n]+)['\"]?\\s"
       ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "aquaproj/aqua"
