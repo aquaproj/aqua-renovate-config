@@ -94,7 +94,7 @@ https://aquaproj.github.io/docs/tutorial-extras/split-config
 
 ### `installer-script` Preset
 
-The preset `installer-script` updates the shell script aqua-installer.
+The preset `installer-script` updates the shell script aqua-installer and aqua itself.
 You have to pass fileMatch as parameter.
 
 ```json
@@ -106,7 +106,7 @@ You have to pass fileMatch as parameter.
 ```
 
 ```sh
-curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v1.1.2/aqua-installer | bash
+curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v1.1.2/aqua-installer | bash -s -- -v v1.25.0
 ```
 
 ## License
