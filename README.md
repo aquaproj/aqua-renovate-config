@@ -124,6 +124,10 @@ curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v1.2.0/aqua
   bash -s -- -v v1.25.0 # aqua isn't updated
 ```
 
+## Contributing
+
+Please see [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## License
 
 [MIT](LICENSE)
