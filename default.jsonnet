@@ -96,7 +96,6 @@ local ipinfo(name) = prefixRegexManager("ipinfo/cli/" + name, name + "-") + {
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "aquaproj/aqua-renovate-config"
     },
-    prefixRegexManager("kubernetes-sigs/kustomize", "kustomize/"),
     {
       "fileMatch": aquaYAMLFileMatch,
       "matchStrings": [
@@ -127,7 +126,6 @@ local ipinfo(name) = prefixRegexManager("ipinfo/cli/" + name, name + "-") + {
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "grpc/grpc-go"
     },
-    prefixRegexManager("orf/gping", "gping-"),
     {
       "fileMatch": aquaYAMLFileMatch,
       "matchStrings": [
@@ -146,7 +144,12 @@ local ipinfo(name) = prefixRegexManager("ipinfo/cli/" + name, name + "-") + {
       ],
       "datasourceTemplate": "go"
     },
+    prefixRegexManager("kubernetes-sigs/kustomize", "kustomize/"),
+    prefixRegexManager("orf/gping", "gping-"),
     prefixRegexManager("oven-sh/bun", "bun-"),
+    prefixRegexManager("mongodb/mongodb-atlas-cli/atlascli", "atlascli/") + {
+      "packageNameTemplate": "mongodb/mongodb-atlas-cli",
+    },
     prefixRegexManager("ipinfo/cli", "ipinfo-"),
     ipinfo("cidr2ip"),
     ipinfo("cidr2range"),
@@ -156,8 +159,5 @@ local ipinfo(name) = prefixRegexManager("ipinfo/cli/" + name, name + "-") + {
     ipinfo("randip"),
     ipinfo("grepip"),
     ipinfo("range2ip"),
-    prefixRegexManager("mongodb/mongodb-atlas-cli/atlascli", "atlascli/") + {
-      "packageNameTemplate": "mongodb/mongodb-atlas-cli",
-    },
   ]
 }
