@@ -15,7 +15,7 @@ jobs:
       - run: |
           while read -r file; do
             jsonnet -o "${file%net}" "$file"
-          done < <(git ls-files | grep jsonnet)
+          done < <(git ls-files | grep -E ".jsonnet$")
           if ! git diff --cached --exit-code; then
             echo "Please run jsonnet" >&2
             echo "::error title=Please run jsonnet::"
