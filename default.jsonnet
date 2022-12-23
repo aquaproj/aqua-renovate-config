@@ -147,10 +147,10 @@ local ipinfo(name) = prefixRegexManager("ipinfo/cli/" + name, name + "-") + {
     prefixRegexManager("kubernetes-sigs/kustomize", "kustomize/"),
     prefixRegexManager("orf/gping", "gping-"),
     prefixRegexManager("oven-sh/bun", "bun-"),
-    prefixRegexManager("ipinfo/cli", "ipinfo-"),
     prefixRegexManager("mongodb/mongodb-atlas-cli/atlascli", "atlascli/") + {
       "packageNameTemplate": "mongodb/mongodb-atlas-cli",
     },
+    prefixRegexManager("ipinfo/cli", "ipinfo-"),
     ipinfo("cidr2ip"),
     ipinfo("cidr2range"),
     ipinfo("range2cidr"),
