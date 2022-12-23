@@ -11,6 +11,7 @@ jobs:
       - uses: aquaproj/aqua-installer@v1.2.0
         with:
           aqua_version: v1.25.0
+      - run: jsonnet --version
       - run: |
           while read -r file; do
             jsonnet -o "${file%net}" "$file"
