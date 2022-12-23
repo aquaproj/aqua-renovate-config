@@ -1,0 +1,22 @@
+---
+name: jsonnet
+on:
+  pull_request:
+    branches: [main]
+jobs:
+  default:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: aquaproj/aqua-installer@v1.2.0
+        with:
+          aqua_version: v1.25.0
+      - run: |
+          while read -r file; do
+            jsonnet -o "${file%net}" "$file"
+          done < <(git ls-files | grep jsonnet)
+          if ! git diff --cached --exit-code; then
+            echo "Please run jsonnet" >&2
+            echo "::error title=Please run jsonnet::"
+            exit 1
+          fi
