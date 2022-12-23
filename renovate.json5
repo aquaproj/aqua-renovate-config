@@ -1,6 +1,7 @@
 {
   extends: [
     "config:base",
+    "helpers:pinGitHubActionDigests",
     "github>aquaproj/aqua-renovate-config#1.4.0",
   ],
   automerge: true,
