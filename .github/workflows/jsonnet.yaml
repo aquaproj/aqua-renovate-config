@@ -13,12 +13,10 @@ jobs:
           aqua_version: v1.25.0
       - run: jsonnet --version
       - run: |
-          while read -r file; do
-            jsonnet -o "${file%net}" "$file"
-          done < <(git ls-files | grep -E ".jsonnet$")
+          bash scripts/generate.sh
           git add .
           if ! git diff --cached --exit-code; then
-            echo "Please run jsonnet" >&2
-            echo "::error title=Please run jsonnet::"
+            echo "Please run 'bash scripts/generate.sh'" >&2
+            echo "::error title=Please run 'bash scripts/generate.sh'::"
             exit 1
           fi
