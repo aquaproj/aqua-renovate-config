@@ -97,18 +97,6 @@
          ]
       },
       {
-         "datasourceTemplate": "github-releases",
-         "depNameTemplate": "kubernetes-sigs/kustomize",
-         "extractVersionTemplate": "^kustomize/(?<version>.*)$",
-         "fileMatch": [
-            "\\.?aqua\\.ya?ml"
-         ],
-         "matchStrings": [
-            " +['\"]?version['\"]? *: +['\"]?kustomize/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=kubernetes-sigs/kustomize[ \\n]",
-            " +['\"]?name['\"]? *: +['\"]?kubernetes-sigs/kustomize@kustomize/(?<currentValue>[^'\" \\n]+)['\"]?"
-         ]
-      },
-      {
          "datasourceTemplate": "github-tags",
          "depNameTemplate": "golang/go",
          "extractVersionTemplate": "^go(?<version>.*)$",
@@ -146,18 +134,6 @@
       },
       {
          "datasourceTemplate": "github-releases",
-         "depNameTemplate": "orf/gping",
-         "extractVersionTemplate": "^gping-(?<version>.*)$",
-         "fileMatch": [
-            "\\.?aqua\\.ya?ml"
-         ],
-         "matchStrings": [
-            " +['\"]?version['\"]? *: +['\"]?gping-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=orf/gping[ \\n]",
-            " +['\"]?name['\"]? *: +['\"]?orf/gping@gping-(?<currentValue>[^'\" \\n]+)['\"]?"
-         ]
-      },
-      {
-         "datasourceTemplate": "github-releases",
          "depNameTemplate": "golang/tools",
          "extractVersionTemplate": "^gopls/(?<version>.*)$",
          "fileMatch": [
@@ -180,6 +156,30 @@
       },
       {
          "datasourceTemplate": "github-releases",
+         "depNameTemplate": "kubernetes-sigs/kustomize",
+         "extractVersionTemplate": "^kustomize/(?<version>.*)$",
+         "fileMatch": [
+            "\\.?aqua\\.ya?ml"
+         ],
+         "matchStrings": [
+            " +['\"]?version['\"]? *: +['\"]?kustomize/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=kubernetes-sigs/kustomize[ \\n]",
+            " +['\"]?name['\"]? *: +['\"]?kubernetes-sigs/kustomize@kustomize/(?<currentValue>[^'\" \\n]+)['\"]?"
+         ]
+      },
+      {
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "orf/gping",
+         "extractVersionTemplate": "^gping-(?<version>.*)$",
+         "fileMatch": [
+            "\\.?aqua\\.ya?ml"
+         ],
+         "matchStrings": [
+            " +['\"]?version['\"]? *: +['\"]?gping-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=orf/gping[ \\n]",
+            " +['\"]?name['\"]? *: +['\"]?orf/gping@gping-(?<currentValue>[^'\" \\n]+)['\"]?"
+         ]
+      },
+      {
+         "datasourceTemplate": "github-releases",
          "depNameTemplate": "oven-sh/bun",
          "extractVersionTemplate": "^bun-(?<version>.*)$",
          "fileMatch": [
@@ -189,6 +189,19 @@
             " +['\"]?version['\"]? *: +['\"]?bun-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=oven-sh/bun[ \\n]",
             " +['\"]?name['\"]? *: +['\"]?oven-sh/bun@bun-(?<currentValue>[^'\" \\n]+)['\"]?"
          ]
+      },
+      {
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "mongodb/mongodb-atlas-cli/atlascli",
+         "extractVersionTemplate": "^atlascli/(?<version>.*)$",
+         "fileMatch": [
+            "\\.?aqua\\.ya?ml"
+         ],
+         "matchStrings": [
+            " +['\"]?version['\"]? *: +['\"]?atlascli/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=mongodb/mongodb-atlas-cli/atlascli[ \\n]",
+            " +['\"]?name['\"]? *: +['\"]?mongodb/mongodb-atlas-cli/atlascli@atlascli/(?<currentValue>[^'\" \\n]+)['\"]?"
+         ],
+         "packageNameTemplate": "mongodb/mongodb-atlas-cli"
       },
       {
          "datasourceTemplate": "github-releases",
@@ -305,19 +318,6 @@
             " +['\"]?name['\"]? *: +['\"]?ipinfo/cli/range2ip@range2ip-(?<currentValue>[^'\" \\n]+)['\"]?"
          ],
          "packageNameTemplate": "ipinfo/cli"
-      },
-      {
-         "datasourceTemplate": "github-releases",
-         "depNameTemplate": "mongodb/mongodb-atlas-cli/atlascli",
-         "extractVersionTemplate": "^atlascli/(?<version>.*)$",
-         "fileMatch": [
-            "\\.?aqua\\.ya?ml"
-         ],
-         "matchStrings": [
-            " +['\"]?version['\"]? *: +['\"]?atlascli/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=mongodb/mongodb-atlas-cli/atlascli[ \\n]",
-            " +['\"]?name['\"]? *: +['\"]?mongodb/mongodb-atlas-cli/atlascli@atlascli/(?<currentValue>[^'\" \\n]+)['\"]?"
-         ],
-         "packageNameTemplate": "mongodb/mongodb-atlas-cli"
       }
    ]
 }
