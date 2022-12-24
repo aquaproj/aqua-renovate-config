@@ -57,6 +57,122 @@
          ]
       },
       {
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "ipinfo/cli",
+         "extractVersionTemplate": "^ipinfo-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +['\"]?version['\"]? *: +['\"]?ipinfo-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli[ \\n]",
+            " +['\"]?name['\"]? *: +['\"]?ipinfo/cli@ipinfo-(?<currentValue>[^'\" \\n]+)['\"]?"
+         ]
+      },
+      {
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "ipinfo/cli/cidr2ip",
+         "extractVersionTemplate": "^cidr2ip-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +['\"]?version['\"]? *: +['\"]?cidr2ip-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/cidr2ip[ \\n]",
+            " +['\"]?name['\"]? *: +['\"]?ipinfo/cli/cidr2ip@cidr2ip-(?<currentValue>[^'\" \\n]+)['\"]?"
+         ],
+         "packageNameTemplate": "ipinfo/cli"
+      },
+      {
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "ipinfo/cli/cidr2range",
+         "extractVersionTemplate": "^cidr2range-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +['\"]?version['\"]? *: +['\"]?cidr2range-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/cidr2range[ \\n]",
+            " +['\"]?name['\"]? *: +['\"]?ipinfo/cli/cidr2range@cidr2range-(?<currentValue>[^'\" \\n]+)['\"]?"
+         ],
+         "packageNameTemplate": "ipinfo/cli"
+      },
+      {
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "ipinfo/cli/range2cidr",
+         "extractVersionTemplate": "^range2cidr-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +['\"]?version['\"]? *: +['\"]?range2cidr-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/range2cidr[ \\n]",
+            " +['\"]?name['\"]? *: +['\"]?ipinfo/cli/range2cidr@range2cidr-(?<currentValue>[^'\" \\n]+)['\"]?"
+         ],
+         "packageNameTemplate": "ipinfo/cli"
+      },
+      {
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "ipinfo/cli/prips",
+         "extractVersionTemplate": "^prips-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +['\"]?version['\"]? *: +['\"]?prips-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/prips[ \\n]",
+            " +['\"]?name['\"]? *: +['\"]?ipinfo/cli/prips@prips-(?<currentValue>[^'\" \\n]+)['\"]?"
+         ],
+         "packageNameTemplate": "ipinfo/cli"
+      },
+      {
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "ipinfo/cli/splitcidr",
+         "extractVersionTemplate": "^splitcidr-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +['\"]?version['\"]? *: +['\"]?splitcidr-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/splitcidr[ \\n]",
+            " +['\"]?name['\"]? *: +['\"]?ipinfo/cli/splitcidr@splitcidr-(?<currentValue>[^'\" \\n]+)['\"]?"
+         ],
+         "packageNameTemplate": "ipinfo/cli"
+      },
+      {
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "ipinfo/cli/randip",
+         "extractVersionTemplate": "^randip-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +['\"]?version['\"]? *: +['\"]?randip-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/randip[ \\n]",
+            " +['\"]?name['\"]? *: +['\"]?ipinfo/cli/randip@randip-(?<currentValue>[^'\" \\n]+)['\"]?"
+         ],
+         "packageNameTemplate": "ipinfo/cli"
+      },
+      {
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "ipinfo/cli/grepip",
+         "extractVersionTemplate": "^grepip-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +['\"]?version['\"]? *: +['\"]?grepip-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/grepip[ \\n]",
+            " +['\"]?name['\"]? *: +['\"]?ipinfo/cli/grepip@grepip-(?<currentValue>[^'\" \\n]+)['\"]?"
+         ],
+         "packageNameTemplate": "ipinfo/cli"
+      },
+      {
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "ipinfo/cli/range2ip",
+         "extractVersionTemplate": "^range2ip-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +['\"]?version['\"]? *: +['\"]?range2ip-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/range2ip[ \\n]",
+            " +['\"]?name['\"]? *: +['\"]?ipinfo/cli/range2ip@range2ip-(?<currentValue>[^'\" \\n]+)['\"]?"
+         ],
+         "packageNameTemplate": "ipinfo/cli"
+      },
+      {
          "datasourceTemplate": "github-tags",
          "depNameTemplate": "kubernetes/kubectl",
          "extractVersionTemplate": "^kubernetes-(?<version>.*)$",
@@ -79,6 +195,19 @@
             " +['\"]?version['\"]? *: +['\"]?kustomize/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=kubernetes-sigs/kustomize[ \\n]",
             " +['\"]?name['\"]? *: +['\"]?kubernetes-sigs/kustomize@kustomize/(?<currentValue>[^'\" \\n]+)['\"]?"
          ]
+      },
+      {
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "mongodb/mongodb-atlas-cli/atlascli",
+         "extractVersionTemplate": "^atlascli/(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +['\"]?version['\"]? *: +['\"]?atlascli/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=mongodb/mongodb-atlas-cli/atlascli[ \\n]",
+            " +['\"]?name['\"]? *: +['\"]?mongodb/mongodb-atlas-cli/atlascli@atlascli/(?<currentValue>[^'\" \\n]+)['\"]?"
+         ],
+         "packageNameTemplate": "mongodb/mongodb-atlas-cli"
       },
       {
          "datasourceTemplate": "github-releases",
