@@ -57,22 +57,7 @@ local ipinfo(name) = prefixRegexManager("ipinfo/cli/" + name, name + "-") + {
   ],
   "regexManagers": [
     {
-      "fileMatch": aquaYAMLFileMatch,
-      "matchStrings": [
-        " +['\"]?(version|ref)['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
-        " +['\"]?name['\"]? *: +['\"]?(?<depName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
-      ],
-      "datasourceTemplate": "github-releases"
-    },
-    {
-      "fileMatch": aquaYAMLFileMatch,
-      "matchStrings": [
-        " +['\"]?(version|ref)['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
-        " +['\"]?name['\"]? *: +['\"]?(?<depName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
-      ],
-      "datasourceTemplate": "github-tags"
-    },
-    {
+      // Update aqua-installer action
       "fileMatch": ["^\\.github/.*\\.ya?ml$"],
       "matchStrings": [
         " +['\"]?aqua_version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]?"
@@ -81,6 +66,7 @@ local ipinfo(name) = prefixRegexManager("ipinfo/cli/" + name, name + "-") + {
       "datasourceTemplate": "github-releases"
     },
     {
+      // Update aqua-renovate-config
       "fileMatch": [
         "^renovate\\.json5?$",
         "^\\.github/renovate\\.json5?$",
@@ -95,6 +81,22 @@ local ipinfo(name) = prefixRegexManager("ipinfo/cli/" + name, name + "-") + {
       ],
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "aquaproj/aqua-renovate-config"
+    },
+    {
+      "fileMatch": aquaYAMLFileMatch,
+      "matchStrings": [
+        " +['\"]?(version|ref)['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
+        " +['\"]?name['\"]? *: +['\"]?(?<depName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
+      ],
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "fileMatch": aquaYAMLFileMatch,
+      "matchStrings": [
+        " +['\"]?(version|ref)['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
+        " +['\"]?name['\"]? *: +['\"]?(?<depName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
+      ],
+      "datasourceTemplate": "github-tags"
     },
     {
       "fileMatch": aquaYAMLFileMatch,
