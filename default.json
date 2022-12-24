@@ -132,15 +132,16 @@
       },
       {
          "datasourceTemplate": "github-releases",
-         "depNameTemplate": "grpc/grpc-go",
+         "depNameTemplate": "grpc/grpc-go/protoc-gen-go-grpc",
          "extractVersionTemplate": "^cmd/protoc-gen-go-grpc/(?<version>.*)$",
          "fileMatch": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
-            " +['\"]?version['\"]? *: +['\"]?cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=grpc/grpc-go[ \\n]",
+            " +['\"]?version['\"]? *: +['\"]?cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=grpc/grpc-go/protoc-gen-go-grpc[ \\n]",
             " +['\"]?name['\"]? *: +['\"]?grpc/grpc-go/protoc-gen-go-grpc@cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)['\"]?"
-         ]
+         ],
+         "packageNameTemplate": "grpc/grpc-go"
       },
       {
          "datasourceTemplate": "github-tags",
