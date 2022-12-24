@@ -88,13 +88,13 @@
   ],
   pkgManagers: [
     $.packageRegexManager,
-    $.kustomize,
-    $.golangGo,
-    $.kubectl,
-    $.protocGenGoGRPC,
-    $.prefixRegexManager("orf/gping", "gping-"),
-    $.gopls,
     $.goPkg,
     $.bun,
+    $.golangGo,
+    $.gopls,
+    $.kubectl,
+    $.kustomize,
+    $.prefixRegexManager("orf/gping", "gping-"),
+    $.protocGenGoGRPC,
   ]
 }
