@@ -2,8 +2,6 @@ local utils = import 'utils.libsonnet';
 
 {
   regexManagers: [
-    utils.kubectl + {
-      "fileMatch": ["{{arg0}}"],
-    },
+    utils.kubectl + utils.argFileMatch,
   ],
 }

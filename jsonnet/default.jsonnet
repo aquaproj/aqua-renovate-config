@@ -55,32 +55,14 @@ local utils = import 'utils.libsonnet';
     utils.packageRegexManager + {
       datasourceTemplate: "github-tags",
     },
-    {
-      fileMatch: utils.aquaYAMLFileMatch,
-      matchStrings: [
-        " +['\"]?version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
-        " +['\"]?name['\"]? *: +['\"]?(?<depName>[^\\n]+\\.[^\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
-      ],
-      datasourceTemplate: "go",
-    },
+    utils.goPkg,
     utils.golangGo,
-    {
-      fileMatch: utils.aquaYAMLFileMatch,
-      matchStrings: [
-        " +['\"]?version['\"]? *: +['\"]?gopls/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=golang/tools/gopls[ \\n]",
-        " +['\"]?name['\"]? *: +['\"]?golang/tools/gopls@gopls/(?<currentValue>[^'\" \\n]+)['\"]?",
-      ],
-      extractVersionTemplate: "^gopls/(?<version>.*)$",
-      datasourceTemplate: "github-releases",
-      depNameTemplate: "golang/tools",
-    },
-    utils.prefixRegexManager("grpc/grpc-go/protoc-gen-go-grpc", "cmd/protoc-gen-go-grpc/") + {
-      packageNameTemplate: "grpc/grpc-go",
-    },
+    utils.gopls,
+    utils.protocGenGoGRPC,
     utils.kubectl,
     utils.kustomize,
     utils.prefixRegexManager("orf/gping", "gping-"),
-    utils.prefixRegexManager("oven-sh/bun", "bun-"),
+    utils.bun,
     utils.prefixRegexManager("mongodb/mongodb-atlas-cli/atlascli", "atlascli/") + {
       packageNameTemplate: "mongodb/mongodb-atlas-cli",
     },
