@@ -123,7 +123,7 @@
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
-            " +['\"]?version['\"]? *: +['\"]?bun-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=oven-sh/bun[ \\n]",
+            " +(?:version|'version'|\"version\") *: +['\"]?bun-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=oven-sh/bun[ \\n]",
             " +['\"]?name['\"]? *: +['\"]?oven-sh/bun@bun-(?<currentValue>[^'\" \\n]+)['\"]?"
          ]
       },
@@ -159,7 +159,7 @@
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
-            " +['\"]?version['\"]? *: +['\"]?ipinfo-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli[ \\n]",
+            " +(?:version|'version'|\"version\") *: +['\"]?ipinfo-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli[ \\n]",
             " +['\"]?name['\"]? *: +['\"]?ipinfo/cli@ipinfo-(?<currentValue>[^'\" \\n]+)['\"]?"
          ]
       },
@@ -171,7 +171,7 @@
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
-            " +['\"]?version['\"]? *: +['\"]?cidr2ip-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/cidr2ip[ \\n]",
+            " +(?:version|'version'|\"version\") *: +['\"]?cidr2ip-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/cidr2ip[ \\n]",
             " +['\"]?name['\"]? *: +['\"]?ipinfo/cli/cidr2ip@cidr2ip-(?<currentValue>[^'\" \\n]+)['\"]?"
          ],
          "packageNameTemplate": "ipinfo/cli"
@@ -184,7 +184,7 @@
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
-            " +['\"]?version['\"]? *: +['\"]?cidr2range-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/cidr2range[ \\n]",
+            " +(?:version|'version'|\"version\") *: +['\"]?cidr2range-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/cidr2range[ \\n]",
             " +['\"]?name['\"]? *: +['\"]?ipinfo/cli/cidr2range@cidr2range-(?<currentValue>[^'\" \\n]+)['\"]?"
          ],
          "packageNameTemplate": "ipinfo/cli"
@@ -197,7 +197,7 @@
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
-            " +['\"]?version['\"]? *: +['\"]?range2cidr-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/range2cidr[ \\n]",
+            " +(?:version|'version'|\"version\") *: +['\"]?range2cidr-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/range2cidr[ \\n]",
             " +['\"]?name['\"]? *: +['\"]?ipinfo/cli/range2cidr@range2cidr-(?<currentValue>[^'\" \\n]+)['\"]?"
          ],
          "packageNameTemplate": "ipinfo/cli"
@@ -210,7 +210,7 @@
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
-            " +['\"]?version['\"]? *: +['\"]?prips-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/prips[ \\n]",
+            " +(?:version|'version'|\"version\") *: +['\"]?prips-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/prips[ \\n]",
             " +['\"]?name['\"]? *: +['\"]?ipinfo/cli/prips@prips-(?<currentValue>[^'\" \\n]+)['\"]?"
          ],
          "packageNameTemplate": "ipinfo/cli"
@@ -223,7 +223,7 @@
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
-            " +['\"]?version['\"]? *: +['\"]?splitcidr-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/splitcidr[ \\n]",
+            " +(?:version|'version'|\"version\") *: +['\"]?splitcidr-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/splitcidr[ \\n]",
             " +['\"]?name['\"]? *: +['\"]?ipinfo/cli/splitcidr@splitcidr-(?<currentValue>[^'\" \\n]+)['\"]?"
          ],
          "packageNameTemplate": "ipinfo/cli"
@@ -236,7 +236,7 @@
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
-            " +['\"]?version['\"]? *: +['\"]?randip-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/randip[ \\n]",
+            " +(?:version|'version'|\"version\") *: +['\"]?randip-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/randip[ \\n]",
             " +['\"]?name['\"]? *: +['\"]?ipinfo/cli/randip@randip-(?<currentValue>[^'\" \\n]+)['\"]?"
          ],
          "packageNameTemplate": "ipinfo/cli"
@@ -249,7 +249,7 @@
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
-            " +['\"]?version['\"]? *: +['\"]?grepip-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/grepip[ \\n]",
+            " +(?:version|'version'|\"version\") *: +['\"]?grepip-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/grepip[ \\n]",
             " +['\"]?name['\"]? *: +['\"]?ipinfo/cli/grepip@grepip-(?<currentValue>[^'\" \\n]+)['\"]?"
          ],
          "packageNameTemplate": "ipinfo/cli"
@@ -262,7 +262,7 @@
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
-            " +['\"]?version['\"]? *: +['\"]?range2ip-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/range2ip[ \\n]",
+            " +(?:version|'version'|\"version\") *: +['\"]?range2ip-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/range2ip[ \\n]",
             " +['\"]?name['\"]? *: +['\"]?ipinfo/cli/range2ip@range2ip-(?<currentValue>[^'\" \\n]+)['\"]?"
          ],
          "packageNameTemplate": "ipinfo/cli"
@@ -287,7 +287,7 @@
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
-            " +['\"]?version['\"]? *: +['\"]?kustomize/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=kubernetes-sigs/kustomize[ \\n]",
+            " +(?:version|'version'|\"version\") *: +['\"]?kustomize/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=kubernetes-sigs/kustomize[ \\n]",
             " +['\"]?name['\"]? *: +['\"]?kubernetes-sigs/kustomize@kustomize/(?<currentValue>[^'\" \\n]+)['\"]?"
          ]
       },
@@ -299,7 +299,7 @@
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
-            " +['\"]?version['\"]? *: +['\"]?atlascli/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=mongodb/mongodb-atlas-cli/atlascli[ \\n]",
+            " +(?:version|'version'|\"version\") *: +['\"]?atlascli/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=mongodb/mongodb-atlas-cli/atlascli[ \\n]",
             " +['\"]?name['\"]? *: +['\"]?mongodb/mongodb-atlas-cli/atlascli@atlascli/(?<currentValue>[^'\" \\n]+)['\"]?"
          ],
          "packageNameTemplate": "mongodb/mongodb-atlas-cli"
@@ -312,7 +312,7 @@
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
-            " +['\"]?version['\"]? *: +['\"]?gping-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=orf/gping[ \\n]",
+            " +(?:version|'version'|\"version\") *: +['\"]?gping-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=orf/gping[ \\n]",
             " +['\"]?name['\"]? *: +['\"]?orf/gping@gping-(?<currentValue>[^'\" \\n]+)['\"]?"
          ]
       },
@@ -324,7 +324,7 @@
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
-            " +['\"]?version['\"]? *: +['\"]?cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=grpc/grpc-go/protoc-gen-go-grpc[ \\n]",
+            " +(?:version|'version'|\"version\") *: +['\"]?cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=grpc/grpc-go/protoc-gen-go-grpc[ \\n]",
             " +['\"]?name['\"]? *: +['\"]?grpc/grpc-go/protoc-gen-go-grpc@cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)['\"]?"
          ],
          "packageNameTemplate": "grpc/grpc-go"

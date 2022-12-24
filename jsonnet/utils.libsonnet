@@ -12,8 +12,9 @@
     "twistedpair/google-cloud-sdk"
   ],
   aquaYAMLFileMatch: ["\\.?aqua\\.ya?ml"],
+  wrapQuote(s):: "(?:%s|'%s'|\"%s\")" % [s, s, s],
   aquaPackageMatchStrings(depName, prefix):: [
-    " +['\"]?version['\"]? *: +['\"]?%s(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=%s[ \\n]" % [prefix, depName],
+    " +%s *: +['\"]?%s(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=%s[ \\n]" % [$.wrapQuote("version"), prefix, depName],
     " +['\"]?name['\"]? *: +['\"]?%s@%s(?<currentValue>[^'\" \\n]+)['\"]?" % [depName, prefix],
   ],
   prefixRegexManager(depName, prefix):: {
