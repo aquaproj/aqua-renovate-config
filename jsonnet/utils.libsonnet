@@ -34,4 +34,25 @@
     ],
     datasourceTemplate: "github-releases",
   },
+  golangGo: {
+    fileMatch: $.aquaYAMLFileMatch,
+    matchStrings: [
+      " +['\"]?version['\"]? *: +['\"]?(go)?(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=golang/go[ \\n]",
+      " +['\"]?name['\"]? *: +['\"]?golang/go@(go)?(?<currentValue>[^'\" \\n]+)['\"]?"
+    ],
+    extractVersionTemplate: "^go(?<version>.*)$",
+    datasourceTemplate: "github-tags",
+    depNameTemplate: "golang/go",
+  },
+  kubectl: {
+    fileMatch: $.aquaYAMLFileMatch,
+    matchStrings: [
+      " +['\"]?version['\"]? *: +['\"]?v(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=kubernetes/kubectl[ \\n]",
+      " +['\"]?name['\"]? *: +['\"]?kubernetes/kubectl@v(?<currentValue>[^'\" \\n]+)['\"]?"
+    ],
+    extractVersionTemplate: "^kubernetes-(?<version>.*)$",
+    datasourceTemplate: "github-tags",
+    depNameTemplate: "kubernetes/kubectl",
+  },
+  kustomize: $.prefixRegexManager("kubernetes-sigs/kustomize", "kustomize/"),
 }
