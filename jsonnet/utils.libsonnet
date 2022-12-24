@@ -13,20 +13,20 @@
   ],
   aquaYAMLFileMatch: ["\\.?aqua\\.ya?ml"],
   aquaPackageMatchStrings(depName, prefix):: [
-    " +['\"]?version['\"]? *: +['\"]?" + prefix + "(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=" + depName + "[ \\n]",
-    " +['\"]?name['\"]? *: +['\"]?" + depName + "@" + prefix + "(?<currentValue>[^'\" \\n]+)['\"]?"
+    " +['\"]?version['\"]? *: +['\"]?%s(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=%s[ \\n]" % [prefix, depName],
+    " +['\"]?name['\"]? *: +['\"]?%s@%s(?<currentValue>[^'\" \\n]+)['\"]?" % [depName, prefix],
   ],
   prefixRegexManager(depName, prefix):: {
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: $.aquaPackageMatchStrings(depName, prefix),
-    extractVersionTemplate: "^" + prefix + "(?<version>.*)$",
+    extractVersionTemplate: "^%s(?<version>.*)$" % prefix,
     datasourceTemplate: "github-releases",
     depNameTemplate: depName,
   },
   ipinfo(name):: $.prefixRegexManager("ipinfo/cli/" + name, name + "-") + {
     "packageNameTemplate": "ipinfo/cli",
   },
-  versionMatchString(key):: " +['\"]?" + key + "['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
+  versionMatchString(key):: " +['\"]?%s['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)" % key,
   packageRegexManager: {
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
