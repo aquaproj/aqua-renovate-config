@@ -13,26 +13,42 @@
   ],
   aquaYAMLFileMatch: ["\\.?aqua\\.ya?ml"],
   aquaPackageMatchStrings(depName, prefix):: [
-    " +['\"]?version['\"]? *: +['\"]?" + prefix + "(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=" + depName + "[ \\n]",
-    " +['\"]?name['\"]? *: +['\"]?" + depName + "@" + prefix + "(?<currentValue>[^'\" \\n]+)['\"]?"
+    " +['\"]?version['\"]? *: +['\"]?%s(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=%s[ \\n]" % [prefix, depName],
+    " +['\"]?name['\"]? *: +['\"]?%s@%s(?<currentValue>[^'\" \\n]+)['\"]?" % [depName, prefix],
   ],
   prefixRegexManager(depName, prefix):: {
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: $.aquaPackageMatchStrings(depName, prefix),
-    extractVersionTemplate: "^" + prefix + "(?<version>.*)$",
+    extractVersionTemplate: "^%s(?<version>.*)$" % prefix,
     datasourceTemplate: "github-releases",
     depNameTemplate: depName,
   },
   ipinfo(name):: $.prefixRegexManager("ipinfo/cli/" + name, name + "-") + {
     "packageNameTemplate": "ipinfo/cli",
   },
+  versionMatchString(key):: " +['\"]?%s['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)" % key,
   packageRegexManager: {
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
-      " +['\"]?(version|ref)['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
+      $.versionMatchString("version"),
       " +['\"]?name['\"]? *: +['\"]?(?<depName>[^'\" @/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
     ],
     datasourceTemplate: "github-releases",
+  },
+  registryRegexManager: {
+    fileMatch: $.aquaYAMLFileMatch,
+    matchStrings: [
+      $.versionMatchString("ref"),
+    ],
+    datasourceTemplate: "github-releases",
+  },
+  goPkg: {
+    fileMatch: $.aquaYAMLFileMatch,
+    matchStrings: [
+      " +['\"]?version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
+      " +['\"]?name['\"]? *: +['\"]?(?<depName>[^\\n]+\\.[^\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
+    ],
+    datasourceTemplate: "go",
   },
   golangGo: {
     fileMatch: $.aquaYAMLFileMatch,
@@ -71,14 +87,6 @@
     datasourceTemplate: "github-releases",
     depNameTemplate: "golang/tools",
   },
-  goPkg: {
-    fileMatch: $.aquaYAMLFileMatch,
-    matchStrings: [
-      " +['\"]?version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
-      " +['\"]?name['\"]? *: +['\"]?(?<depName>[^\\n]+\\.[^\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
-    ],
-    datasourceTemplate: "go",
-  },
   bun: $.prefixRegexManager("oven-sh/bun", "bun-"),
   fileMatches(fileMatch, managers):: [
     manager + {
@@ -88,6 +96,7 @@
   ],
   pkgManagers: [
     $.packageRegexManager,
+    $.registryRegexManager,
     $.goPkg,
     $.bun,
     $.golangGo,
