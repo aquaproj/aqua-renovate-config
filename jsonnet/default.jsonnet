@@ -1,65 +1,25 @@
-local githubTagsPackages = [
-  "golang/go",
-  "golang/tools",
-  "kubernetes/kubectl",
-  "twistedpair/google-cloud-sdk"
-];
-
-local aquaYAMLMatchPaths = [
-  ".aqua.yaml",
-  ".aqua.yml",
-  "aqua.yaml",
-  "aqua.yml"
-];
-
-local aquaYAMLFileMatch = ["\\.?aqua\\.ya?ml"];
-
-local aquaPackageMatchStrings(depName, prefix) = [
-  " +['\"]?version['\"]? *: +['\"]?" + prefix + "(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=" + depName + "[ \\n]",
-  " +['\"]?name['\"]? *: +['\"]?" + depName + "@" + prefix + "(?<currentValue>[^'\" \\n]+)['\"]?"
-];
-
-local prefixRegexManager(depName, prefix) = {
-  "fileMatch": aquaYAMLFileMatch,
-  "matchStrings": aquaPackageMatchStrings(depName, prefix),
-  "extractVersionTemplate": "^" + prefix + "(?<version>.*)$",
-  "datasourceTemplate": "github-releases",
-  "depNameTemplate": depName,
-};
-
-local ipinfo(name) = prefixRegexManager("ipinfo/cli/" + name, name + "-") + {
-  "packageNameTemplate": "ipinfo/cli",
-};
-
-local packageRegexManager = {
-  "fileMatch": aquaYAMLFileMatch,
-  "matchStrings": [
-    " +['\"]?(version|ref)['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
-    " +['\"]?name['\"]? *: +['\"]?(?<depName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
-  ],
-  "datasourceTemplate": "github-releases"
-};
+local utils = import 'utils.libsonnet';
 
 {
   "packageRules": [
     // Some packages are updated by github-tags datasource.
     // So disable github-releases against those packages.
     {
-      "matchPackageNames": githubTagsPackages,
-      "matchPaths": aquaYAMLMatchPaths,
+      "matchPackageNames": utils.githubTagsPackages,
+      "matchPaths": utils.aquaYAMLMatchPaths,
       "matchDatasources": ["github-releases"],
       "enabled": false
     },
     // By default github-tags is disabled.
     {
-      "matchPaths": aquaYAMLMatchPaths,
+      "matchPaths": utils.aquaYAMLMatchPaths,
       "matchDatasources": ["github-tags"],
       "enabled": false
     },
     // github-tags is enabled against only those packages.
     {
-      "matchPackageNames": githubTagsPackages,
-      "matchPaths": aquaYAMLMatchPaths,
+      "matchPackageNames": utils.githubTagsPackages,
+      "matchPaths": utils.aquaYAMLMatchPaths,
       "matchDatasources": ["github-tags"],
       "enabled": true
     }
@@ -91,12 +51,12 @@ local packageRegexManager = {
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "aquaproj/aqua-renovate-config"
     },
-    packageRegexManager,
-    packageRegexManager + {
+    utils.packageRegexManager,
+    utils.packageRegexManager + {
       "datasourceTemplate": "github-tags",
     },
     {
-      "fileMatch": aquaYAMLFileMatch,
+      "fileMatch": utils.aquaYAMLFileMatch,
       "matchStrings": [
         " +['\"]?version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
         " +['\"]?name['\"]? *: +['\"]?(?<depName>[^\\n]+\\.[^\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
@@ -104,7 +64,7 @@ local packageRegexManager = {
       "datasourceTemplate": "go"
     },
     {
-      "fileMatch": aquaYAMLFileMatch,
+      "fileMatch": utils.aquaYAMLFileMatch,
       "matchStrings": [
         " +['\"]?version['\"]? *: +['\"]?(go)?(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=golang/go[ \\n]",
         " +['\"]?name['\"]? *: +['\"]?golang/go@(go)?(?<currentValue>[^'\" \\n]+)['\"]?"
@@ -114,7 +74,7 @@ local packageRegexManager = {
       "depNameTemplate": "golang/go"
     },
     {
-      "fileMatch": aquaYAMLFileMatch,
+      "fileMatch": utils.aquaYAMLFileMatch,
       "matchStrings": [
         " +['\"]?version['\"]? *: +['\"]?gopls/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=golang/tools/gopls[ \\n]",
         " +['\"]?name['\"]? *: +['\"]?golang/tools/gopls@gopls/(?<currentValue>[^'\" \\n]+)['\"]?"
@@ -123,11 +83,11 @@ local packageRegexManager = {
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "golang/tools"
     },
-    prefixRegexManager("grpc/grpc-go/protoc-gen-go-grpc", "cmd/protoc-gen-go-grpc/") + {
+    utils.prefixRegexManager("grpc/grpc-go/protoc-gen-go-grpc", "cmd/protoc-gen-go-grpc/") + {
       "packageNameTemplate": "grpc/grpc-go",
     },
     {
-      "fileMatch": aquaYAMLFileMatch,
+      "fileMatch": utils.aquaYAMLFileMatch,
       "matchStrings": [
         " +['\"]?version['\"]? *: +['\"]?v(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=kubernetes/kubectl[ \\n]",
         " +['\"]?name['\"]? *: +['\"]?kubernetes/kubectl@v(?<currentValue>[^'\" \\n]+)['\"]?"
@@ -136,20 +96,20 @@ local packageRegexManager = {
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "kubernetes/kubectl"
     },
-    prefixRegexManager("kubernetes-sigs/kustomize", "kustomize/"),
-    prefixRegexManager("orf/gping", "gping-"),
-    prefixRegexManager("oven-sh/bun", "bun-"),
-    prefixRegexManager("mongodb/mongodb-atlas-cli/atlascli", "atlascli/") + {
+    utils.prefixRegexManager("kubernetes-sigs/kustomize", "kustomize/"),
+    utils.prefixRegexManager("orf/gping", "gping-"),
+    utils.prefixRegexManager("oven-sh/bun", "bun-"),
+    utils.prefixRegexManager("mongodb/mongodb-atlas-cli/atlascli", "atlascli/") + {
       "packageNameTemplate": "mongodb/mongodb-atlas-cli",
     },
-    prefixRegexManager("ipinfo/cli", "ipinfo-"),
-    ipinfo("cidr2ip"),
-    ipinfo("cidr2range"),
-    ipinfo("range2cidr"),
-    ipinfo("prips"),
-    ipinfo("splitcidr"),
-    ipinfo("randip"),
-    ipinfo("grepip"),
-    ipinfo("range2ip"),
+    utils.prefixRegexManager("ipinfo/cli", "ipinfo-"),
+    utils.ipinfo("cidr2ip"),
+    utils.ipinfo("cidr2range"),
+    utils.ipinfo("range2cidr"),
+    utils.ipinfo("prips"),
+    utils.ipinfo("splitcidr"),
+    utils.ipinfo("randip"),
+    utils.ipinfo("grepip"),
+    utils.ipinfo("range2ip"),
   ]
 }
