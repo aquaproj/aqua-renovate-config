@@ -95,13 +95,8 @@ local packageRegexManager = {
     packageRegexManager + {
       "datasourceTemplate": "github-tags",
     },
-    {
-      "fileMatch": aquaYAMLFileMatch,
-      "matchStrings": [
-        " +['\"]?version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
-        " +['\"]?name['\"]? *: +['\"]?(?<depName>[^\\n]+\\.[^\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
-      ],
-      "datasourceTemplate": "go"
+    packageRegexManager + {
+      "datasourceTemplate": "go",
     },
     {
       "fileMatch": aquaYAMLFileMatch,
