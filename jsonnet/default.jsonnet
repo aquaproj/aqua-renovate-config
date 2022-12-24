@@ -123,15 +123,8 @@ local packageRegexManager = {
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "golang/tools"
     },
-    {
-      "fileMatch": aquaYAMLFileMatch,
-      "matchStrings": [
-        " +['\"]?version['\"]? *: +['\"]?cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=grpc/grpc-go[ \\n]",
-        " +['\"]?name['\"]? *: +['\"]?grpc/grpc-go/protoc-gen-go-grpc@cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)['\"]?"
-      ],
-      "extractVersionTemplate": "^cmd/protoc-gen-go-grpc/(?<version>.*)$",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "grpc/grpc-go"
+    prefixRegexManager("grpc/grpc-go/protoc-gen-go-grpc", "cmd/protoc-gen-go-grpc/") + {
+      "packageNameTemplate": "grpc/grpc-go",
     },
     {
       "fileMatch": aquaYAMLFileMatch,
