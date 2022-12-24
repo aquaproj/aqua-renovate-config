@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eux
+set -eu
 
 while read -r file; do
 	jsonnet -o "${file%net}" "jsonnet/$file"
