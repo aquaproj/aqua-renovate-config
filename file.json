@@ -7,7 +7,7 @@
          ],
          "matchStrings": [
             " +['\"]?(version|ref)['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
-            " +['\"]?name['\"]? *: +['\"]?(?<depName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +['\"]?name['\"]? *: +['\"]?(?<depName>[^'\" @/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
          ]
       },
       {
@@ -30,8 +30,8 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +['\"]?version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=golang/go[ \\n]",
-            " +['\"]?name['\"]? *: +['\"]?golang/go@(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +['\"]?version['\"]? *: +['\"]?(go)?(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=golang/go[ \\n]",
+            " +['\"]?name['\"]? *: +['\"]?golang/go@(go)?(?<currentValue>[^'\" \\n]+)['\"]?"
          ]
       },
       {
@@ -48,15 +48,16 @@
       },
       {
          "datasourceTemplate": "github-releases",
-         "depNameTemplate": "grpc/grpc-go",
+         "depNameTemplate": "grpc/grpc-go/protoc-gen-go-grpc",
          "extractVersionTemplate": "^cmd/protoc-gen-go-grpc/(?<version>.*)$",
          "fileMatch": [
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +['\"]?version['\"]? *: +['\"]?cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=grpc/grpc-go[ \\n]",
+            " +['\"]?version['\"]? *: +['\"]?cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=grpc/grpc-go/protoc-gen-go-grpc[ \\n]",
             " +['\"]?name['\"]? *: +['\"]?grpc/grpc-go/protoc-gen-go-grpc@cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)['\"]?"
-         ]
+         ],
+         "packageNameTemplate": "grpc/grpc-go"
       },
       {
          "datasourceTemplate": "github-releases",

@@ -55,4 +55,29 @@
     depNameTemplate: "kubernetes/kubectl",
   },
   kustomize: $.prefixRegexManager("kubernetes-sigs/kustomize", "kustomize/"),
+  argFileMatch: {
+    fileMatch: ["{{arg0}}"],
+  },
+  protocGenGoGRPC: $.prefixRegexManager("grpc/grpc-go/protoc-gen-go-grpc", "cmd/protoc-gen-go-grpc/") + {
+    packageNameTemplate: "grpc/grpc-go",
+  },
+  gopls: {
+    fileMatch: $.aquaYAMLFileMatch,
+    matchStrings: [
+      " +['\"]?version['\"]? *: +['\"]?gopls/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=golang/tools/gopls[ \\n]",
+      " +['\"]?name['\"]? *: +['\"]?golang/tools/gopls@gopls/(?<currentValue>[^'\" \\n]+)['\"]?",
+    ],
+    extractVersionTemplate: "^gopls/(?<version>.*)$",
+    datasourceTemplate: "github-releases",
+    depNameTemplate: "golang/tools",
+  },
+  goPkg: {
+    fileMatch: $.aquaYAMLFileMatch,
+    matchStrings: [
+      " +['\"]?version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
+      " +['\"]?name['\"]? *: +['\"]?(?<depName>[^\\n]+\\.[^\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
+    ],
+    datasourceTemplate: "go",
+  },
+  bun: $.prefixRegexManager("oven-sh/bun", "bun-"),
 }
