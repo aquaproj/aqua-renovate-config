@@ -80,4 +80,21 @@
     datasourceTemplate: "go",
   },
   bun: $.prefixRegexManager("oven-sh/bun", "bun-"),
+  fileMatches(fileMatch, managers):: [
+    manager + {
+      fileMatch: fileMatch,
+    },
+    for manager in managers
+  ],
+  pkgManagers: [
+    $.packageRegexManager,
+    $.kustomize,
+    $.golangGo,
+    $.kubectl,
+    $.protocGenGoGRPC,
+    $.prefixRegexManager("orf/gping", "gping-"),
+    $.gopls,
+    $.goPkg,
+    $.bun,
+  ]
 }
