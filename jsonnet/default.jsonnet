@@ -31,6 +31,15 @@ local ipinfo(name) = prefixRegexManager("ipinfo/cli/" + name, name + "-") + {
   "packageNameTemplate": "ipinfo/cli",
 };
 
+local packageRegexManager = {
+  "fileMatch": aquaYAMLFileMatch,
+  "matchStrings": [
+    " +['\"]?(version|ref)['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
+    " +['\"]?name['\"]? *: +['\"]?(?<depName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
+  ],
+  "datasourceTemplate": "github-releases"
+};
+
 {
   "packageRules": [
     // Some packages are updated by github-tags datasource.
@@ -82,21 +91,17 @@ local ipinfo(name) = prefixRegexManager("ipinfo/cli/" + name, name + "-") + {
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "aquaproj/aqua-renovate-config"
     },
-    {
-      "fileMatch": aquaYAMLFileMatch,
-      "matchStrings": [
-        " +['\"]?(version|ref)['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
-        " +['\"]?name['\"]? *: +['\"]?(?<depName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
-      ],
-      "datasourceTemplate": "github-releases"
+    packageRegexManager,
+    packageRegexManager + {
+      "datasourceTemplate": "github-tags",
     },
     {
       "fileMatch": aquaYAMLFileMatch,
       "matchStrings": [
-        " +['\"]?(version|ref)['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
-        " +['\"]?name['\"]? *: +['\"]?(?<depName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
+        " +['\"]?version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
+        " +['\"]?name['\"]? *: +['\"]?(?<depName>[^\\n]+\\.[^\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
       ],
-      "datasourceTemplate": "github-tags"
+      "datasourceTemplate": "go"
     },
     {
       "fileMatch": aquaYAMLFileMatch,
@@ -111,12 +116,12 @@ local ipinfo(name) = prefixRegexManager("ipinfo/cli/" + name, name + "-") + {
     {
       "fileMatch": aquaYAMLFileMatch,
       "matchStrings": [
-        " +['\"]?version['\"]? *: +['\"]?v(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=kubernetes/kubectl[ \\n]",
-        " +['\"]?name['\"]? *: +['\"]?kubernetes/kubectl@v(?<currentValue>[^'\" \\n]+)['\"]?"
+        " +['\"]?version['\"]? *: +['\"]?gopls/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=golang/tools/gopls[ \\n]",
+        " +['\"]?name['\"]? *: +['\"]?golang/tools/gopls@gopls/(?<currentValue>[^'\" \\n]+)['\"]?"
       ],
-      "extractVersionTemplate": "^kubernetes-(?<version>.*)$",
-      "datasourceTemplate": "github-tags",
-      "depNameTemplate": "kubernetes/kubectl"
+      "extractVersionTemplate": "^gopls/(?<version>.*)$",
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "golang/tools"
     },
     {
       "fileMatch": aquaYAMLFileMatch,
@@ -131,20 +136,12 @@ local ipinfo(name) = prefixRegexManager("ipinfo/cli/" + name, name + "-") + {
     {
       "fileMatch": aquaYAMLFileMatch,
       "matchStrings": [
-        " +['\"]?version['\"]? *: +['\"]?gopls/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=golang/tools/gopls[ \\n]",
-        " +['\"]?name['\"]? *: +['\"]?golang/tools/gopls@gopls/(?<currentValue>[^'\" \\n]+)['\"]?"
+        " +['\"]?version['\"]? *: +['\"]?v(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=kubernetes/kubectl[ \\n]",
+        " +['\"]?name['\"]? *: +['\"]?kubernetes/kubectl@v(?<currentValue>[^'\" \\n]+)['\"]?"
       ],
-      "extractVersionTemplate": "^gopls/(?<version>.*)$",
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "golang/tools"
-    },
-    {
-      "fileMatch": aquaYAMLFileMatch,
-      "matchStrings": [
-        " +['\"]?version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
-        " +['\"]?name['\"]? *: +['\"]?(?<depName>[^\\n]+\\.[^\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
-      ],
-      "datasourceTemplate": "go"
+      "extractVersionTemplate": "^kubernetes-(?<version>.*)$",
+      "datasourceTemplate": "github-tags",
+      "depNameTemplate": "kubernetes/kubectl"
     },
     prefixRegexManager("kubernetes-sigs/kustomize", "kustomize/"),
     prefixRegexManager("orf/gping", "gping-"),
