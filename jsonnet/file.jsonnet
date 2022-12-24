@@ -1,12 +1,12 @@
 {
-  "regexManagers": [
+  regexManagers: [
     {
-      "fileMatch": ["{{arg0}}"],
-      "matchStrings": [
+      fileMatch: ["{{arg0}}"],
+      matchStrings: [
         " +['\"]?(version|ref)['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
         " +['\"]?name['\"]? *: +['\"]?(?<depName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
       ],
-      "datasourceTemplate": "github-releases"
+      datasourceTemplate: "github-releases"
     },
     {
       "fileMatch": ["{{arg0}}"],
