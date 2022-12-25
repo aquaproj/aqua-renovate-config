@@ -183,6 +183,18 @@
          "packageNameTemplate": "ipinfo/cli"
       },
       {
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "kubernetes/kubectl-convert",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+            " +(?:name|'name'|\"name\") *: +['\"]?(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)@(?<currentValue>[^'\" \\n]+)['\"]?"
+         ],
+         "packageNameTemplate": "kubernetes/kubernetes"
+      },
+      {
          "datasourceTemplate": "github-tags",
          "depNameTemplate": "kubernetes/kubectl",
          "extractVersionTemplate": "^kubernetes-(?<version>.*)$",
