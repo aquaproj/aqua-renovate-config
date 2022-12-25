@@ -28,12 +28,13 @@
   ipinfo(name):: $.prefixRegexManager("ipinfo/cli/" + name, name + "-") + {
     "packageNameTemplate": "ipinfo/cli",
   },
-  versionMatchString(key):: " +%s *: +['\"]?%s['\"]? +# renovate: depName=(?<depName>[^\\n]+)" % [$.wrapQuote(key), $.currentValue],
+  depName: "(?<depName>(?<packageName>[^'\" @/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+  versionMatchString(key):: " +%s *: +['\"]?%s['\"]? +# renovate: depName=%s" % [$.wrapQuote(key), $.currentValue, $.depName],
   packageRegexManager: {
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
       $.versionMatchString("version"),
-      " +%s *: +['\"]?(?<depName>[^'\" @/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@%s['\"]?" % [$.wrapQuote("name"), $.currentValue],
+      " +%s *: +['\"]?%s@%s['\"]?" % [$.wrapQuote("name"), $.depName, $.currentValue],
     ],
     datasourceTemplate: "github-releases",
   },
