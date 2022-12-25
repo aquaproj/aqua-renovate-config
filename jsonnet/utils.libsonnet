@@ -14,10 +14,6 @@
   aquaYAMLFileMatch: ["\\.?aqua\\.ya?ml"],
   wrapQuote(s):: "(?:%s|'%s'|\"%s\")" % [s, s, s],
   currentValue: "(?<currentValue>[^'\" \\n]+)",
-  aquaPackageMatchStrings(depName, prefix):: [
-    " +%s *: +['\"]?%s%s['\"]? +# renovate: depName=%s[ \\n]" % [$.wrapQuote("version"), prefix, $.currentValue, depName],
-    " +%s *: +['\"]?%s@%s%s['\"]?" % [$.wrapQuote("name"), depName, prefix, $.currentValue],
-  ],
   prefixRegexManager(depName, prefix):: {
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: $.aquaPackageMatchStrings(depName, prefix),
@@ -28,20 +24,26 @@
   ipinfo(name):: $.prefixRegexManager("ipinfo/cli/" + name, name + "-") + {
     "packageNameTemplate": "ipinfo/cli",
   },
+
+  aquaPackageMatchStrings(depName, prefix):: [
+    " +%s *: +['\"]?%s%s['\"]? +# renovate: depName=%s[ \\n]" % [$.wrapQuote("version"), prefix, $.currentValue, depName],
+    " +%s *: +['\"]?%s@%s%s['\"]?" % [$.wrapQuote("name"), depName, prefix, $.currentValue],
+  ],
   depName: "(?<depName>(?<packageName>[^'\" @/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
   versionMatchString(key):: " +%s *: +['\"]?%s['\"]? +# renovate: depName=%s" % [$.wrapQuote(key), $.currentValue, $.depName],
+
+  registryRegexManager: {
+    fileMatch: $.aquaYAMLFileMatch,
+    matchStrings: [
+      $.versionMatchString("ref"),
+    ],
+    datasourceTemplate: "github-releases",
+  },
   packageRegexManager: {
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
       $.versionMatchString("version"),
       " +%s *: +['\"]?%s@%s['\"]?" % [$.wrapQuote("name"), $.depName, $.currentValue],
-    ],
-    datasourceTemplate: "github-releases",
-  },
-  registryRegexManager: {
-    fileMatch: $.aquaYAMLFileMatch,
-    matchStrings: [
-      $.versionMatchString("ref"),
     ],
     datasourceTemplate: "github-releases",
   },
@@ -73,13 +75,6 @@
     datasourceTemplate: "github-tags",
     depNameTemplate: "kubernetes/kubectl",
   },
-  kustomize: $.prefixRegexManager("kubernetes-sigs/kustomize", "kustomize/"),
-  argFileMatch: {
-    fileMatch: ["{{arg0}}"],
-  },
-  protocGenGoGRPC: $.prefixRegexManager("grpc/grpc-go/protoc-gen-go-grpc", "cmd/protoc-gen-go-grpc/") + {
-    packageNameTemplate: "grpc/grpc-go",
-  },
   gopls: {
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
@@ -90,7 +85,14 @@
     datasourceTemplate: "github-releases",
     depNameTemplate: "golang/tools",
   },
-  bun: $.prefixRegexManager("oven-sh/bun", "bun-"),
+
+  kustomize: $.prefixRegexManager("kubernetes-sigs/kustomize", "kustomize/"),
+  argFileMatch: {
+    fileMatch: ["{{arg0}}"],
+  },
+  protocGenGoGRPC: $.prefixRegexManager("grpc/grpc-go/protoc-gen-go-grpc", "cmd/protoc-gen-go-grpc/") + {
+    packageNameTemplate: "grpc/grpc-go",
+  },
   fileMatches(fileMatch, managers):: [
     manager + {
       fileMatch: fileMatch,
@@ -101,7 +103,7 @@
     $.packageRegexManager,
     $.registryRegexManager,
     $.goPkg,
-    $.bun,
+    $.prefixRegexManager("oven-sh/bun", "bun-"),
     $.golangGo,
     $.gopls,
     $.prefixRegexManager("ipinfo/cli", "ipinfo-"),
