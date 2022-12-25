@@ -29,7 +29,12 @@
     " +%s *: +['\"]?%s%s['\"]? +# renovate: depName=%s[ \\n]" % [$.wrapQuote("version"), prefix, $.currentValue, depName],
     " +%s *: +['\"]?%s@%s%s['\"]?" % [$.wrapQuote("name"), depName, prefix, $.currentValue],
   ],
-  depName: "(?<depName>(?<packageName>[^'\" @/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+
+  // GitHub User and Organization name doesn't include periods.
+  depName: "(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+  // Go Module Name includes a period.
+  goModuleDepName: "(?<depName>[^\\n]+\\.[^\\n]+)",
+
   versionMatchString(key):: " +%s *: +['\"]?%s['\"]? +# renovate: depName=%s" % [$.wrapQuote(key), $.currentValue, $.depName],
 
   registryRegexManager: {
@@ -50,8 +55,8 @@
   goPkg: {
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
-      " +%s *: +['\"]?%s['\"]? +# renovate: depName=(?<depName>[^\\n]+)" % [$.wrapQuote("version"), $.currentValue],
-      " +%s *: +['\"]?(?<depName>[^\\n]+\\.[^\\n]+)*@%s['\"]?" % [$.wrapQuote("name"), $.currentValue],
+      " +%s *: +['\"]?%s['\"]? +# renovate: depName=%s" % [$.wrapQuote("version"), $.currentValue, $.goModuleDepName],
+      " +%s *: +['\"]?%s@%s['\"]?" % [$.wrapQuote("name"), $.goModuleDepName, $.currentValue],
     ],
     datasourceTemplate: "go",
   },
