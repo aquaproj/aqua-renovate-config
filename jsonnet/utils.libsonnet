@@ -14,10 +14,6 @@
   aquaYAMLFileMatch: ["\\.?aqua\\.ya?ml"],
   wrapQuote(s):: "(?:%s|'%s'|\"%s\")" % [s, s, s],
   currentValue: "(?<currentValue>[^'\" \\n]+)",
-  aquaPackageMatchStrings(depName, prefix):: [
-    " +%s *: +['\"]?%s%s['\"]? +# renovate: depName=%s[ \\n]" % [$.wrapQuote("version"), prefix, $.currentValue, depName],
-    " +%s *: +['\"]?%s@%s%s['\"]?" % [$.wrapQuote("name"), depName, prefix, $.currentValue],
-  ],
   prefixRegexManager(depName, prefix):: {
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: $.aquaPackageMatchStrings(depName, prefix),
@@ -28,20 +24,26 @@
   ipinfo(name):: $.prefixRegexManager("ipinfo/cli/" + name, name + "-") + {
     "packageNameTemplate": "ipinfo/cli",
   },
+
+  aquaPackageMatchStrings(depName, prefix):: [
+    " +%s *: +['\"]?%s%s['\"]? +# renovate: depName=%s[ \\n]" % [$.wrapQuote("version"), prefix, $.currentValue, depName],
+    " +%s *: +['\"]?%s@%s%s['\"]?" % [$.wrapQuote("name"), depName, prefix, $.currentValue],
+  ],
   depName: "(?<depName>(?<packageName>[^'\" @/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
   versionMatchString(key):: " +%s *: +['\"]?%s['\"]? +# renovate: depName=%s" % [$.wrapQuote(key), $.currentValue, $.depName],
+
+  registryRegexManager: {
+    fileMatch: $.aquaYAMLFileMatch,
+    matchStrings: [
+      $.versionMatchString("ref"),
+    ],
+    datasourceTemplate: "github-releases",
+  },
   packageRegexManager: {
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
       $.versionMatchString("version"),
       " +%s *: +['\"]?%s@%s['\"]?" % [$.wrapQuote("name"), $.depName, $.currentValue],
-    ],
-    datasourceTemplate: "github-releases",
-  },
-  registryRegexManager: {
-    fileMatch: $.aquaYAMLFileMatch,
-    matchStrings: [
-      $.versionMatchString("ref"),
     ],
     datasourceTemplate: "github-releases",
   },
@@ -53,25 +55,17 @@
     ],
     datasourceTemplate: "go",
   },
-  golangGo: {
-    fileMatch: $.aquaYAMLFileMatch,
-    matchStrings: [
-      " +%s *: +['\"]?(go)?%s['\"]? +# renovate: depName=golang/go[ \\n]" % [$.wrapQuote("version"), $.currentValue],
-      " +%s *: +['\"]?golang/go@(go)?%s['\"]?" % [$.wrapQuote("name"), $.currentValue],
-    ],
-    extractVersionTemplate: "^go(?<version>.*)$",
-    datasourceTemplate: "github-tags",
-    depNameTemplate: "golang/go",
-  },
-  kubectl: {
-    fileMatch: $.aquaYAMLFileMatch,
-    matchStrings: [
-      " +%s *: +['\"]?v%s['\"]? +# renovate: depName=kubernetes/kubectl[ \\n]" % [$.wrapQuote("version"), $.currentValue],
-      " +%s *: +['\"]?kubernetes/kubectl@v%s['\"]?" % [$.wrapQuote("name"), $.currentValue],
-    ],
+
+  kubectl: $.prefixRegexManager("kubernetes/kubectl", "v") + {
     extractVersionTemplate: "^kubernetes-(?<version>.*)$",
     datasourceTemplate: "github-tags",
-    depNameTemplate: "kubernetes/kubectl",
+  },
+  golangGo: $.prefixRegexManager("golang/go", "(go)?") + {
+    extractVersionTemplate: "^go(?<version>.*)$",
+    datasourceTemplate: "github-tags",
+  },
+  gopls: $.prefixRegexManager("golang/tools/gopls", "gopls/") + {
+    packageNameTemplate: "golang/tools",
   },
   kustomize: $.prefixRegexManager("kubernetes-sigs/kustomize", "kustomize/"),
   argFileMatch: {
@@ -80,17 +74,6 @@
   protocGenGoGRPC: $.prefixRegexManager("grpc/grpc-go/protoc-gen-go-grpc", "cmd/protoc-gen-go-grpc/") + {
     packageNameTemplate: "grpc/grpc-go",
   },
-  gopls: {
-    fileMatch: $.aquaYAMLFileMatch,
-    matchStrings: [
-      " +%s *: +['\"]?gopls/%s['\"]? +# renovate: depName=golang/tools/gopls[ \\n]" % [$.wrapQuote("version"), $.currentValue],
-      " +%s *: +['\"]?golang/tools/gopls@gopls/%s['\"]?" % [$.wrapQuote("name"), $.currentValue],
-    ],
-    extractVersionTemplate: "^gopls/(?<version>.*)$",
-    datasourceTemplate: "github-releases",
-    depNameTemplate: "golang/tools",
-  },
-  bun: $.prefixRegexManager("oven-sh/bun", "bun-"),
   fileMatches(fileMatch, managers):: [
     manager + {
       fileMatch: fileMatch,
@@ -101,7 +84,7 @@
     $.packageRegexManager,
     $.registryRegexManager,
     $.goPkg,
-    $.bun,
+    $.prefixRegexManager("oven-sh/bun", "bun-"),
     $.golangGo,
     $.gopls,
     $.prefixRegexManager("ipinfo/cli", "ipinfo-"),

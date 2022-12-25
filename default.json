@@ -141,7 +141,7 @@
       },
       {
          "datasourceTemplate": "github-releases",
-         "depNameTemplate": "golang/tools",
+         "depNameTemplate": "golang/tools/gopls",
          "extractVersionTemplate": "^gopls/(?<version>.*)$",
          "fileMatch": [
             "\\.?aqua\\.ya?ml"
@@ -149,7 +149,8 @@
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +['\"]?gopls/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=golang/tools/gopls[ \\n]",
             " +(?:name|'name'|\"name\") *: +['\"]?golang/tools/gopls@gopls/(?<currentValue>[^'\" \\n]+)['\"]?"
-         ]
+         ],
+         "packageNameTemplate": "golang/tools"
       },
       {
          "datasourceTemplate": "github-releases",
