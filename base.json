@@ -6,7 +6,7 @@
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
+            " +(?:version|'version'|\"version\") *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
             " +(?:name|'name'|\"name\") *: +['\"]?(?<depName>[^'\" @/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
          ]
       },
@@ -16,7 +16,7 @@
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
-            " +(?:ref|'ref'|\"ref\") *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)"
+            " +(?:ref|'ref'|\"ref\") *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=(?<depName>[^\\n]+)"
          ]
       }
    ]
