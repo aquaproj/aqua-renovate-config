@@ -55,16 +55,6 @@
     ],
     datasourceTemplate: "go",
   },
-  golangGo: {
-    fileMatch: $.aquaYAMLFileMatch,
-    matchStrings: [
-      " +%s *: +['\"]?(go)?%s['\"]? +# renovate: depName=golang/go[ \\n]" % [$.wrapQuote("version"), $.currentValue],
-      " +%s *: +['\"]?golang/go@(go)?%s['\"]?" % [$.wrapQuote("name"), $.currentValue],
-    ],
-    extractVersionTemplate: "^go(?<version>.*)$",
-    datasourceTemplate: "github-tags",
-    depNameTemplate: "golang/go",
-  },
   kubectl: {
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
@@ -76,6 +66,10 @@
     depNameTemplate: "kubernetes/kubectl",
   },
 
+  golangGo: $.prefixRegexManager("golang/go", "(go)?") + {
+    extractVersionTemplate: "^go(?<version>.*)$",
+    datasourceTemplate: "github-tags",
+  },
   gopls: $.prefixRegexManager("golang/tools/gopls", "gopls/") + {
     packageNameTemplate: "golang/tools",
   },
