@@ -6,7 +6,7 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
+            " +(?:version|'version'|\"version\") *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
             " +(?:name|'name'|\"name\") *: +['\"]?(?<depName>[^'\" @/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
          ]
       },
@@ -16,7 +16,7 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:ref|'ref'|\"ref\") *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)"
+            " +(?:ref|'ref'|\"ref\") *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=(?<depName>[^\\n]+)"
          ]
       },
       {
@@ -25,7 +25,7 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
+            " +(?:version|'version'|\"version\") *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=(?<depName>[^\\n]+)",
             " +(?:name|'name'|\"name\") *: +['\"]?(?<depName>[^\\n]+\\.[^\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?"
          ]
       },

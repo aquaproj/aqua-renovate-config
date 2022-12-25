@@ -13,9 +13,10 @@
   ],
   aquaYAMLFileMatch: ["\\.?aqua\\.ya?ml"],
   wrapQuote(s):: "(?:%s|'%s'|\"%s\")" % [s, s, s],
+  currentValue: "(?<currentValue>[^'\" \\n]+)",
   aquaPackageMatchStrings(depName, prefix):: [
-    " +%s *: +['\"]?%s(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=%s[ \\n]" % [$.wrapQuote("version"), prefix, depName],
-    " +%s *: +['\"]?%s@%s(?<currentValue>[^'\" \\n]+)['\"]?" % [$.wrapQuote("name"), depName, prefix],
+    " +%s *: +['\"]?%s%s['\"]? +# renovate: depName=%s[ \\n]" % [$.wrapQuote("version"), prefix, $.currentValue, depName],
+    " +%s *: +['\"]?%s@%s%s['\"]?" % [$.wrapQuote("name"), depName, prefix, $.currentValue],
   ],
   prefixRegexManager(depName, prefix):: {
     fileMatch: $.aquaYAMLFileMatch,
@@ -27,12 +28,12 @@
   ipinfo(name):: $.prefixRegexManager("ipinfo/cli/" + name, name + "-") + {
     "packageNameTemplate": "ipinfo/cli",
   },
-  versionMatchString(key):: " +%s *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)" % $.wrapQuote(key),
+  versionMatchString(key):: " +%s *: +['\"]?%s['\"]? +# renovate: depName=(?<depName>[^\\n]+)" % [$.wrapQuote(key), $.currentValue],
   packageRegexManager: {
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
       $.versionMatchString("version"),
-      " +%s *: +['\"]?(?<depName>[^'\" @/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?" % $.wrapQuote("name"),
+      " +%s *: +['\"]?(?<depName>[^'\" @/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*@%s['\"]?" % [$.wrapQuote("name"), $.currentValue],
     ],
     datasourceTemplate: "github-releases",
   },
@@ -46,16 +47,16 @@
   goPkg: {
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
-      " +%s *: +['\"]?(?<currentValue>[^'\" \\n]+?)['\"]? +# renovate: depName=(?<depName>[^\\n]+)" % $.wrapQuote("version"),
-      " +%s *: +['\"]?(?<depName>[^\\n]+\\.[^\\n]+)*@(?<currentValue>[^'\" \\n]+)['\"]?" % $.wrapQuote("name"),
+      " +%s *: +['\"]?%s['\"]? +# renovate: depName=(?<depName>[^\\n]+)" % [$.wrapQuote("version"), $.currentValue],
+      " +%s *: +['\"]?(?<depName>[^\\n]+\\.[^\\n]+)*@%s['\"]?" % [$.wrapQuote("name"), $.currentValue],
     ],
     datasourceTemplate: "go",
   },
   golangGo: {
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
-      " +%s *: +['\"]?(go)?(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=golang/go[ \\n]" % $.wrapQuote("version"),
-      " +%s *: +['\"]?golang/go@(go)?(?<currentValue>[^'\" \\n]+)['\"]?" % $.wrapQuote("name"),
+      " +%s *: +['\"]?(go)?%s['\"]? +# renovate: depName=golang/go[ \\n]" % [$.wrapQuote("version"), $.currentValue],
+      " +%s *: +['\"]?golang/go@(go)?%s['\"]?" % [$.wrapQuote("name"), $.currentValue],
     ],
     extractVersionTemplate: "^go(?<version>.*)$",
     datasourceTemplate: "github-tags",
@@ -64,8 +65,8 @@
   kubectl: {
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
-      " +%s *: +['\"]?v(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=kubernetes/kubectl[ \\n]" % $.wrapQuote("version"),
-      " +%s *: +['\"]?kubernetes/kubectl@v(?<currentValue>[^'\" \\n]+)['\"]?" % $.wrapQuote("name"),
+      " +%s *: +['\"]?v%s['\"]? +# renovate: depName=kubernetes/kubectl[ \\n]" % [$.wrapQuote("version"), $.currentValue],
+      " +%s *: +['\"]?kubernetes/kubectl@v%s['\"]?" % [$.wrapQuote("name"), $.currentValue],
     ],
     extractVersionTemplate: "^kubernetes-(?<version>.*)$",
     datasourceTemplate: "github-tags",
@@ -81,8 +82,8 @@
   gopls: {
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
-      " +%s *: +['\"]?gopls/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=golang/tools/gopls[ \\n]" % $.wrapQuote("version"),
-      " +%s *: +['\"]?golang/tools/gopls@gopls/(?<currentValue>[^'\" \\n]+)['\"]?" % $.wrapQuote("name"),
+      " +%s *: +['\"]?gopls/%s['\"]? +# renovate: depName=golang/tools/gopls[ \\n]" % [$.wrapQuote("version"), $.currentValue],
+      " +%s *: +['\"]?golang/tools/gopls@gopls/%s['\"]?" % [$.wrapQuote("name"), $.currentValue],
     ],
     extractVersionTemplate: "^gopls/(?<version>.*)$",
     datasourceTemplate: "github-releases",
