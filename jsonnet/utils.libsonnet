@@ -61,10 +61,6 @@
     datasourceTemplate: "go",
   },
 
-  kubectlConvert: $.packageRegexManager + {
-    depNameTemplate: "kubernetes/kubectl-convert",
-    packageNameTemplate: "kubernetes/kubernetes",
-  },
   kubectl: $.prefixRegexManager("kubernetes/kubectl", "v") + {
     extractVersionTemplate: "^kubernetes-(?<version>.*)$",
     datasourceTemplate: "github-tags",
@@ -105,7 +101,6 @@
     $.ipinfo("randip"),
     $.ipinfo("grepip"),
     $.ipinfo("range2ip"),
-    $.kubectlConvert,
     $.kubectl,
     $.kustomize,
     $.prefixRegexManager("mongodb/mongodb-atlas-cli/atlascli", "atlascli/") + {
