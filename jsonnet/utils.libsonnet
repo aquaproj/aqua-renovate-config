@@ -60,7 +60,13 @@
     ],
     datasourceTemplate: "go",
   },
-
+  kubectlConvert: {
+    datasourceTemplate: "github-releases",
+    depNameTemplate: "kubernetes/kubectl-convert",
+    fileMatch: $.aquaYAMLFileMatch,
+    matchStrings: $.aquaPackageMatchStrings(self.depNameTemplate, ""),
+    packageNameTemplate: "kubernetes/kubernetes"
+  },
   kubectl: $.prefixRegexManager("kubernetes/kubectl", "v") + {
     extractVersionTemplate: "^kubernetes-(?<version>.*)$",
     datasourceTemplate: "github-tags",
@@ -101,6 +107,7 @@
     $.ipinfo("randip"),
     $.ipinfo("grepip"),
     $.ipinfo("range2ip"),
+    $.kubectlConvert,
     $.kubectl,
     $.kustomize,
     $.prefixRegexManager("mongodb/mongodb-atlas-cli/atlascli", "atlascli/") + {
