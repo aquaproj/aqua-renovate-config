@@ -75,17 +75,10 @@
     datasourceTemplate: "github-tags",
     depNameTemplate: "kubernetes/kubectl",
   },
-  gopls: {
-    fileMatch: $.aquaYAMLFileMatch,
-    matchStrings: [
-      " +%s *: +['\"]?gopls/%s['\"]? +# renovate: depName=golang/tools/gopls[ \\n]" % [$.wrapQuote("version"), $.currentValue],
-      " +%s *: +['\"]?golang/tools/gopls@gopls/%s['\"]?" % [$.wrapQuote("name"), $.currentValue],
-    ],
-    extractVersionTemplate: "^gopls/(?<version>.*)$",
-    datasourceTemplate: "github-releases",
-    depNameTemplate: "golang/tools",
-  },
 
+  gopls: $.prefixRegexManager("golang/tools/gopls", "gopls/") + {
+    packageNameTemplate: "golang/tools",
+  },
   kustomize: $.prefixRegexManager("kubernetes-sigs/kustomize", "kustomize/"),
   argFileMatch: {
     fileMatch: ["{{arg0}}"],
