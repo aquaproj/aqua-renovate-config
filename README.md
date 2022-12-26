@@ -106,7 +106,7 @@ You have to pass fileMatch as parameter.
 ```
 
 ```sh
-curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v1.2.0/aqua-installer | bash -s -- -v v1.25.0
+curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v2.0.0/aqua-installer | bash -s -- -v v1.25.0
 ```
 
 :warning: To update aqua, please don't add newlines.
@@ -114,13 +114,13 @@ curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v1.2.0/aqua
 :thumbsup:
 
 ```sh
-curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v1.2.0/aqua-installer | bash -s -- -v v1.25.0
+curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v2.0.0/aqua-installer | bash -s -- -v v1.25.0
 ```
 
 :thumbsdown:
 
 ```sh
-curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v1.2.0/aqua-installer |
+curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v2.0.0/aqua-installer |
   bash -s -- -v v1.25.0 # aqua isn't updated
 ```
 
