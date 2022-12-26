@@ -29,7 +29,9 @@ local utils = import 'utils.libsonnet';
       // Update aqua-installer action
       fileMatch: ["^\\.github/.*\\.ya?ml$"],
       matchStrings: [
-        " +['\"]?aqua_version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]?"
+        " +%s *: +%s" % [utils.wrapQuote("aqua_version"), utils.currentValue],
+        " +%s *: +'%s'" % [utils.wrapQuote("aqua_version"), utils.currentValue],
+        " +%s *: +\"%s\"" % [utils.wrapQuote("aqua_version"), utils.currentValue],
       ],
       depNameTemplate: "aquaproj/aqua",
       datasourceTemplate: "github-releases",

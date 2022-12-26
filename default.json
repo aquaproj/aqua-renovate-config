@@ -57,7 +57,9 @@
             "^\\.github/.*\\.ya?ml$"
          ],
          "matchStrings": [
-            " +['\"]?aqua_version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +(?:aqua_version|'aqua_version'|\"aqua_version\") *: +(?<currentValue>[^'\" \\n]+)",
+            " +(?:aqua_version|'aqua_version'|\"aqua_version\") *: +'(?<currentValue>[^'\" \\n]+)'",
+            " +(?:aqua_version|'aqua_version'|\"aqua_version\") *: +\"(?<currentValue>[^'\" \\n]+)\""
          ]
       },
       {
