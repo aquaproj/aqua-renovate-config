@@ -8,9 +8,9 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +v(?<currentValue>[^'\" \\n]+) +# +renovate: +depName=kubernetes/kubectl[ \\n]",
-            " +(?:version|'version'|\"version\") *: +'v(?<currentValue>[^'\" \\n]+)' +# +renovate: +depName=kubernetes/kubectl[ \\n]",
-            " +(?:version|'version'|\"version\") *: +\"v(?<currentValue>[^'\" \\n]+)\" +# +renovate: +depName=kubernetes/kubectl[ \\n]",
+            " +(?:version|'version'|\"version\") *: +v(?<currentValue>[^'\" \\n]+) +# renovate: depName=kubernetes/kubectl[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'v(?<currentValue>[^'\" \\n]+)' +# renovate: depName=kubernetes/kubectl[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"v(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=kubernetes/kubectl[ \\n]",
             " +(?:name|'name'|\"name\") *: +kubernetes/kubectl@v(?<currentValue>[^'\" \\n]+)",
             " +(?:name|'name'|\"name\") *: +'kubernetes/kubectl@v(?<currentValue>[^'\" \\n]+)'",
             " +(?:name|'name'|\"name\") *: +\"kubernetes/kubectl@v(?<currentValue>[^'\" \\n]+)\""
