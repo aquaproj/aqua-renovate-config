@@ -14,6 +14,8 @@
   aquaYAMLFileMatch: ["\\.?aqua\\.ya?ml"],
   wrapQuote(s):: "(?:%s|'%s'|\"%s\")" % [s, s, s],
   currentValue: "(?<currentValue>[^'\" \\n]+)",
+  currentDigest: "(?<currentDigest>[^'\" \\n]+)",
+
   prefixRegexManager(depName, prefix):: {
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: $.aquaPackageMatchStrings(depName, prefix),
@@ -21,18 +23,36 @@
     datasourceTemplate: "github-releases",
     depNameTemplate: depName,
   },
+  prefixDigestRegexManager(depName, prefix):: {
+    fileMatch: $.aquaYAMLFileMatch,
+    matchStrings: $.aquaPackageDigestMatchStrings(depName, prefix),
+    extractVersionTemplate: "^%s(?<version>.*)$" % prefix,
+    datasourceTemplate: "github-tags",
+    depNameTemplate: depName,
+  },
+
   ipinfo(name):: $.prefixRegexManager("ipinfo/cli/" + name, name + "-") + {
     "packageNameTemplate": "ipinfo/cli",
   },
 
   aquaPackageMatchStrings(depName, prefix):: [
-    " +%s *: +%s%s +# renovate: depName=%s[ \\n]" % [$.wrapQuote("version"), prefix, $.currentValue, depName],
-    " +%s *: +'%s%s' +# renovate: depName=%s[ \\n]" % [$.wrapQuote("version"), prefix, $.currentValue, depName],
-    " +%s *: +\"%s%s\" +# renovate: depName=%s[ \\n]" % [$.wrapQuote("version"), prefix, $.currentValue, depName],
+    " +%s *: +%s%s +# +renovate: +depName=%s[ \\n]" % [$.wrapQuote("version"), prefix, $.currentValue, depName],
+    " +%s *: +'%s%s' +# +renovate: +depName=%s[ \\n]" % [$.wrapQuote("version"), prefix, $.currentValue, depName],
+    " +%s *: +\"%s%s\" +# +renovate: +depName=%s[ \\n]" % [$.wrapQuote("version"), prefix, $.currentValue, depName],
 
     " +%s *: +%s@%s%s" % [$.wrapQuote("name"), depName, prefix, $.currentValue],
     " +%s *: +'%s@%s%s'" % [$.wrapQuote("name"), depName, prefix, $.currentValue],
     " +%s *: +\"%s@%s%s\"" % [$.wrapQuote("name"), depName, prefix, $.currentValue],
+  ],
+
+  aquaPackageDigestMatchStrings(depName, prefix):: [
+    " +%s *: +%s +# +renovate: +tag=%s%s +depName=%s[ \\n]" % [$.wrapQuote("version"), $.currentDigest, prefix, $.currentValue, depName],
+    " +%s *: +'%s' +# +renovate: +tag=%s%s +depName=%s[ \\n]" % [$.wrapQuote("version"), $.currentDigest, prefix, $.currentValue, depName],
+    " +%s *: +\"%s\" +# +renovate: +tag=%s%s +depName=%s[ \\n]" % [$.wrapQuote("version"), $.currentDigest, prefix, $.currentValue, depName],
+
+    " +%s *: +%s@%s +# +renovate: +tag=%s%s" % [$.wrapQuote("name"), depName, $.currentDigest, prefix, $.currentValue],
+    " +%s *: +'%s@%s' +# +renovate: +tag=%s%s" % [$.wrapQuote("name"), depName, $.currentDigest, prefix, $.currentValue],
+    " +%s *: +\"%s@%s\" +# +renovate: +tag=%s%s" % [$.wrapQuote("name"), depName, $.currentDigest, prefix, $.currentValue],
   ],
 
   // GitHub User and Organization name doesn't include periods.
@@ -43,18 +63,28 @@
   registryRegexManager: {
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
-      " +%s *: +%s +# renovate: depName=%s" % [$.wrapQuote("ref"), $.currentValue, $.depName],
-      " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote("ref"), $.currentValue, $.depName],
-      " +%s *: +\"%s\" +# renovate: depName=%s" % [$.wrapQuote("ref"), $.currentValue, $.depName],
+      " +%s *: +%s +# +renovate: +depName=%s" % [$.wrapQuote("ref"), $.currentValue, $.depName],
+      " +%s *: +'%s' +# +renovate: +depName=%s" % [$.wrapQuote("ref"), $.currentValue, $.depName],
+      " +%s *: +\"%s\" +# +renovate: +depName=%s" % [$.wrapQuote("ref"), $.currentValue, $.depName],
     ],
     datasourceTemplate: "github-releases",
   },
+  registryDigestRegexManager: {
+    fileMatch: $.aquaYAMLFileMatch,
+    matchStrings: [
+      " +%s *: +%s +# +renovate: +tag=%s +depName=%s" % [$.wrapQuote("ref"), $.currentDigest, $.currentValue, $.depName],
+      " +%s *: +'%s' +# +renovate: +tag=%s +depName=%s" % [$.wrapQuote("ref"), $.currentDigest, $.currentValue, $.depName],
+      " +%s *: +\"%s\" +# +renovate: +tag=%s +depName=%s" % [$.wrapQuote("ref"), $.currentDigest, $.currentValue, $.depName],
+    ],
+    datasourceTemplate: "github-tags",
+  },
+
   packageRegexManager: {
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
-      " +%s *: +%s +# renovate: depName=%s" % [$.wrapQuote("version"), $.currentValue, $.depName],
-      " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote("version"), $.currentValue, $.depName],
-      " +%s *: +\"%s\" +# renovate: depName=%s" % [$.wrapQuote("version"), $.currentValue, $.depName],
+      " +%s *: +%s +# +renovate: +depName=%s" % [$.wrapQuote("version"), $.currentValue, $.depName],
+      " +%s *: +'%s' +# +renovate: +depName=%s" % [$.wrapQuote("version"), $.currentValue, $.depName],
+      " +%s *: +\"%s\" +# +renovate: +depName=%s" % [$.wrapQuote("version"), $.currentValue, $.depName],
 
       " +%s *: +%s@%s" % [$.wrapQuote("name"), $.depName, $.currentValue],
       " +%s *: +'%s@%s'" % [$.wrapQuote("name"), $.depName, $.currentValue],
@@ -62,12 +92,25 @@
     ],
     datasourceTemplate: "github-releases",
   },
+  packageDigestRegexManager: {
+    fileMatch: $.aquaYAMLFileMatch,
+    matchStrings: [
+      " +%s *: +%s +# +renovate: +tag=%s +depName=%s" % [$.wrapQuote("version"), $.currentDigest, $.currentValue, $.depName],
+      " +%s *: +'%s' +# +renovate: +tag=%s +depName=%s" % [$.wrapQuote("version"), $.currentDigest, $.currentValue, $.depName],
+      " +%s *: +\"%s\" +# +renovate: +tag=%s +depName=%s" % [$.wrapQuote("version"), $.currentDigest, $.currentValue, $.depName],
+
+      " +%s *: +%s@%s +# +renovate: +tag=%s" % [$.wrapQuote("name"), $.depName, $.currentDigest, $.currentValue],
+      " +%s *: +'%s@%s' +# +renovate: +tag=%s" % [$.wrapQuote("name"), $.depName, $.currentDigest, $.currentValue],
+      " +%s *: +\"%s@%s\" +# +renovate: +tag=%s" % [$.wrapQuote("name"), $.depName, $.currentDigest, $.currentValue],
+    ],
+    datasourceTemplate: "github-tags",
+  },
   goPkg: {
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
-      " +%s *: +%s +# renovate: depName=%s" % [$.wrapQuote("version"), $.currentValue, $.goModuleDepName],
-      " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote("version"), $.currentValue, $.goModuleDepName],
-      " +%s *: +\"%s\" +# renovate: depName=%s" % [$.wrapQuote("version"), $.currentValue, $.goModuleDepName],
+      " +%s *: +%s +# +renovate: depName=%s" % [$.wrapQuote("version"), $.currentValue, $.goModuleDepName],
+      " +%s *: +'%s' +# +renovate: depName=%s" % [$.wrapQuote("version"), $.currentValue, $.goModuleDepName],
+      " +%s *: +\"%s\" +# +renovate: depName=%s" % [$.wrapQuote("version"), $.currentValue, $.goModuleDepName],
 
       " +%s *: +%s@%s" % [$.wrapQuote("name"), $.goModuleDepName, $.currentValue],
       " +%s *: +'%s@%s'" % [$.wrapQuote("name"), $.goModuleDepName, $.currentValue],
@@ -108,7 +151,9 @@
   ],
   pkgManagers: [
     $.packageRegexManager,
+    $.packageDigestRegexManager,
     $.registryRegexManager,
+    $.registryDigestRegexManager,
     $.goPkg,
     $.prefixRegexManager("oven-sh/bun", "bun-"),
     $.golangGo,

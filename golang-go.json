@@ -8,9 +8,9 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +(go)?(?<currentValue>[^'\" \\n]+) +# renovate: depName=golang/go[ \\n]",
-            " +(?:version|'version'|\"version\") *: +'(go)?(?<currentValue>[^'\" \\n]+)' +# renovate: depName=golang/go[ \\n]",
-            " +(?:version|'version'|\"version\") *: +\"(go)?(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=golang/go[ \\n]",
+            " +(?:version|'version'|\"version\") *: +(go)?(?<currentValue>[^'\" \\n]+) +# +renovate: +depName=golang/go[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'(go)?(?<currentValue>[^'\" \\n]+)' +# +renovate: +depName=golang/go[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"(go)?(?<currentValue>[^'\" \\n]+)\" +# +renovate: +depName=golang/go[ \\n]",
             " +(?:name|'name'|\"name\") *: +golang/go@(go)?(?<currentValue>[^'\" \\n]+)",
             " +(?:name|'name'|\"name\") *: +'golang/go@(go)?(?<currentValue>[^'\" \\n]+)'",
             " +(?:name|'name'|\"name\") *: +\"golang/go@(go)?(?<currentValue>[^'\" \\n]+)\""
