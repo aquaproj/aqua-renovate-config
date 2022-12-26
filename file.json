@@ -6,8 +6,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
-            " +(?:name|'name'|\"name\") *: +['\"]?(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)@(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+            " +(?:name|'name'|\"name\") *: +(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)@(?<currentValue>[^'\" \\n]+)\""
          ]
       },
       {
@@ -16,7 +20,9 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:ref|'ref'|\"ref\") *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)"
+            " +(?:ref|'ref'|\"ref\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+            " +(?:ref|'ref'|\"ref\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+            " +(?:ref|'ref'|\"ref\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)"
          ]
       },
       {
@@ -25,8 +31,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=(?<depName>[^\\n]+\\.[^\\n]+)",
-            " +(?:name|'name'|\"name\") *: +['\"]?(?<depName>[^\\n]+\\.[^\\n]+)@(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>[^\\n]+\\.[^\\n]+)",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>[^\\n]+\\.[^\\n]+)",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>[^\\n]+\\.[^\\n]+)",
+            " +(?:name|'name'|\"name\") *: +(?<depName>[^\\n]+\\.[^\\n]+)@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'(?<depName>[^\\n]+\\.[^\\n]+)@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"(?<depName>[^\\n]+\\.[^\\n]+)@(?<currentValue>[^'\" \\n]+)\""
          ]
       },
       {
@@ -37,8 +47,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?bun-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=oven-sh/bun[ \\n]",
-            " +(?:name|'name'|\"name\") *: +['\"]?oven-sh/bun@bun-(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +(?:version|'version'|\"version\") *: +bun-(?<currentValue>[^'\" \\n]+) +# renovate: depName=oven-sh/bun[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'bun-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=oven-sh/bun[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"bun-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=oven-sh/bun[ \\n]",
+            " +(?:name|'name'|\"name\") *: +oven-sh/bun@bun-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'oven-sh/bun@bun-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"oven-sh/bun@bun-(?<currentValue>[^'\" \\n]+)\""
          ]
       },
       {
@@ -49,8 +63,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?(go)?(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=golang/go[ \\n]",
-            " +(?:name|'name'|\"name\") *: +['\"]?golang/go@(go)?(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +(?:version|'version'|\"version\") *: +(go)?(?<currentValue>[^'\" \\n]+) +# renovate: depName=golang/go[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'(go)?(?<currentValue>[^'\" \\n]+)' +# renovate: depName=golang/go[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"(go)?(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=golang/go[ \\n]",
+            " +(?:name|'name'|\"name\") *: +golang/go@(go)?(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'golang/go@(go)?(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"golang/go@(go)?(?<currentValue>[^'\" \\n]+)\""
          ]
       },
       {
@@ -61,8 +79,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?gopls/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=golang/tools/gopls[ \\n]",
-            " +(?:name|'name'|\"name\") *: +['\"]?golang/tools/gopls@gopls/(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +(?:version|'version'|\"version\") *: +gopls/(?<currentValue>[^'\" \\n]+) +# renovate: depName=golang/tools/gopls[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'gopls/(?<currentValue>[^'\" \\n]+)' +# renovate: depName=golang/tools/gopls[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"gopls/(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=golang/tools/gopls[ \\n]",
+            " +(?:name|'name'|\"name\") *: +golang/tools/gopls@gopls/(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'golang/tools/gopls@gopls/(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"golang/tools/gopls@gopls/(?<currentValue>[^'\" \\n]+)\""
          ],
          "packageNameTemplate": "golang/tools"
       },
@@ -74,8 +96,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?ipinfo-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli[ \\n]",
-            " +(?:name|'name'|\"name\") *: +['\"]?ipinfo/cli@ipinfo-(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +(?:version|'version'|\"version\") *: +ipinfo-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'ipinfo-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=ipinfo/cli[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"ipinfo-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=ipinfo/cli[ \\n]",
+            " +(?:name|'name'|\"name\") *: +ipinfo/cli@ipinfo-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'ipinfo/cli@ipinfo-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"ipinfo/cli@ipinfo-(?<currentValue>[^'\" \\n]+)\""
          ]
       },
       {
@@ -86,8 +112,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?cidr2ip-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/cidr2ip[ \\n]",
-            " +(?:name|'name'|\"name\") *: +['\"]?ipinfo/cli/cidr2ip@cidr2ip-(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +(?:version|'version'|\"version\") *: +cidr2ip-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/cidr2ip[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'cidr2ip-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=ipinfo/cli/cidr2ip[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"cidr2ip-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=ipinfo/cli/cidr2ip[ \\n]",
+            " +(?:name|'name'|\"name\") *: +ipinfo/cli/cidr2ip@cidr2ip-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'ipinfo/cli/cidr2ip@cidr2ip-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"ipinfo/cli/cidr2ip@cidr2ip-(?<currentValue>[^'\" \\n]+)\""
          ],
          "packageNameTemplate": "ipinfo/cli"
       },
@@ -99,8 +129,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?cidr2range-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/cidr2range[ \\n]",
-            " +(?:name|'name'|\"name\") *: +['\"]?ipinfo/cli/cidr2range@cidr2range-(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +(?:version|'version'|\"version\") *: +cidr2range-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/cidr2range[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'cidr2range-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=ipinfo/cli/cidr2range[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"cidr2range-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=ipinfo/cli/cidr2range[ \\n]",
+            " +(?:name|'name'|\"name\") *: +ipinfo/cli/cidr2range@cidr2range-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'ipinfo/cli/cidr2range@cidr2range-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"ipinfo/cli/cidr2range@cidr2range-(?<currentValue>[^'\" \\n]+)\""
          ],
          "packageNameTemplate": "ipinfo/cli"
       },
@@ -112,8 +146,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?range2cidr-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/range2cidr[ \\n]",
-            " +(?:name|'name'|\"name\") *: +['\"]?ipinfo/cli/range2cidr@range2cidr-(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +(?:version|'version'|\"version\") *: +range2cidr-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/range2cidr[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'range2cidr-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=ipinfo/cli/range2cidr[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"range2cidr-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=ipinfo/cli/range2cidr[ \\n]",
+            " +(?:name|'name'|\"name\") *: +ipinfo/cli/range2cidr@range2cidr-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'ipinfo/cli/range2cidr@range2cidr-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"ipinfo/cli/range2cidr@range2cidr-(?<currentValue>[^'\" \\n]+)\""
          ],
          "packageNameTemplate": "ipinfo/cli"
       },
@@ -125,8 +163,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?prips-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/prips[ \\n]",
-            " +(?:name|'name'|\"name\") *: +['\"]?ipinfo/cli/prips@prips-(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +(?:version|'version'|\"version\") *: +prips-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/prips[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'prips-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=ipinfo/cli/prips[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"prips-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=ipinfo/cli/prips[ \\n]",
+            " +(?:name|'name'|\"name\") *: +ipinfo/cli/prips@prips-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'ipinfo/cli/prips@prips-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"ipinfo/cli/prips@prips-(?<currentValue>[^'\" \\n]+)\""
          ],
          "packageNameTemplate": "ipinfo/cli"
       },
@@ -138,8 +180,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?splitcidr-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/splitcidr[ \\n]",
-            " +(?:name|'name'|\"name\") *: +['\"]?ipinfo/cli/splitcidr@splitcidr-(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +(?:version|'version'|\"version\") *: +splitcidr-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/splitcidr[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'splitcidr-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=ipinfo/cli/splitcidr[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"splitcidr-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=ipinfo/cli/splitcidr[ \\n]",
+            " +(?:name|'name'|\"name\") *: +ipinfo/cli/splitcidr@splitcidr-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'ipinfo/cli/splitcidr@splitcidr-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"ipinfo/cli/splitcidr@splitcidr-(?<currentValue>[^'\" \\n]+)\""
          ],
          "packageNameTemplate": "ipinfo/cli"
       },
@@ -151,8 +197,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?randip-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/randip[ \\n]",
-            " +(?:name|'name'|\"name\") *: +['\"]?ipinfo/cli/randip@randip-(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +(?:version|'version'|\"version\") *: +randip-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/randip[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'randip-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=ipinfo/cli/randip[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"randip-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=ipinfo/cli/randip[ \\n]",
+            " +(?:name|'name'|\"name\") *: +ipinfo/cli/randip@randip-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'ipinfo/cli/randip@randip-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"ipinfo/cli/randip@randip-(?<currentValue>[^'\" \\n]+)\""
          ],
          "packageNameTemplate": "ipinfo/cli"
       },
@@ -164,8 +214,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?grepip-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/grepip[ \\n]",
-            " +(?:name|'name'|\"name\") *: +['\"]?ipinfo/cli/grepip@grepip-(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +(?:version|'version'|\"version\") *: +grepip-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/grepip[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'grepip-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=ipinfo/cli/grepip[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"grepip-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=ipinfo/cli/grepip[ \\n]",
+            " +(?:name|'name'|\"name\") *: +ipinfo/cli/grepip@grepip-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'ipinfo/cli/grepip@grepip-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"ipinfo/cli/grepip@grepip-(?<currentValue>[^'\" \\n]+)\""
          ],
          "packageNameTemplate": "ipinfo/cli"
       },
@@ -177,8 +231,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?range2ip-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=ipinfo/cli/range2ip[ \\n]",
-            " +(?:name|'name'|\"name\") *: +['\"]?ipinfo/cli/range2ip@range2ip-(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +(?:version|'version'|\"version\") *: +range2ip-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/range2ip[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'range2ip-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=ipinfo/cli/range2ip[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"range2ip-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=ipinfo/cli/range2ip[ \\n]",
+            " +(?:name|'name'|\"name\") *: +ipinfo/cli/range2ip@range2ip-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'ipinfo/cli/range2ip@range2ip-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"ipinfo/cli/range2ip@range2ip-(?<currentValue>[^'\" \\n]+)\""
          ],
          "packageNameTemplate": "ipinfo/cli"
       },
@@ -189,8 +247,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=kubernetes/kubectl-convert[ \\n]",
-            " +(?:name|'name'|\"name\") *: +['\"]?kubernetes/kubectl-convert@(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=kubernetes/kubectl-convert[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=kubernetes/kubectl-convert[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=kubernetes/kubectl-convert[ \\n]",
+            " +(?:name|'name'|\"name\") *: +kubernetes/kubectl-convert@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'kubernetes/kubectl-convert@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"kubernetes/kubectl-convert@(?<currentValue>[^'\" \\n]+)\""
          ],
          "packageNameTemplate": "kubernetes/kubernetes"
       },
@@ -202,8 +264,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?v(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=kubernetes/kubectl[ \\n]",
-            " +(?:name|'name'|\"name\") *: +['\"]?kubernetes/kubectl@v(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +(?:version|'version'|\"version\") *: +v(?<currentValue>[^'\" \\n]+) +# renovate: depName=kubernetes/kubectl[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'v(?<currentValue>[^'\" \\n]+)' +# renovate: depName=kubernetes/kubectl[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"v(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=kubernetes/kubectl[ \\n]",
+            " +(?:name|'name'|\"name\") *: +kubernetes/kubectl@v(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'kubernetes/kubectl@v(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"kubernetes/kubectl@v(?<currentValue>[^'\" \\n]+)\""
          ]
       },
       {
@@ -214,8 +280,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?kustomize/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=kubernetes-sigs/kustomize[ \\n]",
-            " +(?:name|'name'|\"name\") *: +['\"]?kubernetes-sigs/kustomize@kustomize/(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +(?:version|'version'|\"version\") *: +kustomize/(?<currentValue>[^'\" \\n]+) +# renovate: depName=kubernetes-sigs/kustomize[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'kustomize/(?<currentValue>[^'\" \\n]+)' +# renovate: depName=kubernetes-sigs/kustomize[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"kustomize/(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=kubernetes-sigs/kustomize[ \\n]",
+            " +(?:name|'name'|\"name\") *: +kubernetes-sigs/kustomize@kustomize/(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'kubernetes-sigs/kustomize@kustomize/(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"kubernetes-sigs/kustomize@kustomize/(?<currentValue>[^'\" \\n]+)\""
          ]
       },
       {
@@ -226,8 +296,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?atlascli/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=mongodb/mongodb-atlas-cli/atlascli[ \\n]",
-            " +(?:name|'name'|\"name\") *: +['\"]?mongodb/mongodb-atlas-cli/atlascli@atlascli/(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +(?:version|'version'|\"version\") *: +atlascli/(?<currentValue>[^'\" \\n]+) +# renovate: depName=mongodb/mongodb-atlas-cli/atlascli[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'atlascli/(?<currentValue>[^'\" \\n]+)' +# renovate: depName=mongodb/mongodb-atlas-cli/atlascli[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"atlascli/(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=mongodb/mongodb-atlas-cli/atlascli[ \\n]",
+            " +(?:name|'name'|\"name\") *: +mongodb/mongodb-atlas-cli/atlascli@atlascli/(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'mongodb/mongodb-atlas-cli/atlascli@atlascli/(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"mongodb/mongodb-atlas-cli/atlascli@atlascli/(?<currentValue>[^'\" \\n]+)\""
          ],
          "packageNameTemplate": "mongodb/mongodb-atlas-cli"
       },
@@ -239,8 +313,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?gping-(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=orf/gping[ \\n]",
-            " +(?:name|'name'|\"name\") *: +['\"]?orf/gping@gping-(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +(?:version|'version'|\"version\") *: +gping-(?<currentValue>[^'\" \\n]+) +# renovate: depName=orf/gping[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'gping-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=orf/gping[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"gping-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=orf/gping[ \\n]",
+            " +(?:name|'name'|\"name\") *: +orf/gping@gping-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'orf/gping@gping-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"orf/gping@gping-(?<currentValue>[^'\" \\n]+)\""
          ]
       },
       {
@@ -251,8 +329,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +['\"]?cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)['\"]? +# renovate: depName=grpc/grpc-go/protoc-gen-go-grpc[ \\n]",
-            " +(?:name|'name'|\"name\") *: +['\"]?grpc/grpc-go/protoc-gen-go-grpc@cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)['\"]?"
+            " +(?:version|'version'|\"version\") *: +cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+) +# renovate: depName=grpc/grpc-go/protoc-gen-go-grpc[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)' +# renovate: depName=grpc/grpc-go/protoc-gen-go-grpc[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=grpc/grpc-go/protoc-gen-go-grpc[ \\n]",
+            " +(?:name|'name'|\"name\") *: +grpc/grpc-go/protoc-gen-go-grpc@cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'grpc/grpc-go/protoc-gen-go-grpc@cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"grpc/grpc-go/protoc-gen-go-grpc@cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)\""
          ],
          "packageNameTemplate": "grpc/grpc-go"
       }
