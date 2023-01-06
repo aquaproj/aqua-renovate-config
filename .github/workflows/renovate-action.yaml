@@ -1,4 +1,5 @@
 name: Validate action.json
+permissions: {}
 
 on:
   pull_request:

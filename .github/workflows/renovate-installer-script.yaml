@@ -1,4 +1,5 @@
 name: Validate installer-script.json
+permissions: {}
 
 on:
   pull_request:

@@ -1,4 +1,5 @@
 name: Validate renovate.json5
+permissions: {}
 
 on:
   pull_request:

@@ -1,4 +1,5 @@
 name: Validate kubernetes-kubectl.json
+permissions: {}
 
 on:
   pull_request:

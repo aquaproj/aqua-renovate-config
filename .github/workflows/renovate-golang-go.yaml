@@ -1,4 +1,5 @@
 name: Validate golang-go.json
+permissions: {}
 
 on:
   pull_request:

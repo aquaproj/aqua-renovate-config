@@ -1,5 +1,6 @@
 ---
 name: actionlint
+permissions: {}
 on:
   push:
     branches: [main]

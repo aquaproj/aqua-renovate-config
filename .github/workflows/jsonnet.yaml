@@ -1,5 +1,6 @@
 ---
 name: jsonnet
+permissions: {}
 on:
   pull_request:
     branches: [main]
