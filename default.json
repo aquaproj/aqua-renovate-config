@@ -12,10 +12,10 @@
             "twistedpair/google-cloud-sdk"
          ],
          "matchPaths": [
-            ".aqua.yaml",
-            ".aqua.yml",
-            "aqua.yaml",
-            "aqua.yml"
+            "**/.aqua.yaml",
+            "**/.aqua.yml",
+            "**/aqua.yaml",
+            "**/aqua.yml"
          ]
       },
       {
@@ -24,10 +24,10 @@
             "github-tags"
          ],
          "matchPaths": [
-            ".aqua.yaml",
-            ".aqua.yml",
-            "aqua.yaml",
-            "aqua.yml"
+            "**/.aqua.yaml",
+            "**/.aqua.yml",
+            "**/aqua.yaml",
+            "**/aqua.yml"
          ]
       },
       {
@@ -42,10 +42,10 @@
             "twistedpair/google-cloud-sdk"
          ],
          "matchPaths": [
-            ".aqua.yaml",
-            ".aqua.yml",
-            "aqua.yaml",
-            "aqua.yml"
+            "**/.aqua.yaml",
+            "**/.aqua.yml",
+            "**/aqua.yaml",
+            "**/aqua.yml"
          ]
       }
    ],

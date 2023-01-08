@@ -1,9 +1,9 @@
 {
   aquaYAMLMatchPaths: [
-    ".aqua.yaml",
-    ".aqua.yml",
-    "aqua.yaml",
-    "aqua.yml"
+    "**/.aqua.yaml",
+    "**/.aqua.yml",
+    "**/aqua.yaml",
+    "**/aqua.yml"
   ],
   githubTagsPackages: [
     "golang/go",
