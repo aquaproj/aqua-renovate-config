@@ -69,7 +69,8 @@
             " +(?:name|'name'|\"name\") *: +golang/go@(go)?(?<currentValue>[^'\" \\n]+)",
             " +(?:name|'name'|\"name\") *: +'golang/go@(go)?(?<currentValue>[^'\" \\n]+)'",
             " +(?:name|'name'|\"name\") *: +\"golang/go@(go)?(?<currentValue>[^'\" \\n]+)\""
-         ]
+         ],
+         "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?$"
       },
       {
          "datasourceTemplate": "github-releases",
