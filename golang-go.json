@@ -1,4 +1,12 @@
 {
+   "packageRules": [
+      {
+         "matchPackageNames": [
+            "golang/go"
+         ],
+         "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?$"
+      }
+   ],
    "regexManagers": [
       {
          "datasourceTemplate": "github-tags",
