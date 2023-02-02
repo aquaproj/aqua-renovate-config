@@ -86,10 +86,18 @@
     extractVersionTemplate: "^kubernetes-(?<version>.*)$",
     datasourceTemplate: "github-tags",
   },
-  golangGo: $.prefixRegexManager("golang/go", "(go)?") + {
-    extractVersionTemplate: "^go(?<version>.*)$",
-    datasourceTemplate: "github-tags",
-    versioningTemplate: "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?$",
+  golangGo: {
+    packageRule: {
+      matchManagers: ["regex"],
+      matchPaths: $.aquaYAMLMatchPaths,
+      matchPackageNames: ["golang/go"],
+      separateMinorPatch: true, // Update x.y to x.y.z
+    },
+    regexManager: $.prefixRegexManager("golang/go", "(go)?") + {
+      extractVersionTemplate: "^go(?<version>.*)$",
+      datasourceTemplate: "github-tags",
+      versioningTemplate: "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?$",
+    },
   },
   gopls: $.prefixRegexManager("golang/tools/gopls", "gopls/") + {
     packageNameTemplate: "golang/tools",
@@ -112,7 +120,7 @@
     $.registryRegexManager,
     $.goPkg,
     $.prefixRegexManager("oven-sh/bun", "bun-"),
-    $.golangGo,
+    $.golangGo.regexManager,
     $.gopls,
     $.prefixRegexManager("ipinfo/cli", "ipinfo-"),
     $.ipinfo("cidr2ip"),

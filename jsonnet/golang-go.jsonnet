@@ -2,6 +2,6 @@ local utils = import 'utils.libsonnet';
 
 {
   regexManagers: [
-    utils.golangGo + utils.argFileMatch,
+    utils.golangGo.regexManager + utils.argFileMatch,
   ],
 }

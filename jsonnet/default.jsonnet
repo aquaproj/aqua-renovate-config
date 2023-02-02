@@ -22,9 +22,10 @@ local utils = import 'utils.libsonnet';
       matchPaths: utils.aquaYAMLMatchPaths,
       matchDatasources: ["github-tags"],
       enabled: true,
-    }
+    },
+    utils.golangGo.packageRule,
   ],
-  "regexManagers": [
+  regexManagers: [
     {
       // Update aqua-installer action
       fileMatch: ["^\\.github/.*\\.ya?ml$"],

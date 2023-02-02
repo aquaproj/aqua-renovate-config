@@ -47,6 +47,21 @@
             "**/aqua.yaml",
             "**/aqua.yml"
          ]
+      },
+      {
+         "matchManagers": [
+            "regex"
+         ],
+         "matchPackageNames": [
+            "golang/go"
+         ],
+         "matchPaths": [
+            "**/.aqua.yaml",
+            "**/.aqua.yml",
+            "**/aqua.yaml",
+            "**/aqua.yml"
+         ],
+         "separateMinorPatch": true
       }
    ],
    "regexManagers": [
