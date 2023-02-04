@@ -103,6 +103,7 @@ jobs:
       - validate-presets
       - renovate-config-validator
       - ghalint
+      - jsonnet
     permissions: {}
     if: failure()
     steps:
@@ -124,3 +125,20 @@ jobs:
       - run: ghalint run
         env:
           GHALINT_LOG_COLOR: always
+
+  jsonnet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+      - uses: aquaproj/aqua-installer@61e2563dfe7674cbf74fe6ec212e444198a3bb00 # v2.0.2
+        with:
+          aqua_version: v1.32.3
+      - run: jsonnet --version
+      - run: |
+          bash scripts/generate.sh
+          git add .
+          if ! git diff --cached --exit-code; then
+            echo "Please run 'bash scripts/generate.sh'" >&2
+            echo "::error title=Please run 'bash scripts/generate.sh'::"
+            exit 1
+          fi
