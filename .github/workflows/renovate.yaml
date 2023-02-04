@@ -1,22 +1,24 @@
-name: Validate renovate.json5
+name: Validate renovate config
 permissions: {}
 
 on:
   pull_request:
     branches:
       - main
-    paths:
-      - renovate.json5
-      - .github/workflows/renovate.yaml
-  push:
-    branches:
-      - main
-    paths:
-      - renovate.json5
-      - .github/workflows/renovate.yaml
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
-      - uses: suzuki-shunsuke/github-action-renovate-config-validator@7ab3d8f19305664925f3e626580f075f14e40386 # v0.1.2
+      - uses: aquaproj/aqua-installer@61e2563dfe7674cbf74fe6ec212e444198a3bb00 # v2.0.2
+        with:
+          aqua_version: v1.32.3
+      - run: ci-info run | sed "s/^export //" >> "$GITHUB_ENV"
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - run: |
+          grep -E "^[^/]+\.json$" "$CI_INFO_TEMP_DIR/pr_all_filenames.txt" | while read -r file; do
+            if [ -f "$file" ]; then
+              RENOVATE_CONFIG_FILE="$file" npx --package renovate -c renovate-config-validator
+            fi
+          done
