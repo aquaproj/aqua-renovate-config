@@ -89,6 +89,7 @@
   golangGo: $.prefixRegexManager("golang/go", "(go)?") + {
     extractVersionTemplate: "^go(?<version>.*)$",
     datasourceTemplate: "github-tags",
+    versioningTemplate: "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?$",
   },
   gopls: $.prefixRegexManager("golang/tools/gopls", "gopls/") + {
     packageNameTemplate: "golang/tools",
