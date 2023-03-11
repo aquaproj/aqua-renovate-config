@@ -82,7 +82,7 @@ The default preset updates GitHub Actions [aquaproj/aqua-installer](https://gith
 You can specify the file path aqua.yaml.
 This is especially useful when you split the list of packages.
 
-https://aquaproj.github.io/docs/tutorial-extras/split-config
+https://aquaproj.github.io/docs/guides/split-config
 
 ```json
 {
