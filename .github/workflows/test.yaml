@@ -41,7 +41,7 @@ jobs:
       contents: read
     with:
       aqua_policy_config: aqua-policy.yaml
-      aqua_version: v2.3.6
+      aqua_version: v2.6.0
       prune: true
     secrets:
       gh_app_id: ${{secrets.APP_ID}}
@@ -83,7 +83,7 @@ jobs:
       - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
       - uses: aquaproj/aqua-installer@294926f94b4233f202a2f03875c604f840cfed70 # v2.1.1
         with:
-          aqua_version: v2.3.6
+          aqua_version: v2.6.0
       - run: ci-info run | sed "s/^export //" >> "$GITHUB_ENV"
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -119,7 +119,7 @@ jobs:
       - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
       - uses: aquaproj/aqua-installer@294926f94b4233f202a2f03875c604f840cfed70 # v2.1.1
         with:
-          aqua_version: v2.3.6
+          aqua_version: v2.6.0
         env:
           AQUA_GITHUB_TOKEN: ${{github.token}}
       - run: ghalint run
@@ -132,7 +132,7 @@ jobs:
       - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
       - uses: aquaproj/aqua-installer@294926f94b4233f202a2f03875c604f840cfed70 # v2.1.1
         with:
-          aqua_version: v2.3.6
+          aqua_version: v2.6.0
       - run: jsonnet --version
       - run: |
           bash scripts/generate.sh
