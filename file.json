@@ -51,7 +51,8 @@
             " +(?:name|'name'|\"name\") *: +crates\\.io/(?<depName>[^\\n]+)@(?<currentValue>[^'\" \\n]+)",
             " +(?:name|'name'|\"name\") *: +'crates\\.io/(?<depName>[^\\n]+)@(?<currentValue>[^'\" \\n]+)'",
             " +(?:name|'name'|\"name\") *: +\"crates\\.io/(?<depName>[^\\n]+)@(?<currentValue>[^'\" \\n]+)\""
-         ]
+         ],
+         "versioningTemplate": "semver"
       },
       {
          "datasourceTemplate": "github-releases",

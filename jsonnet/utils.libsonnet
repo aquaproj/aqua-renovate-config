@@ -88,6 +88,10 @@
       ' +%s *: +"%s@%s"' % [$.wrapQuote('name'), $.crateDepName, $.currentValue],
     ],
     datasourceTemplate: 'crate',
+
+    // https://docs.renovatebot.com/modules/versioning/#cargo-versioning
+    // The default is 'cargo`, but 'cargo' didnt't update skim 0.10.1 to 0.10.4, so we use 'semver'.
+    versioningTemplate: 'semver',
   },
   kubectlConvert: {
     datasourceTemplate: 'github-releases',
