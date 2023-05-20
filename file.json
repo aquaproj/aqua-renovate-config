@@ -31,12 +31,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>(?!crates\\.io/)[^\\n]+\\.[^\\n]+)",
-            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>(?!crates\\.io/)[^\\n]+\\.[^\\n]+)",
-            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>(?!crates\\.io/)[^\\n]+\\.[^\\n]+)",
-            " +(?:name|'name'|\"name\") *: +(?<depName>(?!crates\\.io/)[^\\n]+\\.[^\\n]+)@(?<currentValue>[^'\" \\n]+)",
-            " +(?:name|'name'|\"name\") *: +'(?<depName>(?!crates\\.io/)[^\\n]+\\.[^\\n]+)@(?<currentValue>[^'\" \\n]+)'",
-            " +(?:name|'name'|\"name\") *: +\"(?<depName>(?!crates\\.io/)[^\\n]+\\.[^\\n]+)@(?<currentValue>[^'\" \\n]+)\""
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>golang\\.org/[^\\n]+\\.[^\\n]+)",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>golang\\.org/[^\\n]+\\.[^\\n]+)",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>golang\\.org/[^\\n]+\\.[^\\n]+)",
+            " +(?:name|'name'|\"name\") *: +(?<depName>golang\\.org/[^\\n]+\\.[^\\n]+)@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'(?<depName>golang\\.org/[^\\n]+\\.[^\\n]+)@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"(?<depName>golang\\.org/[^\\n]+\\.[^\\n]+)@(?<currentValue>[^'\" \\n]+)\""
          ]
       },
       {
