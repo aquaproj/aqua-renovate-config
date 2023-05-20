@@ -37,8 +37,8 @@
 
   // GitHub User and Organization name doesn't include periods.
   depName: "(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
-  // Go Module Name includes a period.
-  goModuleDepName: '(?<depName>[^\\n]+\\.[^\\n]+)',
+  goModuleDepName: '(?<depName>golang\\.org/[^\\n]+)',
+  crateDepName: 'crates\\.io/(?<depName>[^\\n]+)',
 
   registryRegexManager: {
     fileMatch: $.aquaYAMLFileMatch,
@@ -74,6 +74,23 @@
       ' +%s *: +"%s@%s"' % [$.wrapQuote('name'), $.goModuleDepName, $.currentValue],
     ],
     datasourceTemplate: 'go',
+  },
+  cratePkg: {
+    fileMatch: $.aquaYAMLFileMatch,
+    matchStrings: [
+      ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.crateDepName],
+      " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.crateDepName],
+      ' +%s *: +"%s" +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.crateDepName],
+
+      ' +%s *: +%s@%s' % [$.wrapQuote('name'), $.crateDepName, $.currentValue],
+      " +%s *: +'%s@%s'" % [$.wrapQuote('name'), $.crateDepName, $.currentValue],
+      ' +%s *: +"%s@%s"' % [$.wrapQuote('name'), $.crateDepName, $.currentValue],
+    ],
+    datasourceTemplate: 'crate',
+
+    // https://docs.renovatebot.com/modules/versioning/#cargo-versioning
+    // The default is 'cargo`, but 'cargo' didnt't update skim 0.10.1 to 0.10.4, so we use 'semver'.
+    versioningTemplate: 'semver',
   },
   kubectlConvert: {
     datasourceTemplate: 'github-releases',
@@ -111,6 +128,7 @@
     $.packageRegexManager,
     $.registryRegexManager,
     $.goPkg,
+    $.cratePkg,
     $.prefixRegexManager('oven-sh/bun', 'bun-'),
     $.golangGo,
     $.gopls,
