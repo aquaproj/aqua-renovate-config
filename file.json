@@ -45,12 +45,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>crates\\.io/[^\\n]+)",
-            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>crates\\.io/[^\\n]+)",
-            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>crates\\.io/[^\\n]+)",
-            " +(?:name|'name'|\"name\") *: +(?<depName>crates\\.io/[^\\n]+)@(?<currentValue>[^'\" \\n]+)",
-            " +(?:name|'name'|\"name\") *: +'(?<depName>crates\\.io/[^\\n]+)@(?<currentValue>[^'\" \\n]+)'",
-            " +(?:name|'name'|\"name\") *: +\"(?<depName>crates\\.io/[^\\n]+)@(?<currentValue>[^'\" \\n]+)\""
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=crates\\.io/(?<depName>[^\\n]+)",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=crates\\.io/(?<depName>[^\\n]+)",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=crates\\.io/(?<depName>[^\\n]+)",
+            " +(?:name|'name'|\"name\") *: +crates\\.io/(?<depName>[^\\n]+)@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'crates\\.io/(?<depName>[^\\n]+)@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"crates\\.io/(?<depName>[^\\n]+)@(?<currentValue>[^'\" \\n]+)\""
          ]
       },
       {
