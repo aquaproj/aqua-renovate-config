@@ -132,6 +132,20 @@
          ]
       },
       {
+         "datasourceTemplate": "crate",
+         "fileMatch": [
+            "\\.?aqua\\.ya?ml"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>crates\\.io/[^\\n]++)",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>crates\\.io/[^\\n]++)",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>crates\\.io/[^\\n]++)",
+            " +(?:name|'name'|\"name\") *: +(?<depName>crates\\.io/[^\\n]++)@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'(?<depName>crates\\.io/[^\\n]++)@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"(?<depName>crates\\.io/[^\\n]++)@(?<currentValue>[^'\" \\n]+)\""
+         ]
+      },
+      {
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "oven-sh/bun",
          "extractVersionTemplate": "^bun-(?<version>.*)$",

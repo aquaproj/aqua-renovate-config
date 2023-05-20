@@ -76,6 +76,19 @@
     ],
     datasourceTemplate: 'go',
   },
+  cratePkg: {
+    fileMatch: $.aquaYAMLFileMatch,
+    matchStrings: [
+      ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.crateDepName],
+      " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.crateDepName],
+      ' +%s *: +"%s" +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.crateDepName],
+
+      ' +%s *: +%s@%s' % [$.wrapQuote('name'), $.crateDepName, $.currentValue],
+      " +%s *: +'%s@%s'" % [$.wrapQuote('name'), $.crateDepName, $.currentValue],
+      ' +%s *: +"%s@%s"' % [$.wrapQuote('name'), $.crateDepName, $.currentValue],
+    ],
+    datasourceTemplate: 'crate',
+  },
   kubectlConvert: {
     datasourceTemplate: 'github-releases',
     depNameTemplate: 'kubernetes/kubectl-convert',
@@ -112,6 +125,7 @@
     $.packageRegexManager,
     $.registryRegexManager,
     $.goPkg,
+    $.cratePkg,
     $.prefixRegexManager('oven-sh/bun', 'bun-'),
     $.golangGo,
     $.gopls,
