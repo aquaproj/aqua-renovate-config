@@ -37,8 +37,7 @@
 
   // GitHub User and Organization name doesn't include periods.
   depName: "(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
-  // Go Module Name includes a period.
-  goModuleDepName: '(?<depName>golang\\.org/[^\\n]+\\.[^\\n]+)',
+  goModuleDepName: '(?<depName>golang\\.org/[^\\n]+)',
   crateDepName: 'crates\\.io/(?<depName>[^\\n]+)',
 
   registryRegexManager: {
