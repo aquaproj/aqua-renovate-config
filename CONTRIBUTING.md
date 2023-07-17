@@ -6,7 +6,7 @@ Please read the following document.
 
 ## Jsonnet
 
-Our Renovate Config Prisets (`*.json`) are generated from [jsonnet/*.jsonnet](jsonnet) by [google/go-jsonnet](https://github.com/google/go-jsonnet).
+Our Renovate Config Presets (`*.json`) are generated from [jsonnet/*.jsonnet](jsonnet) by [google/go-jsonnet](https://github.com/google/go-jsonnet).
 About Jsonnet, please see [the official document](https://jsonnet.org/).
 
 Please edit `jsonnet/*.jsonnet` and run `scripts/generate.sh`.
