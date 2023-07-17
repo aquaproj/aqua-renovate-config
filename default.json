@@ -64,6 +64,16 @@
       },
       {
          "datasourceTemplate": "github-releases",
+         "depNameTemplate": "aquaproj/aqua",
+         "fileMatch": [
+            "\\.circleci/config\\.ya?ml$"
+         ],
+         "matchStrings": [
+            "- aqua/install-aqua:\\s+version:\\s+(?<currentValue>[^'\" \\n]+)"
+         ]
+      },
+      {
+         "datasourceTemplate": "github-releases",
          "depNameTemplate": "aquaproj/aqua-renovate-config",
          "fileMatch": [
             "^renovate\\.json5?$",
