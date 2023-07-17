@@ -12,7 +12,7 @@ About Jsonnet, please see [the official document](https://jsonnet.org/).
 1. Please install google/go-jsonnet by aqua.
 
 ```sh
-$ aqua i -l
+aqua i -l
 ```
 
 2. Please edit `jsonnet/*.jsonnet` and run `scripts/generate.sh`.
