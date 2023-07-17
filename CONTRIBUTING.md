@@ -9,7 +9,13 @@ Please read the following document.
 Our Renovate Config Presets (`*.json`) are generated from [jsonnet/*.jsonnet](jsonnet) by [google/go-jsonnet](https://github.com/google/go-jsonnet).
 About Jsonnet, please see [the official document](https://jsonnet.org/).
 
-Please edit `jsonnet/*.jsonnet` and run `scripts/generate.sh`.
+1. Please install google/go-jsonnet by aqua.
+
+```sh
+$ aqua i -l
+```
+
+2. Please edit `jsonnet/*.jsonnet` and run `scripts/generate.sh`.
 
 ```sh
 bash scripts/generate.sh
