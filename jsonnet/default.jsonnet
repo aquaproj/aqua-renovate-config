@@ -27,7 +27,10 @@ local utils = import 'utils.libsonnet';
   regexManagers: [
     {
       // Update aqua-installer action
-      fileMatch: ['^\\.github/.*\\.ya?ml$'],
+      fileMatch: [
+        '^\\.github/.*\\.ya?ml$',
+        '^\\.circleci/config\\.yml$',
+      ],
       matchStrings: [
         ' +%s *: +%s' % [utils.wrapQuote('aqua_version'), utils.currentValue],
         " +%s *: +'%s'" % [utils.wrapQuote('aqua_version'), utils.currentValue],
