@@ -28,8 +28,7 @@ local utils = import 'utils.libsonnet';
     {
       // Update aqua-installer action
       fileMatch: [
-        '^\\.github/.*\\.ya?ml$',
-        '^\\.circleci/config\\.yml$',
+        '^\\.github/.*\\.ya?ml$'
       ],
       matchStrings: [
         ' +%s *: +%s' % [utils.wrapQuote('aqua_version'), utils.currentValue],
@@ -38,6 +37,15 @@ local utils = import 'utils.libsonnet';
       ],
       depNameTemplate: 'aquaproj/aqua',
       datasourceTemplate: 'github-releases',
+    },
+    {
+      // Update aqua orb
+      fileMatch: ['^\\.circleci/config\\.ya?ml$'],
+      matchStrings: [
+        '- aqua/aqua:\\s+version:\\s+%s' % [utils.currentValue],
+      ],
+      depNameTemplate: "aquaproj/aqua",
+      datasourceTemplate: "github-releases",
     },
     {
       // Update aqua-renovate-config

@@ -54,13 +54,22 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "aquaproj/aqua",
          "fileMatch": [
-            "^\\.github/.*\\.ya?ml$",
-            "^\\.circleci/config\\.yml$"
+            "^\\.github/.*\\.ya?ml$"
          ],
          "matchStrings": [
             " +(?:aqua_version|'aqua_version'|\"aqua_version\") *: +(?<currentValue>[^'\" \\n]+)",
             " +(?:aqua_version|'aqua_version'|\"aqua_version\") *: +'(?<currentValue>[^'\" \\n]+)'",
             " +(?:aqua_version|'aqua_version'|\"aqua_version\") *: +\"(?<currentValue>[^'\" \\n]+)\""
+         ]
+      },
+      {
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "aquaproj/aqua",
+         "fileMatch": [
+            "^\\.circleci/config\\.ya?ml$"
+         ],
+         "matchStrings": [
+            "- aqua/aqua:\\s+version:\\s+(?<currentValue>[^'\" \\n]+)"
          ]
       },
       {
