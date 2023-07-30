@@ -39,6 +39,7 @@
   depName: "(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
   goModuleDepName: '(?<depName>golang\\.org/[^\\n]+)',
   crateDepName: 'crates\\.io/(?<depName>[^\\n]+)',
+  pipDepName: 'pypi\\.org/(?<depName>[^\\n]+)',
 
   registryRegexManager: {
     fileMatch: $.aquaYAMLFileMatch,
@@ -92,6 +93,19 @@
     // The default is 'cargo`, but 'cargo' didnt't update skim 0.10.1 to 0.10.4, so we use 'semver'.
     versioningTemplate: 'semver',
   },
+  pipPkg: {
+    fileMatch: $.aquaYAMLFileMatch,
+    matchStrings: [
+      ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.pipDepName],
+      " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.pipDepName],
+      ' +%s *: +"%s" +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.pipDepName],
+
+      ' +%s *: +%s@%s' % [$.wrapQuote('name'), $.pipDepName, $.currentValue],
+      " +%s *: +'%s@%s'" % [$.wrapQuote('name'), $.pipDepName, $.currentValue],
+      ' +%s *: +"%s@%s"' % [$.wrapQuote('name'), $.pipDepName, $.currentValue],
+    ],
+    datasourceTemplate: 'pypi',
+  },
   kubectlConvert: {
     datasourceTemplate: 'github-releases',
     depNameTemplate: 'kubernetes/kubectl-convert',
@@ -129,6 +143,7 @@
     $.registryRegexManager,
     $.goPkg,
     $.cratePkg,
+    $.pipPkg,
     $.prefixRegexManager('oven-sh/bun', 'bun-'),
     $.golangGo,
     $.gopls,
