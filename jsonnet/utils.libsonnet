@@ -39,7 +39,7 @@
   depName: "(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
   goModuleDepName: '(?<depName>golang\\.org/[^\\n]+)',
   crateDepName: 'crates\\.io/(?<depName>[^\\n]+)',
-  pipDepName: 'pypi\\.org/(?<depName>[^\\n]+)',
+  pypiDepName: 'pypi\\.org/(?<depName>[^\\n]+)',
 
   registryRegexManager: {
     fileMatch: $.aquaYAMLFileMatch,
@@ -93,16 +93,16 @@
     // The default is 'cargo`, but 'cargo' didnt't update skim 0.10.1 to 0.10.4, so we use 'semver'.
     versioningTemplate: 'semver',
   },
-  pipPkg: {
+  pypiPkg: {
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
-      ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.pipDepName],
-      " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.pipDepName],
-      ' +%s *: +"%s" +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.pipDepName],
+      ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.pypiDepName],
+      " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.pypiDepName],
+      ' +%s *: +"%s" +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.pypiDepName],
 
-      ' +%s *: +%s@%s' % [$.wrapQuote('name'), $.pipDepName, $.currentValue],
-      " +%s *: +'%s@%s'" % [$.wrapQuote('name'), $.pipDepName, $.currentValue],
-      ' +%s *: +"%s@%s"' % [$.wrapQuote('name'), $.pipDepName, $.currentValue],
+      ' +%s *: +%s@%s' % [$.wrapQuote('name'), $.pypiDepName, $.currentValue],
+      " +%s *: +'%s@%s'" % [$.wrapQuote('name'), $.pypiDepName, $.currentValue],
+      ' +%s *: +"%s@%s"' % [$.wrapQuote('name'), $.pypiDepName, $.currentValue],
     ],
     datasourceTemplate: 'pypi',
   },
@@ -143,7 +143,7 @@
     $.registryRegexManager,
     $.goPkg,
     $.cratePkg,
-    $.pipPkg,
+    $.pypiPkg,
     $.prefixRegexManager('oven-sh/bun', 'bun-'),
     $.golangGo,
     $.gopls,
