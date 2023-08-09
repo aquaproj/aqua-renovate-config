@@ -446,6 +446,22 @@
             " +(?:name|'name'|\"name\") *: +\"grpc/grpc-go/protoc-gen-go-grpc@cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)\""
          ],
          "packageNameTemplate": "grpc/grpc-go"
+      },
+      {
+         "datasourceTemplate": "github-tags",
+         "depNameTemplate": "awslabs/mountpoint-s3",
+         "extractVersionTemplate": "^mountpoint-s3-(?<version>.*)$",
+         "fileMatch": [
+            "\\.?aqua\\.ya?ml"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +mountpoint-s3-(?<currentValue>[^'\" \\n]+) +# renovate: depName=awslabs/mountpoint-s3[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'mountpoint-s3-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=awslabs/mountpoint-s3[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"mountpoint-s3-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=awslabs/mountpoint-s3[ \\n]",
+            " +(?:name|'name'|\"name\") *: +awslabs/mountpoint-s3@mountpoint-s3-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'awslabs/mountpoint-s3@mountpoint-s3-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"awslabs/mountpoint-s3@mountpoint-s3-(?<currentValue>[^'\" \\n]+)\""
+         ]
       }
    ]
 }
