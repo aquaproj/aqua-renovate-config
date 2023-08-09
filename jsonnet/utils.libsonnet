@@ -10,6 +10,7 @@
     'golang/tools',
     'kubernetes/kubectl',
     'twistedpair/google-cloud-sdk',
+    'awslabs/mountpoint-s3',
   ],
   aquaYAMLFileMatch: ['\\.?aqua\\.ya?ml'],
   wrapQuote(s):: "(?:%s|'%s'|\"%s\")" % [s, s, s],
@@ -118,6 +119,9 @@
   protocGenGoGRPC: $.prefixRegexManager('grpc/grpc-go/protoc-gen-go-grpc', 'cmd/protoc-gen-go-grpc/') + {
     packageNameTemplate: 'grpc/grpc-go',
   },
+  awslabsMountpointS3: $.prefixRegexManager('awslabs/mountpoint-s3', 'mountpoint-s3-') + {
+    datasourceTemplate: 'github-tags',
+  },
   fileMatches(fileMatch, managers):: [
     manager {
       fileMatch: fileMatch,
@@ -149,5 +153,6 @@
     },
     $.prefixRegexManager('orf/gping', 'gping-'),
     $.protocGenGoGRPC,
+    $.awslabsMountpointS3,
   ],
 }
