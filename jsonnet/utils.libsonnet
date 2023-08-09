@@ -10,6 +10,7 @@
     'golang/tools',
     'kubernetes/kubectl',
     'twistedpair/google-cloud-sdk',
+    'awslabs/mountpoint-s3',
   ],
   aquaYAMLFileMatch: ['\\.?aqua\\.ya?ml'],
   wrapQuote(s):: "(?:%s|'%s'|\"%s\")" % [s, s, s],
