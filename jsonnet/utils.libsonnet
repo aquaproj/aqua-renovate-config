@@ -152,6 +152,7 @@
       packageNameTemplate: 'mongodb/mongodb-atlas-cli',
     },
     $.prefixRegexManager('orf/gping', 'gping-'),
+    $.prefixRegexManager('jqlang/jq', 'jq-'),
     $.protocGenGoGRPC,
     $.awslabsMountpointS3,
   ],
