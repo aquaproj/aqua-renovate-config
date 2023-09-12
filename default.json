@@ -464,6 +464,24 @@
             " +(?:name|'name'|\"name\") *: +'awslabs/mountpoint-s3@mountpoint-s3-(?<currentValue>[^'\" \\n]+)'",
             " +(?:name|'name'|\"name\") *: +\"awslabs/mountpoint-s3@mountpoint-s3-(?<currentValue>[^'\" \\n]+)\""
          ]
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "jqlang/jq",
+         "extractVersionTemplate": "^jq-(?<version>.*)$",
+         "fileMatch": [
+           "\\.?aqua\\.ya?ml"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +jq-(?<currentValue>[^'\" \\n]+) +# renovate: depName=jqlang/jq[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'jq-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=jqlang/jq[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"jq-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=jqlang/jq[ \\n]",
+            " +(?:name|'name'|\"name\") *: +jqlang/jq@jq-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'jqlang/jq@jq-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"jqlang/jq@jq-(?<currentValue>[^'\" \\n]+)\""
+         ],
+         "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)?$"
       }
    ]
 }
