@@ -56,6 +56,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "aquaproj/aqua",
          "fileMatch": [
+            "^action\\.ya?ml$",
             "^\\.github/.*\\.ya?ml$",
             "^\\.circleci/config\\.yml$"
          ],

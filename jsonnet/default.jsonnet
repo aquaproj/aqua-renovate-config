@@ -28,6 +28,7 @@ local utils = import 'utils.libsonnet';
     {
       // Update aqua-installer action
       fileMatch: [
+        '^action\\.ya?ml$',
         '^\\.github/.*\\.ya?ml$',
         '^\\.circleci/config\\.yml$',
       ],
