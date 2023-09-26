@@ -10,7 +10,8 @@
             "golang/tools",
             "kubernetes/kubectl",
             "twistedpair/google-cloud-sdk",
-            "awslabs/mountpoint-s3"
+            "awslabs/mountpoint-s3",
+            "aws/aws-cli"
          ],
          "matchPaths": [
             "**/.aqua.yaml",
@@ -41,7 +42,8 @@
             "golang/tools",
             "kubernetes/kubectl",
             "twistedpair/google-cloud-sdk",
-            "awslabs/mountpoint-s3"
+            "awslabs/mountpoint-s3",
+            "aws/aws-cli"
          ],
          "matchPaths": [
             "**/.aqua.yaml",
