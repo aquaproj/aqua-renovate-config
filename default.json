@@ -153,6 +153,20 @@
          "versioningTemplate": "semver"
       },
       {
+         "datasourceTemplate": "pypi",
+         "fileMatch": [
+            "\\.?aqua\\.ya?ml"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=pypi\\.org/(?<depName>[^\\n]+)",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=pypi\\.org/(?<depName>[^\\n]+)",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=pypi\\.org/(?<depName>[^\\n]+)",
+            " +(?:name|'name'|\"name\") *: +pypi\\.org/(?<depName>[^\\n]+)@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'pypi\\.org/(?<depName>[^\\n]+)@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"pypi\\.org/(?<depName>[^\\n]+)@(?<currentValue>[^'\" \\n]+)\""
+         ]
+      },
+      {
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "oven-sh/bun",
          "extractVersionTemplate": "^bun-(?<version>.*)$",
