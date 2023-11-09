@@ -123,6 +123,13 @@
   awslabsMountpointS3: $.prefixRegexManager('awslabs/mountpoint-s3', 'mountpoint-s3-') + {
     datasourceTemplate: 'github-tags',
   },
+  trunkLauncher: {
+    matchStrings: $.aquaPackageMatchStrings('trunk-io/launcher', ''),
+    fileMatch: $.aquaYAMLFileMatch,
+    datasourceTemplate: 'npm',
+    packageNameTemplate: '@trunkio/launcher',
+    depNameTemplate: 'trunk-io/launcher',
+  },
   fileMatches(fileMatch, managers):: [
     manager {
       fileMatch: fileMatch,
@@ -156,5 +163,6 @@
     $.prefixRegexManager('jqlang/jq', 'jq-'),
     $.protocGenGoGRPC,
     $.awslabsMountpointS3,
+    $.trunkLauncher,
   ],
 }
