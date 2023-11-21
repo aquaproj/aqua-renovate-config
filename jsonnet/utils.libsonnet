@@ -37,6 +37,17 @@
     ' +%s *: +"%s@%s%s"' % [$.wrapQuote('name'), depName, prefix, $.currentValue],
   ],
 
+  aquaRenovateConfigPreset: {
+    // Update aqua-renovate-config
+    matchStrings: [
+      '"github>aquaproj/aqua-renovate-config#(?<currentValue>[^" \\n\\(]+)',
+      '"github>aquaproj/aqua-renovate-config:.*#(?<currentValue>[^" \\n\\(]+)',
+      '"github>aquaproj/aqua-renovate-config/.*#(?<currentValue>[^" \\n\\(]+)',
+    ],
+    datasourceTemplate: 'github-releases',
+    depNameTemplate: 'aquaproj/aqua-renovate-config',
+  },
+
   // GitHub User and Organization name doesn't include periods.
   depName: "(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
   goModuleDepName: '(?<depName>golang\\.org/[^\\n]+)',
