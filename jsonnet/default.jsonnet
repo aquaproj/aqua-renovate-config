@@ -40,8 +40,7 @@ local utils = import 'utils.libsonnet';
       depNameTemplate: 'aquaproj/aqua',
       datasourceTemplate: 'github-releases',
     },
-    {
-      // Update aqua-renovate-config
+    utils.aquaRenovateConfigPreset {
       fileMatch: [
         '^renovate\\.json5?$',
         '^\\.github/renovate\\.json5?$',
@@ -49,13 +48,6 @@ local utils = import 'utils.libsonnet';
         '^\\.renovaterc\\.json$',
         '^\\.renovaterc$',
       ],
-      matchStrings: [
-        '"github>aquaproj/aqua-renovate-config#(?<currentValue>[^" \\n\\(]+)',
-        '"github>aquaproj/aqua-renovate-config:.*#(?<currentValue>[^" \\n\\(]+)',
-        '"github>aquaproj/aqua-renovate-config/.*#(?<currentValue>[^" \\n\\(]+)',
-      ],
-      datasourceTemplate: 'github-releases',
-      depNameTemplate: 'aquaproj/aqua-renovate-config',
     },
     utils.packageRegexManager {
       datasourceTemplate: 'github-tags',
