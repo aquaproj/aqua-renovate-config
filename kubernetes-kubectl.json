@@ -1,6 +1,7 @@
 {
    "customManagers": [
       {
+         "customType": "regex",
          "datasourceTemplate": "github-tags",
          "depNameTemplate": "kubernetes/kubectl",
          "extractVersionTemplate": "^kubernetes-(?<version>.*)$",

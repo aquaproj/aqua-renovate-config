@@ -17,6 +17,7 @@
   wrapQuote(s):: "(?:%s|'%s'|\"%s\")" % [s, s, s],
   currentValue: "(?<currentValue>[^'\" \\n]+)",
   prefixRegexManager(depName, prefix):: {
+    customType: "regex",
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: $.aquaPackageMatchStrings(depName, prefix),
     extractVersionTemplate: '^%s(?<version>.*)$' % prefix,

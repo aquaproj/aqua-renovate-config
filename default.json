@@ -100,6 +100,7 @@
          "versioningTemplate": "semver"
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "oven-sh/bun",
          "extractVersionTemplate": "^bun-(?<version>.*)$",
@@ -116,6 +117,7 @@
          ]
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-tags",
          "depNameTemplate": "golang/go",
          "extractVersionTemplate": "^go(?<version>.*)$",
@@ -133,6 +135,7 @@
          "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?$"
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "golang/tools/gopls",
          "extractVersionTemplate": "^gopls/(?<version>.*)$",
@@ -150,6 +153,7 @@
          "packageNameTemplate": "golang/tools"
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli",
          "extractVersionTemplate": "^ipinfo-(?<version>.*)$",
@@ -166,6 +170,7 @@
          ]
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/cidr2ip",
          "extractVersionTemplate": "^cidr2ip-(?<version>.*)$",
@@ -183,6 +188,7 @@
          "packageNameTemplate": "ipinfo/cli"
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/cidr2range",
          "extractVersionTemplate": "^cidr2range-(?<version>.*)$",
@@ -200,6 +206,7 @@
          "packageNameTemplate": "ipinfo/cli"
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/range2cidr",
          "extractVersionTemplate": "^range2cidr-(?<version>.*)$",
@@ -217,6 +224,7 @@
          "packageNameTemplate": "ipinfo/cli"
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/prips",
          "extractVersionTemplate": "^prips-(?<version>.*)$",
@@ -234,6 +242,7 @@
          "packageNameTemplate": "ipinfo/cli"
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/splitcidr",
          "extractVersionTemplate": "^splitcidr-(?<version>.*)$",
@@ -251,6 +260,7 @@
          "packageNameTemplate": "ipinfo/cli"
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/randip",
          "extractVersionTemplate": "^randip-(?<version>.*)$",
@@ -268,6 +278,7 @@
          "packageNameTemplate": "ipinfo/cli"
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/grepip",
          "extractVersionTemplate": "^grepip-(?<version>.*)$",
@@ -285,6 +296,7 @@
          "packageNameTemplate": "ipinfo/cli"
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/range2ip",
          "extractVersionTemplate": "^range2ip-(?<version>.*)$",
@@ -318,6 +330,7 @@
          "packageNameTemplate": "kubernetes/kubernetes"
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-tags",
          "depNameTemplate": "kubernetes/kubectl",
          "extractVersionTemplate": "^kubernetes-(?<version>.*)$",
@@ -334,6 +347,7 @@
          ]
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "kubernetes-sigs/kustomize",
          "extractVersionTemplate": "^kustomize/(?<version>.*)$",
@@ -350,6 +364,7 @@
          ]
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "mongodb/mongodb-atlas-cli/atlascli",
          "extractVersionTemplate": "^atlascli/(?<version>.*)$",
@@ -367,6 +382,7 @@
          "packageNameTemplate": "mongodb/mongodb-atlas-cli"
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "orf/gping",
          "extractVersionTemplate": "^gping-(?<version>.*)$",
@@ -383,6 +399,7 @@
          ]
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "jqlang/jq",
          "extractVersionTemplate": "^jq-(?<version>.*)$",
@@ -399,6 +416,7 @@
          ]
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "grpc/grpc-go/protoc-gen-go-grpc",
          "extractVersionTemplate": "^cmd/protoc-gen-go-grpc/(?<version>.*)$",
@@ -416,6 +434,7 @@
          "packageNameTemplate": "grpc/grpc-go"
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-tags",
          "depNameTemplate": "awslabs/mountpoint-s3",
          "extractVersionTemplate": "^mountpoint-s3-(?<version>.*)$",
