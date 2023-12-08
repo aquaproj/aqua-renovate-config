@@ -1,6 +1,7 @@
 {
-   "regexManagers": [
+   "customManagers": [
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "fileMatch": [
             "\\.?aqua\\.ya?ml"
@@ -15,6 +16,7 @@
          ]
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "fileMatch": [
             "\\.?aqua\\.ya?ml"

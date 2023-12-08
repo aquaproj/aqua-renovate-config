@@ -1,6 +1,7 @@
 {
-   "regexManagers": [
+   "customManagers": [
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "aquaproj/aqua-installer",
          "fileMatch": [
@@ -11,6 +12,7 @@
          ]
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "aquaproj/aqua",
          "fileMatch": [

@@ -1,6 +1,7 @@
 {
-   "regexManagers": [
+   "customManagers": [
       {
+         "customType": "regex",
          "datasourceTemplate": "github-tags",
          "depNameTemplate": "golang/go",
          "extractVersionTemplate": "^go(?<version>.*)$",
