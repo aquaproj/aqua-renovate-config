@@ -40,6 +40,7 @@
 
   aquaRenovateConfigPreset: {
     // Update aqua-renovate-config
+    customType: "regex",
     matchStrings: [
       '"github>aquaproj/aqua-renovate-config#(?<currentValue>[^" \\n\\(]+)',
       '"github>aquaproj/aqua-renovate-config:.*#(?<currentValue>[^" \\n\\(]+)',

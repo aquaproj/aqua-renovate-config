@@ -16,6 +16,7 @@
          ]
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "aquaproj/aqua-renovate-config",
          "fileMatch": [
