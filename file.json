@@ -1,6 +1,7 @@
 {
    "customManagers": [
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "fileMatch": [
             "{{arg0}}"
@@ -15,6 +16,7 @@
          ]
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "fileMatch": [
             "{{arg0}}"

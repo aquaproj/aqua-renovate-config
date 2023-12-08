@@ -56,6 +56,7 @@
   crateDepName: 'crates\\.io/(?<depName>[^\\n]+)',
 
   registryRegexManager: {
+    customType: "regex",
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
       ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('ref'), $.currentValue, $.depName],
@@ -65,6 +66,7 @@
     datasourceTemplate: 'github-releases',
   },
   packageRegexManager: {
+    customType: "regex",
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
       ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.depName],
