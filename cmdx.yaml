@@ -14,3 +14,8 @@ tasks:
         required: true
         validate:
           - regexp: "^\\d+\\.\\d+.\\d+(-\\d+)?$"
+  - name: generate
+    short: g
+    description: Generate presets from Jsonnet
+    usage: Generate presets from Jsonnet
+    script: bash scripts/generate.sh
