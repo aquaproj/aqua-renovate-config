@@ -1,6 +1,7 @@
 {
   "customManagers": [
     {
+      "customType": "regex",
       "fileMatch": ["^\\.github/.*\\.ya?ml$"],
       "matchStrings": [
         " +['\"]?aqua_version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]?"
