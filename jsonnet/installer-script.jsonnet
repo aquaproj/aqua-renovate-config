@@ -1,8 +1,9 @@
 local utils = import 'utils.libsonnet';
 
 {
-  regexManagers: [
+  customManagers: [
     {
+      customType: "regex",
       fileMatch: ['{{arg0}}'],
       matchStrings: [
         'raw\\.githubusercontent\\.com/aquaproj/aqua-installer/%s/aqua-installer' % utils.currentValue,
@@ -11,6 +12,7 @@ local utils = import 'utils.libsonnet';
       depNameTemplate: 'aquaproj/aqua-installer',
     },
     {
+      customType: "regex",
       fileMatch: ['{{arg0}}'],
       matchStrings: [
         'aqua-installer +(\\| +(ba|z)?sh +-s +-- +)?(-i +\\S+ +)?-v +%s\\s' % utils.currentValue,

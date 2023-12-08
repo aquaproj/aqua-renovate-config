@@ -1,7 +1,7 @@
 local utils = import 'utils.libsonnet';
 
 {
-  regexManagers: [
+  customManagers: [
     utils.kustomize + utils.argFileMatch,
   ],
 }

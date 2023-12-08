@@ -1,5 +1,5 @@
 {
-   "regexManagers": [
+   "customManagers": [
       {
          "datasourceTemplate": "github-tags",
          "depNameTemplate": "golang/go",

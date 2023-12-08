@@ -1,5 +1,5 @@
 {
-  "regexManagers": [
+  "customManagers": [
     {
       "fileMatch": ["^\\.github/.*\\.ya?ml$"],
       "matchStrings": [

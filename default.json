@@ -1,60 +1,7 @@
 {
-   "packageRules": [
+   "customManagers": [
       {
-         "enabled": false,
-         "matchDatasources": [
-            "github-releases"
-         ],
-         "matchPackageNames": [
-            "golang/go",
-            "golang/tools",
-            "kubernetes/kubectl",
-            "twistedpair/google-cloud-sdk",
-            "awslabs/mountpoint-s3",
-            "aws/aws-cli"
-         ],
-         "matchPaths": [
-            "**/.aqua.yaml",
-            "**/.aqua.yml",
-            "**/aqua.yaml",
-            "**/aqua.yml"
-         ]
-      },
-      {
-         "enabled": false,
-         "matchDatasources": [
-            "github-tags"
-         ],
-         "matchPaths": [
-            "**/.aqua.yaml",
-            "**/.aqua.yml",
-            "**/aqua.yaml",
-            "**/aqua.yml"
-         ]
-      },
-      {
-         "enabled": true,
-         "matchDatasources": [
-            "github-tags"
-         ],
-         "matchPackageNames": [
-            "golang/go",
-            "golang/tools",
-            "kubernetes/kubectl",
-            "twistedpair/google-cloud-sdk",
-            "awslabs/mountpoint-s3",
-            "aws/aws-cli"
-         ],
-         "matchPaths": [
-            "**/.aqua.yaml",
-            "**/.aqua.yml",
-            "**/aqua.yaml",
-            "**/aqua.yml"
-         ]
-      }
-   ],
-   "regexManagers": [
-      {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "aquaproj/aqua",
          "fileMatch": [
@@ -499,6 +446,60 @@
             " +(?:name|'name'|\"name\") *: +\"trunk-io/launcher@(?<currentValue>[^'\" \\n]+)\""
          ],
          "packageNameTemplate": "@trunkio/launcher"
+      }
+   ],
+   "packageRules": [
+      {
+         "enabled": false,
+         "matchDatasources": [
+            "github-releases"
+         ],
+         "matchPackageNames": [
+            "golang/go",
+            "golang/tools",
+            "kubernetes/kubectl",
+            "twistedpair/google-cloud-sdk",
+            "awslabs/mountpoint-s3",
+            "aws/aws-cli"
+         ],
+         "matchPaths": [
+            "**/.aqua.yaml",
+            "**/.aqua.yml",
+            "**/aqua.yaml",
+            "**/aqua.yml"
+         ]
+      },
+      {
+         "enabled": false,
+         "matchDatasources": [
+            "github-tags"
+         ],
+         "matchPaths": [
+            "**/.aqua.yaml",
+            "**/.aqua.yml",
+            "**/aqua.yaml",
+            "**/aqua.yml"
+         ]
+      },
+      {
+         "enabled": true,
+         "matchDatasources": [
+            "github-tags"
+         ],
+         "matchPackageNames": [
+            "golang/go",
+            "golang/tools",
+            "kubernetes/kubectl",
+            "twistedpair/google-cloud-sdk",
+            "awslabs/mountpoint-s3",
+            "aws/aws-cli"
+         ],
+         "matchPaths": [
+            "**/.aqua.yaml",
+            "**/.aqua.yml",
+            "**/aqua.yaml",
+            "**/aqua.yml"
+         ]
       }
    ]
 }

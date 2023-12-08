@@ -24,9 +24,10 @@ local utils = import 'utils.libsonnet';
       enabled: true,
     },
   ],
-  regexManagers: [
+  customManagers: [
     {
       // Update aqua-installer action
+      customType: "regex",
       fileMatch: [
         '^action\\.ya?ml$',
         '^\\.github/.*\\.ya?ml$',
