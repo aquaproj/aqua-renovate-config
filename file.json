@@ -71,6 +71,20 @@
          ]
       },
       {
+         "datasourceTemplate": "gitea-releases",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>gitea\\.com/(?<packageName>[^\\n]+))",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>gitea\\.com/(?<packageName>[^\\n]+))",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>gitea\\.com/(?<packageName>[^\\n]+))",
+            " +(?:name|'name'|\"name\") *: +(?<depName>gitea\\.com/(?<packageName>[^\\n]+))@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'(?<depName>gitea\\.com/(?<packageName>[^\\n]+))@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"(?<depName>gitea\\.com/(?<packageName>[^\\n]+))@(?<currentValue>[^'\" \\n]+)\""
+         ]
+      },
+      {
          "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "oven-sh/bun",
