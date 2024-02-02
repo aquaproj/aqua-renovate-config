@@ -53,7 +53,8 @@
   // GitHub User and Organization name doesn't include periods.
   depName: "(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
   goModuleDepName: '(?<depName>golang\\.org/[^\\n]+)',
-  crateDepName: 'crates\\.io/(?<depName>[^\\n]+)',
+  crateDepName: '(?<depName>crates\\.io/(?<packageName>[^\\n]+))',
+  gitlabDepName: '(?<depName>gitlab\\.com/(?<packageName>[^\\n]+))',
 
   registryRegexManager: {
     customType: "regex",
@@ -109,6 +110,19 @@
     // The default is 'cargo`, but 'cargo' didnt't update skim 0.10.1 to 0.10.4, so we use 'semver'.
     versioningTemplate: 'semver',
   },
+  gitlabPkg: {
+    fileMatch: $.aquaYAMLFileMatch,
+    matchStrings: [
+      ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.gitlabDepName],
+      " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.gitlabDepName],
+      ' +%s *: +"%s" +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.gitlabDepName],
+
+      ' +%s *: +%s@%s' % [$.wrapQuote('name'), $.gitlabDepName, $.currentValue],
+      " +%s *: +'%s@%s'" % [$.wrapQuote('name'), $.gitlabDepName, $.currentValue],
+      ' +%s *: +"%s@%s"' % [$.wrapQuote('name'), $.gitlabDepName, $.currentValue],
+    ],
+    datasourceTemplate: 'gitlab-releases',
+  },
   kubectlConvert: {
     datasourceTemplate: 'github-releases',
     depNameTemplate: 'kubernetes/kubectl-convert',
@@ -156,6 +170,7 @@
     $.registryRegexManager,
     $.goPkg,
     $.cratePkg,
+    $.gitlabPkg,
     $.prefixRegexManager('oven-sh/bun', 'bun-'),
     $.golangGo,
     $.gopls,
