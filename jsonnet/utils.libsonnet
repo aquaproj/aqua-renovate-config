@@ -55,6 +55,7 @@
   goModuleDepName: '(?<depName>golang\\.org/[^\\n]+)',
   crateDepName: '(?<depName>crates\\.io/(?<packageName>[^\\n]+))',
   gitlabDepName: '(?<depName>gitlab\\.com/(?<packageName>[^\\n]+))',
+  giteaDepName: '(?<depName>gitea\\.com/(?<packageName>[^\\n]+))',
 
   registryRegexManager: {
     customType: "regex",
@@ -123,6 +124,19 @@
     ],
     datasourceTemplate: 'gitlab-releases',
   },
+  giteaPkg: {
+    fileMatch: $.aquaYAMLFileMatch,
+    matchStrings: [
+      ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.giteaDepName],
+      " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.giteaDepName],
+      ' +%s *: +"%s" +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.giteaDepName],
+
+      ' +%s *: +%s@%s' % [$.wrapQuote('name'), $.giteaDepName, $.currentValue],
+      " +%s *: +'%s@%s'" % [$.wrapQuote('name'), $.giteaDepName, $.currentValue],
+      ' +%s *: +"%s@%s"' % [$.wrapQuote('name'), $.giteaDepName, $.currentValue],
+    ],
+    datasourceTemplate: 'gitea-releases',
+  },
   kubectlConvert: {
     datasourceTemplate: 'github-releases',
     depNameTemplate: 'kubernetes/kubectl-convert',
@@ -171,6 +185,7 @@
     $.goPkg,
     $.cratePkg,
     $.gitlabPkg,
+    $.giteaPkg,
     $.prefixRegexManager('oven-sh/bun', 'bun-'),
     $.golangGo,
     $.gopls,
