@@ -94,14 +94,28 @@
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=crates\\.io/(?<depName>[^\\n]+)",
-            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=crates\\.io/(?<depName>[^\\n]+)",
-            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=crates\\.io/(?<depName>[^\\n]+)",
-            " +(?:name|'name'|\"name\") *: +crates\\.io/(?<depName>[^\\n]+)@(?<currentValue>[^'\" \\n]+)",
-            " +(?:name|'name'|\"name\") *: +'crates\\.io/(?<depName>[^\\n]+)@(?<currentValue>[^'\" \\n]+)'",
-            " +(?:name|'name'|\"name\") *: +\"crates\\.io/(?<depName>[^\\n]+)@(?<currentValue>[^'\" \\n]+)\""
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>crates\\.io/(?<packageName>[^\\n]+))",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>crates\\.io/(?<packageName>[^\\n]+))",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>crates\\.io/(?<packageName>[^\\n]+))",
+            " +(?:name|'name'|\"name\") *: +(?<depName>crates\\.io/(?<packageName>[^\\n]+))@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'(?<depName>crates\\.io/(?<packageName>[^\\n]+))@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"(?<depName>crates\\.io/(?<packageName>[^\\n]+))@(?<currentValue>[^'\" \\n]+)\""
          ],
          "versioningTemplate": "semver"
+      },
+      {
+         "datasourceTemplate": "gitlab-releases",
+         "fileMatch": [
+            "\\.?aqua\\.ya?ml"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>gitlab\\.com/(?<packageName>[^\\n]+))",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>gitlab\\.com/(?<packageName>[^\\n]+))",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>gitlab\\.com/(?<packageName>[^\\n]+))",
+            " +(?:name|'name'|\"name\") *: +(?<depName>gitlab\\.com/(?<packageName>[^\\n]+))@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'(?<depName>gitlab\\.com/(?<packageName>[^\\n]+))@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"(?<depName>gitlab\\.com/(?<packageName>[^\\n]+))@(?<currentValue>[^'\" \\n]+)\""
+         ]
       },
       {
          "customType": "regex",
