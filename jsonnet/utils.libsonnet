@@ -12,6 +12,7 @@
     'twistedpair/google-cloud-sdk',
     'awslabs/mountpoint-s3',
     'aws/aws-cli',
+    'catenacyber/perfsprint',
   ],
   aquaYAMLFileMatch: ['\\.?aqua\\.ya?ml'],
   wrapQuote(s):: "(?:%s|'%s'|\"%s\")" % [s, s, s],
