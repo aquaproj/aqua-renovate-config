@@ -13,6 +13,7 @@
     'awslabs/mountpoint-s3',
     'aws/aws-cli',
     'catenacyber/perfsprint',
+    'golang/vuln/govulncheck',
   ],
   aquaYAMLFileMatch: ['\\.?aqua\\.ya?ml'],
   wrapQuote(s):: "(?:%s|'%s'|\"%s\")" % [s, s, s],
