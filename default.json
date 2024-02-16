@@ -512,7 +512,8 @@
             "twistedpair/google-cloud-sdk",
             "awslabs/mountpoint-s3",
             "aws/aws-cli",
-            "catenacyber/perfsprint"
+            "catenacyber/perfsprint",
+            "golang/vuln/govulncheck"
          ],
          "matchPaths": [
             "**/.aqua.yaml",
@@ -545,7 +546,8 @@
             "twistedpair/google-cloud-sdk",
             "awslabs/mountpoint-s3",
             "aws/aws-cli",
-            "catenacyber/perfsprint"
+            "catenacyber/perfsprint",
+            "golang/vuln/govulncheck"
          ],
          "matchPaths": [
             "**/.aqua.yaml",
