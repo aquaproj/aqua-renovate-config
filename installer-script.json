@@ -9,7 +9,8 @@
          ],
          "matchStrings": [
             "raw\\.githubusercontent\\.com/aquaproj/aqua-installer/(?<currentValue>[^'\" \\n]+)/aqua-installer"
-         ]
+         ],
+         "versioningTemplate": "semver"
       },
       {
          "customType": "regex",
@@ -22,7 +23,8 @@
             "aqua-installer +(\\| +(ba|z)?sh +-s +-- +)?(-i +\\S+ +)?-v +(?<currentValue>[^'\" \\n]+)\\s",
             "aqua-installer +(\\| +(ba|z)?sh +-s +-- +)?(-i +\\S+ +)?-v +'(?<currentValue>[^'\" \\n]+)'\\s",
             "aqua-installer +(\\| +(ba|z)?sh +-s +-- +)?(-i +\\S+ +)?-v +\"(?<currentValue>[^'\" \\n]+)\"\\s"
-         ]
+         ],
+         "versioningTemplate": "semver"
       }
    ]
 }

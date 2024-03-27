@@ -10,6 +10,7 @@ local utils = import 'utils.libsonnet';
       ],
       datasourceTemplate: 'github-releases',
       depNameTemplate: 'aquaproj/aqua-installer',
+      versioningTemplate: 'semver', // https://github.com/renovatebot/renovate/discussions/28150#discussioncomment-8925362
     },
     {
       customType: "regex",
@@ -21,6 +22,7 @@ local utils = import 'utils.libsonnet';
       ],
       datasourceTemplate: 'github-releases',
       depNameTemplate: 'aquaproj/aqua',
+      versioningTemplate: 'semver', // https://github.com/renovatebot/renovate/discussions/28150#discussioncomment-8925362
     },
   ],
 }
