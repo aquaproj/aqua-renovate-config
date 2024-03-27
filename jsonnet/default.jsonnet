@@ -38,6 +38,7 @@ local utils = import 'utils.libsonnet';
         " +%s *: +'%s'" % [utils.wrapQuote('aqua_version'), utils.currentValue],
         ' +%s *: +"%s"' % [utils.wrapQuote('aqua_version'), utils.currentValue],
       ],
+      versioningTemplate: 'semver', // https://github.com/renovatebot/renovate/discussions/28150#discussioncomment-8925362
       depNameTemplate: 'aquaproj/aqua',
       datasourceTemplate: 'github-releases',
     },
