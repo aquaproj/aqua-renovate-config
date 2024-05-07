@@ -7,7 +7,9 @@
          "fileMatch": [
             "^action\\.ya?ml$",
             "^\\.github/.*\\.ya?ml$",
-            "^\\.circleci/config\\.yml$"
+            "^\\.circleci/config\\.yml$",
+            "^\\.devcontainer\\.json$",
+            "^\\.devcontainer/devcontainer\\.json$"
          ],
          "matchStrings": [
             " +(?:aqua_version|'aqua_version'|\"aqua_version\") *: +(?<currentValue>[^'\" \\n]+)",

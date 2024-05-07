@@ -27,18 +27,20 @@ local utils = import 'utils.libsonnet';
   customManagers: [
     {
       // Update aqua-installer action
-      customType: "regex",
+      customType: 'regex',
       fileMatch: [
         '^action\\.ya?ml$',
         '^\\.github/.*\\.ya?ml$',
         '^\\.circleci/config\\.yml$',
+        '^\\.devcontainer\\.json$',
+        '^\\.devcontainer/devcontainer\\.json$',
       ],
       matchStrings: [
         ' +%s *: +%s' % [utils.wrapQuote('aqua_version'), utils.currentValue],
         " +%s *: +'%s'" % [utils.wrapQuote('aqua_version'), utils.currentValue],
         ' +%s *: +"%s"' % [utils.wrapQuote('aqua_version'), utils.currentValue],
       ],
-      versioningTemplate: 'semver', // https://github.com/renovatebot/renovate/discussions/28150#discussioncomment-8925362
+      versioningTemplate: 'semver',  // https://github.com/renovatebot/renovate/discussions/28150#discussioncomment-8925362
       depNameTemplate: 'aquaproj/aqua',
       datasourceTemplate: 'github-releases',
     },
