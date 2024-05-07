@@ -7,14 +7,25 @@
          "fileMatch": [
             "^action\\.ya?ml$",
             "^\\.github/.*\\.ya?ml$",
-            "^\\.circleci/config\\.yml$",
-            "^\\.devcontainer\\.json$",
-            "^\\.devcontainer/devcontainer\\.json$"
+            "^\\.circleci/config\\.yml$"
          ],
          "matchStrings": [
             " +(?:aqua_version|'aqua_version'|\"aqua_version\") *: +(?<currentValue>[^'\" \\n]+)",
             " +(?:aqua_version|'aqua_version'|\"aqua_version\") *: +'(?<currentValue>[^'\" \\n]+)'",
             " +(?:aqua_version|'aqua_version'|\"aqua_version\") *: +\"(?<currentValue>[^'\" \\n]+)\""
+         ],
+         "versioningTemplate": "semver"
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "aquaproj/aqua",
+         "fileMatch": [
+            "^\\.devcontainer\\.json$",
+            "^\\.devcontainer/devcontainer\\.json$"
+         ],
+         "matchStrings": [
+            " +\"aqua_version\" *: +\"(?<currentValue>[^'\" \\n]+)\""
          ],
          "versioningTemplate": "semver"
       },
