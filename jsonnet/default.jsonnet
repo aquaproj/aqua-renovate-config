@@ -5,7 +5,7 @@ local utils = import 'utils.libsonnet';
     // Some packages are updated by github-tags datasource.
     // So disable github-releases against those packages.
     {
-      matchPackageNames: utils.githubTagsPackages,
+      matchDepNames: utils.githubTagsPackages,
       matchPaths: utils.aquaYAMLMatchPaths,
       matchDatasources: ['github-releases'],
       enabled: false,
@@ -18,7 +18,7 @@ local utils = import 'utils.libsonnet';
     },
     // github-tags is enabled against only those packages.
     {
-      matchPackageNames: utils.githubTagsPackages,
+      matchDepNames: utils.githubTagsPackages,
       matchPaths: utils.aquaYAMLMatchPaths,
       matchDatasources: ['github-tags'],
       enabled: true,
