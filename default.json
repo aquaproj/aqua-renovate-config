@@ -519,7 +519,7 @@
          "matchDatasources": [
             "github-releases"
          ],
-         "matchPackageNames": [
+         "matchDepNames": [
             "golang/go",
             "golang/tools",
             "kubernetes/kubectl",
@@ -553,7 +553,7 @@
          "matchDatasources": [
             "github-tags"
          ],
-         "matchPackageNames": [
+         "matchDepNames": [
             "golang/go",
             "golang/tools",
             "kubernetes/kubectl",
