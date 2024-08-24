@@ -19,7 +19,7 @@
   wrapQuote(s):: "(?:%s|'%s'|\"%s\")" % [s, s, s],
   currentValue: "(?<currentValue>[^'\" \\n]+)",
   prefixRegexManager(depName, prefix):: {
-    customType: "regex",
+    customType: 'regex',
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: $.aquaPackageMatchStrings(depName, prefix),
     extractVersionTemplate: '^%s(?<version>.*)$' % prefix,
@@ -42,7 +42,7 @@
 
   aquaRenovateConfigPreset: {
     // Update aqua-renovate-config
-    customType: "regex",
+    customType: 'regex',
     matchStrings: [
       '"github>aquaproj/aqua-renovate-config#(?<currentValue>[^" \\n\\(]+)',
       '"github>aquaproj/aqua-renovate-config:.*#(?<currentValue>[^" \\n\\(]+)',
@@ -60,7 +60,7 @@
   giteaDepName: '(?<depName>gitea\\.com/(?<packageName>[^\\n]+))',
 
   registryRegexManager: {
-    customType: "regex",
+    customType: 'regex',
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
       ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('ref'), $.currentValue, $.depName],
@@ -70,7 +70,7 @@
     datasourceTemplate: 'github-releases',
   },
   packageRegexManager: {
-    customType: "regex",
+    customType: 'regex',
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
       ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.depName],

@@ -3,17 +3,17 @@ local utils = import 'utils.libsonnet';
 {
   customManagers: [
     {
-      customType: "regex",
+      customType: 'regex',
       fileMatch: ['{{arg0}}'],
       matchStrings: [
         'raw\\.githubusercontent\\.com/aquaproj/aqua-installer/%s/aqua-installer' % utils.currentValue,
       ],
       datasourceTemplate: 'github-releases',
       depNameTemplate: 'aquaproj/aqua-installer',
-      versioningTemplate: 'semver', // https://github.com/renovatebot/renovate/discussions/28150#discussioncomment-8925362
+      versioningTemplate: 'semver',  // https://github.com/renovatebot/renovate/discussions/28150#discussioncomment-8925362
     },
     {
-      customType: "regex",
+      customType: 'regex',
       fileMatch: ['{{arg0}}'],
       matchStrings: [
         'aqua-installer +(\\| +(ba|z)?sh +-s +-- +)?(-i +\\S+ +)?-v +%s\\s' % utils.currentValue,
@@ -22,7 +22,7 @@ local utils = import 'utils.libsonnet';
       ],
       datasourceTemplate: 'github-releases',
       depNameTemplate: 'aquaproj/aqua',
-      versioningTemplate: 'semver', // https://github.com/renovatebot/renovate/discussions/28150#discussioncomment-8925362
+      versioningTemplate: 'semver',  // https://github.com/renovatebot/renovate/discussions/28150#discussioncomment-8925362
     },
   ],
 }
