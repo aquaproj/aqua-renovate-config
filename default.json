@@ -89,6 +89,7 @@
          ]
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "go",
          "fileMatch": [
             "\\.?aqua\\.ya?ml"
@@ -103,6 +104,7 @@
          ]
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "crate",
          "fileMatch": [
             "\\.?aqua\\.ya?ml"
@@ -118,6 +120,7 @@
          "versioningTemplate": "semver"
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "gitlab-releases",
          "fileMatch": [
             "\\.?aqua\\.ya?ml"
@@ -132,6 +135,7 @@
          ]
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "gitea-releases",
          "fileMatch": [
             "\\.?aqua\\.ya?ml"
@@ -360,6 +364,7 @@
          "packageNameTemplate": "ipinfo/cli"
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "kubernetes/kubectl-convert",
          "fileMatch": [
@@ -497,6 +502,7 @@
          ]
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "npm",
          "depNameTemplate": "trunk-io/launcher",
          "fileMatch": [
