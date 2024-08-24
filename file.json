@@ -28,6 +28,7 @@
          ]
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "go",
          "fileMatch": [
             "{{arg0}}"
@@ -42,6 +43,7 @@
          ]
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "crate",
          "fileMatch": [
             "{{arg0}}"
@@ -57,6 +59,7 @@
          "versioningTemplate": "semver"
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "gitlab-releases",
          "fileMatch": [
             "{{arg0}}"
@@ -71,6 +74,7 @@
          ]
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "gitea-releases",
          "fileMatch": [
             "{{arg0}}"
@@ -299,6 +303,7 @@
          "packageNameTemplate": "ipinfo/cli"
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "kubernetes/kubectl-convert",
          "fileMatch": [
@@ -436,6 +441,7 @@
          ]
       },
       {
+         "customType": "regex",
          "datasourceTemplate": "npm",
          "depNameTemplate": "trunk-io/launcher",
          "fileMatch": [

@@ -84,6 +84,7 @@
     datasourceTemplate: 'github-releases',
   },
   goPkg: {
+    customType: 'regex',
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
       ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.goModuleDepName],
@@ -97,6 +98,7 @@
     datasourceTemplate: 'go',
   },
   cratePkg: {
+    customType: 'regex',
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
       ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.crateDepName],
@@ -114,6 +116,7 @@
     versioningTemplate: 'semver',
   },
   gitlabPkg: {
+    customType: 'regex',
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
       ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.gitlabDepName],
@@ -127,6 +130,7 @@
     datasourceTemplate: 'gitlab-releases',
   },
   giteaPkg: {
+    customType: 'regex',
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
       ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.giteaDepName],
@@ -140,6 +144,7 @@
     datasourceTemplate: 'gitea-releases',
   },
   kubectlConvert: {
+    customType: 'regex',
     datasourceTemplate: 'github-releases',
     depNameTemplate: 'kubernetes/kubectl-convert',
     fileMatch: $.aquaYAMLFileMatch,
@@ -169,6 +174,7 @@
     datasourceTemplate: 'github-tags',
   },
   trunkLauncher: {
+    customType: 'regex',
     matchStrings: $.aquaPackageMatchStrings('trunk-io/launcher', ''),
     fileMatch: $.aquaYAMLFileMatch,
     datasourceTemplate: 'npm',
