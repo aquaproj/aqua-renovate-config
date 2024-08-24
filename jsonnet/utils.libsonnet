@@ -48,6 +48,8 @@
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
       ' +%s *: +%s' % [$.wrapQuote('python_version'), $.currentValue],
+      ' +%s *: +"%s"' % [$.wrapQuote('python_version'), $.currentValue],
+      " +%s *: +'%s'" % [$.wrapQuote('python_version'), $.currentValue],
     ],
     datasourceTemplate: 'python-version',
     depNameTemplate: 'python',
