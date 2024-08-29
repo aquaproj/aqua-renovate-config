@@ -40,6 +40,23 @@
     ' +%s *: +"%s@%s%s"' % [$.wrapQuote('name'), depName, prefix, $.currentValue],
   ],
 
+  python: {
+    // Update python_version
+    // https://docs.renovatebot.com/modules/datasource/python-version/
+    // https://github.com/aquaproj/aqua-registry/issues/1138
+    customType: 'regex',
+    fileMatch: $.aquaYAMLFileMatch,
+    matchStrings: [
+      ' +%s *: +%s' % [$.wrapQuote('python_version'), $.currentValue],
+      ' +%s *: +"%s"' % [$.wrapQuote('python_version'), $.currentValue],
+      " +%s *: +'%s'" % [$.wrapQuote('python_version'), $.currentValue],
+    ],
+    datasourceTemplate: 'python-version',
+    depNameTemplate: 'python',
+    matchStringsStrategy: 'any',
+    versioningTemplate: 'python',
+  },
+
   aquaRenovateConfigPreset: {
     // Update aqua-renovate-config
     customType: 'regex',
@@ -197,6 +214,7 @@
     $.prefixRegexManager('oven-sh/bun', 'bun-'),
     $.golangGo,
     $.gopls,
+    $.python,
     $.prefixRegexManager('ipinfo/cli', 'ipinfo-'),
     $.ipinfo('cidr2ip'),
     $.ipinfo('cidr2range'),
