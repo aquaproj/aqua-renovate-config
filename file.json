@@ -143,6 +143,21 @@
       },
       {
          "customType": "regex",
+         "datasourceTemplate": "python-version",
+         "depNameTemplate": "python",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:python_version|'python_version'|\"python_version\") *: +(?<currentValue>[^'\" \\n]+)",
+            " +(?:python_version|'python_version'|\"python_version\") *: +\"(?<currentValue>[^'\" \\n]+)\"",
+            " +(?:python_version|'python_version'|\"python_version\") *: +'(?<currentValue>[^'\" \\n]+)'"
+         ],
+         "matchStringsStrategy": "any",
+         "versioningTemplate": "python"
+      },
+      {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli",
          "extractVersionTemplate": "^ipinfo-(?<version>.*)$",
