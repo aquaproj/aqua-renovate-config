@@ -52,9 +52,10 @@
     depNameTemplate: 'aquaproj/aqua-renovate-config',
   },
 
-  // GitHub User and Organization name doesn't include periods.
-  depName: "(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
-  goModuleDepName: '(?<depName>golang\\.org/[^\\n]+)',
+  // GitHub User and Organization name doesn't include "." and "_".
+  depName: "(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+  golangOrgDepName: '(?<depName>golang\\.org/[^\\n]+)',
+  goModuleDepName: '(?<depName>_go/(?<packageName>[^#\\n]+)(?:#.*)?)',
   crateDepName: '(?<depName>crates\\.io/(?<packageName>[^\\n]+))',
   gitlabDepName: '(?<depName>gitlab\\.com/(?<packageName>[^\\n]+))',
   giteaDepName: '(?<depName>gitea\\.com/(?<packageName>[^\\n]+))',
@@ -83,7 +84,21 @@
     ],
     datasourceTemplate: 'github-releases',
   },
-  goPkg: {
+  golangOrgPkg: {
+    customType: 'regex',
+    fileMatch: $.aquaYAMLFileMatch,
+    matchStrings: [
+      ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.golangOrgDepName],
+      " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.golangOrgDepName],
+      ' +%s *: +"%s" +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.golangOrgDepName],
+
+      ' +%s *: +%s@%s' % [$.wrapQuote('name'), $.golangOrgDepName, $.currentValue],
+      " +%s *: +'%s@%s'" % [$.wrapQuote('name'), $.golangOrgDepName, $.currentValue],
+      ' +%s *: +"%s@%s"' % [$.wrapQuote('name'), $.golangOrgDepName, $.currentValue],
+    ],
+    datasourceTemplate: 'go',
+  },
+  goModulePkg: {
     customType: 'regex',
     fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
@@ -190,7 +205,8 @@
   pkgManagers: [
     $.packageRegexManager,
     $.registryRegexManager,
-    $.goPkg,
+    $.golangOrgPkg,
+    $.goModulePkg,
     $.cratePkg,
     $.gitlabPkg,
     $.giteaPkg,

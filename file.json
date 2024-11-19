@@ -7,12 +7,12 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
-            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
-            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
-            " +(?:name|'name'|\"name\") *: +(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)@(?<currentValue>[^'\" \\n]+)",
-            " +(?:name|'name'|\"name\") *: +'(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)@(?<currentValue>[^'\" \\n]+)'",
-            " +(?:name|'name'|\"name\") *: +\"(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)@(?<currentValue>[^'\" \\n]+)\""
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+            " +(?:name|'name'|\"name\") *: +(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)@(?<currentValue>[^'\" \\n]+)\""
          ]
       },
       {
@@ -22,9 +22,9 @@
             "{{arg0}}"
          ],
          "matchStrings": [
-            " +(?:ref|'ref'|\"ref\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
-            " +(?:ref|'ref'|\"ref\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
-            " +(?:ref|'ref'|\"ref\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>(?<packageName>[^'\" .@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)"
+            " +(?:ref|'ref'|\"ref\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+            " +(?:ref|'ref'|\"ref\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+            " +(?:ref|'ref'|\"ref\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)"
          ]
       },
       {
@@ -40,6 +40,21 @@
             " +(?:name|'name'|\"name\") *: +(?<depName>golang\\.org/[^\\n]+)@(?<currentValue>[^'\" \\n]+)",
             " +(?:name|'name'|\"name\") *: +'(?<depName>golang\\.org/[^\\n]+)@(?<currentValue>[^'\" \\n]+)'",
             " +(?:name|'name'|\"name\") *: +\"(?<depName>golang\\.org/[^\\n]+)@(?<currentValue>[^'\" \\n]+)\""
+         ]
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "go",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>_go/(?<packageName>[^#\\n]+)(?:#.*)?)",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>_go/(?<packageName>[^#\\n]+)(?:#.*)?)",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>_go/(?<packageName>[^#\\n]+)(?:#.*)?)",
+            " +(?:name|'name'|\"name\") *: +(?<depName>_go/(?<packageName>[^#\\n]+)(?:#.*)?)@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'(?<depName>_go/(?<packageName>[^#\\n]+)(?:#.*)?)@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"(?<depName>_go/(?<packageName>[^#\\n]+)(?:#.*)?)@(?<currentValue>[^'\" \\n]+)\""
          ]
       },
       {
