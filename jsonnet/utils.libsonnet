@@ -87,27 +87,25 @@
   argFileMatch: {
     fileMatch: ['{{arg0}}'],
   },
-  trunkLauncher: {
-    customType: 'regex',
-    matchStrings: $.aquaPackageMatchStrings('trunk-io/launcher', ''),
-    fileMatch: $.aquaYAMLFileMatch,
-    datasourceTemplate: 'npm',
-    packageNameTemplate: '@trunkio/launcher',
-    depNameTemplate: 'trunk-io/launcher',
-  },
   fileMatches(fileMatch, managers):: [
     manager {
       fileMatch: fileMatch,
     }
     for manager in managers
   ],
-  customManagers: [
+  setCustomTypeRegex(managers):: [
+    manager {
+      customType: 'regex',
+    }
+    for manager in managers
+  ],
+
+  customManagers: $.setCustomTypeRegex([
     $.packageRegexManager,
     $.registryRegexManager,
     {
       // golang.org
       datasourceTemplate: 'go',
-      customType: 'regex',
       fileMatch: $.aquaYAMLFileMatch,
       matchStrings: [
         ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.golangOrgDepName],
@@ -122,7 +120,6 @@
     {
       // Go module
       datasourceTemplate: 'go',
-      customType: 'regex',
       fileMatch: $.aquaYAMLFileMatch,
       matchStrings: [
         ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.goModuleDepName],
@@ -137,7 +134,6 @@
     {
       // Rust crates.io
       datasourceTemplate: 'crate',
-      customType: 'regex',
       fileMatch: $.aquaYAMLFileMatch,
       matchStrings: [
         ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.crateDepName],
@@ -155,7 +151,6 @@
     {
       // Gitlab
       datasourceTemplate: 'gitlab-releases',
-      customType: 'regex',
       fileMatch: $.aquaYAMLFileMatch,
       matchStrings: [
         ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.gitlabDepName],
@@ -170,7 +165,6 @@
     {
       // Gitea
       datasourceTemplate: 'gitea-releases',
-      customType: 'regex',
       fileMatch: $.aquaYAMLFileMatch,
       matchStrings: [
         ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.giteaDepName],
@@ -202,7 +196,6 @@
     $.ipinfo('range2ip'),
     {
       depNameTemplate: 'kubernetes/kubectl-convert',
-      customType: 'regex',
       datasourceTemplate: 'github-releases',
       fileMatch: $.aquaYAMLFileMatch,
       matchStrings: $.aquaPackageMatchStrings(self.depNameTemplate, ''),
@@ -227,11 +220,10 @@
     {
       packageNameTemplate: '@trunkio/launcher',
       depNameTemplate: 'trunk-io/launcher',
-      customType: 'regex',
       matchStrings: $.aquaPackageMatchStrings('trunk-io/launcher', ''),
       fileMatch: $.aquaYAMLFileMatch,
       datasourceTemplate: 'npm',
     },
     $.prefixRegexManager('bitwarden/clients', 'cli-'),
-  ],
+  ]),
 }
