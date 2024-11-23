@@ -84,136 +84,107 @@
     ],
     datasourceTemplate: 'github-releases',
   },
-  golangOrgPkg: {
-    customType: 'regex',
-    fileMatch: $.aquaYAMLFileMatch,
-    matchStrings: [
-      ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.golangOrgDepName],
-      " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.golangOrgDepName],
-      ' +%s *: +"%s" +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.golangOrgDepName],
-
-      ' +%s *: +%s@%s' % [$.wrapQuote('name'), $.golangOrgDepName, $.currentValue],
-      " +%s *: +'%s@%s'" % [$.wrapQuote('name'), $.golangOrgDepName, $.currentValue],
-      ' +%s *: +"%s@%s"' % [$.wrapQuote('name'), $.golangOrgDepName, $.currentValue],
-    ],
-    datasourceTemplate: 'go',
-  },
-  goModulePkg: {
-    customType: 'regex',
-    fileMatch: $.aquaYAMLFileMatch,
-    matchStrings: [
-      ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.goModuleDepName],
-      " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.goModuleDepName],
-      ' +%s *: +"%s" +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.goModuleDepName],
-
-      ' +%s *: +%s@%s' % [$.wrapQuote('name'), $.goModuleDepName, $.currentValue],
-      " +%s *: +'%s@%s'" % [$.wrapQuote('name'), $.goModuleDepName, $.currentValue],
-      ' +%s *: +"%s@%s"' % [$.wrapQuote('name'), $.goModuleDepName, $.currentValue],
-    ],
-    datasourceTemplate: 'go',
-  },
-  cratePkg: {
-    customType: 'regex',
-    fileMatch: $.aquaYAMLFileMatch,
-    matchStrings: [
-      ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.crateDepName],
-      " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.crateDepName],
-      ' +%s *: +"%s" +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.crateDepName],
-
-      ' +%s *: +%s@%s' % [$.wrapQuote('name'), $.crateDepName, $.currentValue],
-      " +%s *: +'%s@%s'" % [$.wrapQuote('name'), $.crateDepName, $.currentValue],
-      ' +%s *: +"%s@%s"' % [$.wrapQuote('name'), $.crateDepName, $.currentValue],
-    ],
-    datasourceTemplate: 'crate',
-
-    // https://docs.renovatebot.com/modules/versioning/#cargo-versioning
-    // The default is 'cargo`, but 'cargo' didnt't update skim 0.10.1 to 0.10.4, so we use 'semver'.
-    versioningTemplate: 'semver',
-  },
-  gitlabPkg: {
-    customType: 'regex',
-    fileMatch: $.aquaYAMLFileMatch,
-    matchStrings: [
-      ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.gitlabDepName],
-      " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.gitlabDepName],
-      ' +%s *: +"%s" +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.gitlabDepName],
-
-      ' +%s *: +%s@%s' % [$.wrapQuote('name'), $.gitlabDepName, $.currentValue],
-      " +%s *: +'%s@%s'" % [$.wrapQuote('name'), $.gitlabDepName, $.currentValue],
-      ' +%s *: +"%s@%s"' % [$.wrapQuote('name'), $.gitlabDepName, $.currentValue],
-    ],
-    datasourceTemplate: 'gitlab-releases',
-  },
-  giteaPkg: {
-    customType: 'regex',
-    fileMatch: $.aquaYAMLFileMatch,
-    matchStrings: [
-      ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.giteaDepName],
-      " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.giteaDepName],
-      ' +%s *: +"%s" +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.giteaDepName],
-
-      ' +%s *: +%s@%s' % [$.wrapQuote('name'), $.giteaDepName, $.currentValue],
-      " +%s *: +'%s@%s'" % [$.wrapQuote('name'), $.giteaDepName, $.currentValue],
-      ' +%s *: +"%s@%s"' % [$.wrapQuote('name'), $.giteaDepName, $.currentValue],
-    ],
-    datasourceTemplate: 'gitea-releases',
-  },
-  kubectlConvert: {
-    customType: 'regex',
-    datasourceTemplate: 'github-releases',
-    depNameTemplate: 'kubernetes/kubectl-convert',
-    fileMatch: $.aquaYAMLFileMatch,
-    matchStrings: $.aquaPackageMatchStrings(self.depNameTemplate, ''),
-    packageNameTemplate: 'kubernetes/kubernetes',
-  },
-  kubectl: $.prefixRegexManager('kubernetes/kubectl', 'v') + {
-    extractVersionTemplate: '^kubernetes-(?<version>.*)$',
-    datasourceTemplate: 'github-tags',
-  },
-  golangGo: $.prefixRegexManager('golang/go', '(go)?') + {
-    extractVersionTemplate: '^go(?<version>.*)$',
-    datasourceTemplate: 'github-tags',
-    versioningTemplate: 'regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?$',
-  },
-  gopls: $.prefixRegexManager('golang/tools/gopls', 'gopls/') + {
-    packageNameTemplate: 'golang/tools',
-  },
-  kustomize: $.prefixRegexManager('kubernetes-sigs/kustomize', 'kustomize/'),
   argFileMatch: {
     fileMatch: ['{{arg0}}'],
   },
-  protocGenGoGRPC: $.prefixRegexManager('grpc/grpc-go/protoc-gen-go-grpc', 'cmd/protoc-gen-go-grpc/') + {
-    packageNameTemplate: 'grpc/grpc-go',
-  },
-  awslabsMountpointS3: $.prefixRegexManager('awslabs/mountpoint-s3', 'mountpoint-s3-') + {
-    datasourceTemplate: 'github-tags',
-  },
-  trunkLauncher: {
-    customType: 'regex',
-    matchStrings: $.aquaPackageMatchStrings('trunk-io/launcher', ''),
-    fileMatch: $.aquaYAMLFileMatch,
-    datasourceTemplate: 'npm',
-    packageNameTemplate: '@trunkio/launcher',
-    depNameTemplate: 'trunk-io/launcher',
-  },
-  bitwardenClients: $.prefixRegexManager('bitwarden/clients', 'cli-'),
   fileMatches(fileMatch, managers):: [
     manager {
       fileMatch: fileMatch,
     }
     for manager in managers
   ],
-  pkgManagers: [
+  setCustomTypeRegex(managers):: [
+    manager {
+      customType: 'regex',
+    }
+    for manager in managers
+  ],
+
+  customManagers: $.setCustomTypeRegex([
     $.packageRegexManager,
     $.registryRegexManager,
-    $.golangOrgPkg,
-    $.goModulePkg,
-    $.cratePkg,
-    $.gitlabPkg,
-    $.giteaPkg,
+    {
+      // golang.org
+      datasourceTemplate: 'go',
+      fileMatch: $.aquaYAMLFileMatch,
+      matchStrings: [
+        ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.golangOrgDepName],
+        " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.golangOrgDepName],
+        ' +%s *: +"%s" +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.golangOrgDepName],
+
+        ' +%s *: +%s@%s' % [$.wrapQuote('name'), $.golangOrgDepName, $.currentValue],
+        " +%s *: +'%s@%s'" % [$.wrapQuote('name'), $.golangOrgDepName, $.currentValue],
+        ' +%s *: +"%s@%s"' % [$.wrapQuote('name'), $.golangOrgDepName, $.currentValue],
+      ],
+    },
+    {
+      // Go module
+      datasourceTemplate: 'go',
+      fileMatch: $.aquaYAMLFileMatch,
+      matchStrings: [
+        ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.goModuleDepName],
+        " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.goModuleDepName],
+        ' +%s *: +"%s" +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.goModuleDepName],
+
+        ' +%s *: +%s@%s' % [$.wrapQuote('name'), $.goModuleDepName, $.currentValue],
+        " +%s *: +'%s@%s'" % [$.wrapQuote('name'), $.goModuleDepName, $.currentValue],
+        ' +%s *: +"%s@%s"' % [$.wrapQuote('name'), $.goModuleDepName, $.currentValue],
+      ],
+    },
+    {
+      // Rust crates.io
+      datasourceTemplate: 'crate',
+      fileMatch: $.aquaYAMLFileMatch,
+      matchStrings: [
+        ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.crateDepName],
+        " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.crateDepName],
+        ' +%s *: +"%s" +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.crateDepName],
+
+        ' +%s *: +%s@%s' % [$.wrapQuote('name'), $.crateDepName, $.currentValue],
+        " +%s *: +'%s@%s'" % [$.wrapQuote('name'), $.crateDepName, $.currentValue],
+        ' +%s *: +"%s@%s"' % [$.wrapQuote('name'), $.crateDepName, $.currentValue],
+      ],
+      // https://docs.renovatebot.com/modules/versioning/#cargo-versioning
+      // The default is 'cargo`, but 'cargo' didnt't update skim 0.10.1 to 0.10.4, so we use 'semver'.
+      versioningTemplate: 'semver',
+    },
+    {
+      // Gitlab
+      datasourceTemplate: 'gitlab-releases',
+      fileMatch: $.aquaYAMLFileMatch,
+      matchStrings: [
+        ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.gitlabDepName],
+        " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.gitlabDepName],
+        ' +%s *: +"%s" +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.gitlabDepName],
+
+        ' +%s *: +%s@%s' % [$.wrapQuote('name'), $.gitlabDepName, $.currentValue],
+        " +%s *: +'%s@%s'" % [$.wrapQuote('name'), $.gitlabDepName, $.currentValue],
+        ' +%s *: +"%s@%s"' % [$.wrapQuote('name'), $.gitlabDepName, $.currentValue],
+      ],
+    },
+    {
+      // Gitea
+      datasourceTemplate: 'gitea-releases',
+      fileMatch: $.aquaYAMLFileMatch,
+      matchStrings: [
+        ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.giteaDepName],
+        " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.giteaDepName],
+        ' +%s *: +"%s" +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.giteaDepName],
+
+        ' +%s *: +%s@%s' % [$.wrapQuote('name'), $.giteaDepName, $.currentValue],
+        " +%s *: +'%s@%s'" % [$.wrapQuote('name'), $.giteaDepName, $.currentValue],
+        ' +%s *: +"%s@%s"' % [$.wrapQuote('name'), $.giteaDepName, $.currentValue],
+      ],
+    },
     $.prefixRegexManager('oven-sh/bun', 'bun-'),
-    $.golangGo,
-    $.gopls,
+    $.prefixRegexManager('golang/go', '(go)?') + {
+      extractVersionTemplate: '^go(?<version>.*)$',
+      datasourceTemplate: 'github-tags',
+      versioningTemplate: 'regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?$',
+    },
+    $.prefixRegexManager('golang/tools/gopls', 'gopls/') + {
+      packageNameTemplate: 'golang/tools',
+    },
     $.prefixRegexManager('ipinfo/cli', 'ipinfo-'),
     $.ipinfo('cidr2ip'),
     $.ipinfo('cidr2range'),
@@ -223,17 +194,36 @@
     $.ipinfo('randip'),
     $.ipinfo('grepip'),
     $.ipinfo('range2ip'),
-    $.kubectlConvert,
-    $.kubectl,
-    $.kustomize,
+    {
+      depNameTemplate: 'kubernetes/kubectl-convert',
+      datasourceTemplate: 'github-releases',
+      fileMatch: $.aquaYAMLFileMatch,
+      matchStrings: $.aquaPackageMatchStrings(self.depNameTemplate, ''),
+      packageNameTemplate: 'kubernetes/kubernetes',
+    },
+    $.prefixRegexManager('kubernetes/kubectl', 'v') + {
+      extractVersionTemplate: '^kubernetes-(?<version>.*)$',
+      datasourceTemplate: 'github-tags',
+    },
+    $.prefixRegexManager('kubernetes-sigs/kustomize', 'kustomize/'),
     $.prefixRegexManager('mongodb/mongodb-atlas-cli/atlascli', 'atlascli/') + {
       packageNameTemplate: 'mongodb/mongodb-atlas-cli',
     },
     $.prefixRegexManager('orf/gping', 'gping-'),
     $.prefixRegexManager('jqlang/jq', 'jq-'),
-    $.protocGenGoGRPC,
-    $.awslabsMountpointS3,
-    $.trunkLauncher,
-    $.bitwardenClients,
-  ],
+    $.prefixRegexManager('grpc/grpc-go/protoc-gen-go-grpc', 'cmd/protoc-gen-go-grpc/') + {
+      packageNameTemplate: 'grpc/grpc-go',
+    },
+    $.prefixRegexManager('awslabs/mountpoint-s3', 'mountpoint-s3-') + {
+      datasourceTemplate: 'github-tags',
+    },
+    {
+      packageNameTemplate: '@trunkio/launcher',
+      depNameTemplate: 'trunk-io/launcher',
+      matchStrings: $.aquaPackageMatchStrings('trunk-io/launcher', ''),
+      fileMatch: $.aquaYAMLFileMatch,
+      datasourceTemplate: 'npm',
+    },
+    $.prefixRegexManager('bitwarden/clients', 'cli-'),
+  ]),
 }

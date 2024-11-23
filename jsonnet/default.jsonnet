@@ -69,5 +69,5 @@ local utils = import 'utils.libsonnet';
     utils.packageRegexManager {
       datasourceTemplate: 'github-tags',
     },
-  ] + utils.pkgManagers,
+  ] + utils.customManagers,
 }

@@ -1,5 +1,5 @@
 local utils = import 'utils.libsonnet';
 
 {
-  customManagers: utils.fileMatches(utils.argFileMatch.fileMatch, utils.pkgManagers),
+  customManagers: utils.fileMatches(utils.argFileMatch.fileMatch, utils.customManagers),
 }
