@@ -471,6 +471,24 @@
             " +(?:name|'name'|\"name\") *: +\"trunk-io/launcher@(?<currentValue>[^'\" \\n]+)\""
          ],
          "packageNameTemplate": "@trunkio/launcher"
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "bitwarden/clients",
+         "extractVersionTemplate": "^cli-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +cli-(?<currentValue>[^'\" \\n]+) +# renovate: depName=bitwarden/clients[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'cli-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=bitwarden/clients[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"cli-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=bitwarden/clients[ \\n]",
+            " +(?:name|'name'|\"name\") *: +bitwarden/clients@cli-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'bitwarden/clients@cli-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"bitwarden/clients@cli-(?<currentValue>[^'\" \\n]+)\""
+         ],
+         "packageNameTemplate": "bitwarden/clients"
       }
    ]
 }
