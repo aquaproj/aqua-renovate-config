@@ -196,6 +196,7 @@
     packageNameTemplate: '@trunkio/launcher',
     depNameTemplate: 'trunk-io/launcher',
   },
+  bitwardenClients: $.prefixRegexManager('bitwarden/clients', 'cli-'),
   fileMatches(fileMatch, managers):: [
     manager {
       fileMatch: fileMatch,
@@ -233,5 +234,6 @@
     $.protocGenGoGRPC,
     $.awslabsMountpointS3,
     $.trunkLauncher,
+    $.bitwardenClients,
   ],
 }
