@@ -487,8 +487,7 @@
             " +(?:name|'name'|\"name\") *: +bitwarden/clients@cli-(?<currentValue>[^'\" \\n]+)",
             " +(?:name|'name'|\"name\") *: +'bitwarden/clients@cli-(?<currentValue>[^'\" \\n]+)'",
             " +(?:name|'name'|\"name\") *: +\"bitwarden/clients@cli-(?<currentValue>[^'\" \\n]+)\""
-         ],
-         "packageNameTemplate": "bitwarden/clients"
+         ]
       }
    ]
 }
