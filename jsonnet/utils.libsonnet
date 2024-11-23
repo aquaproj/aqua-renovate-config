@@ -101,7 +101,7 @@
     }
     for manager in managers
   ],
-  pkgManagers: [
+  customManagers: [
     $.packageRegexManager,
     $.registryRegexManager,
     {
@@ -120,6 +120,7 @@
       ],
     },
     {
+      // Go module
       datasourceTemplate: 'go',
       customType: 'regex',
       fileMatch: $.aquaYAMLFileMatch,
@@ -134,6 +135,7 @@
       ],
     },
     {
+      // Rust crates.io
       datasourceTemplate: 'crate',
       customType: 'regex',
       fileMatch: $.aquaYAMLFileMatch,
@@ -151,6 +153,8 @@
       versioningTemplate: 'semver',
     },
     {
+      // Gitlab
+      datasourceTemplate: 'gitlab-releases',
       customType: 'regex',
       fileMatch: $.aquaYAMLFileMatch,
       matchStrings: [
@@ -162,9 +166,9 @@
         " +%s *: +'%s@%s'" % [$.wrapQuote('name'), $.gitlabDepName, $.currentValue],
         ' +%s *: +"%s@%s"' % [$.wrapQuote('name'), $.gitlabDepName, $.currentValue],
       ],
-      datasourceTemplate: 'gitlab-releases',
     },
     {
+      // Gitea
       datasourceTemplate: 'gitea-releases',
       customType: 'regex',
       fileMatch: $.aquaYAMLFileMatch,
@@ -197,9 +201,9 @@
     $.ipinfo('grepip'),
     $.ipinfo('range2ip'),
     {
+      depNameTemplate: 'kubernetes/kubectl-convert',
       customType: 'regex',
       datasourceTemplate: 'github-releases',
-      depNameTemplate: 'kubernetes/kubectl-convert',
       fileMatch: $.aquaYAMLFileMatch,
       matchStrings: $.aquaPackageMatchStrings(self.depNameTemplate, ''),
       packageNameTemplate: 'kubernetes/kubernetes',
@@ -221,12 +225,12 @@
       datasourceTemplate: 'github-tags',
     },
     {
+      packageNameTemplate: '@trunkio/launcher',
+      depNameTemplate: 'trunk-io/launcher',
       customType: 'regex',
       matchStrings: $.aquaPackageMatchStrings('trunk-io/launcher', ''),
       fileMatch: $.aquaYAMLFileMatch,
       datasourceTemplate: 'npm',
-      packageNameTemplate: '@trunkio/launcher',
-      depNameTemplate: 'trunk-io/launcher',
     },
     $.prefixRegexManager('bitwarden/clients', 'cli-'),
   ],
