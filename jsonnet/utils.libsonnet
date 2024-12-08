@@ -211,6 +211,7 @@
     },
     $.prefixRegexManager('orf/gping', 'gping-'),
     $.prefixRegexManager('jqlang/jq', 'jq-'),
+    $.prefixRegexManager('apache/maven', 'maven-'),
     $.prefixRegexManager('grpc/grpc-go/protoc-gen-go-grpc', 'cmd/protoc-gen-go-grpc/') + {
       packageNameTemplate: 'grpc/grpc-go',
     },
