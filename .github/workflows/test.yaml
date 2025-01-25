@@ -41,7 +41,7 @@ jobs:
     permissions:
       contents: read
     with:
-      aqua_version: v2.42.2
+      aqua_version: v2.43.0
       prune: true
     secrets:
       gh_app_id: ${{secrets.APP_ID}}
@@ -96,7 +96,7 @@ jobs:
           persist-credentials: false
       - uses: aquaproj/aqua-installer@e2d0136abcf70b7a2f6f505720640750557c4b33 # v3.1.1
         with:
-          aqua_version: v2.42.2
+          aqua_version: v2.43.0
       - run: ci-info run | sed "s/^export //" >> "$GITHUB_ENV"
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -116,7 +116,7 @@ jobs:
           persist-credentials: false
       - uses: aquaproj/aqua-installer@e2d0136abcf70b7a2f6f505720640750557c4b33 # v3.1.1
         with:
-          aqua_version: v2.42.2
+          aqua_version: v2.43.0
       - run: jsonnetfmt --test jsonnet/*.jsonnet jsonnet/*.libsonnet
 
   status-check:
@@ -148,7 +148,7 @@ jobs:
           persist-credentials: false
       - uses: aquaproj/aqua-installer@e2d0136abcf70b7a2f6f505720640750557c4b33 # v3.1.1
         with:
-          aqua_version: v2.42.2
+          aqua_version: v2.43.0
         env:
           AQUA_GITHUB_TOKEN: ${{github.token}}
       - run: ghalint run
@@ -164,7 +164,7 @@ jobs:
           persist-credentials: false
       - uses: aquaproj/aqua-installer@e2d0136abcf70b7a2f6f505720640750557c4b33 # v3.1.1
         with:
-          aqua_version: v2.42.2
+          aqua_version: v2.43.0
       - run: jsonnet --version
       - run: |
           bash scripts/generate.sh
