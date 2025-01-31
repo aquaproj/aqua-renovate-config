@@ -1,4 +1,4 @@
-local utils = import 'utils.libsonnet';
+local utils = import "utils.libsonnet";
 
 {
   customManagers: [
