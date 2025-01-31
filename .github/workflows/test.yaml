@@ -8,11 +8,11 @@ permissions: {}
 jobs:
   path-filter:
     # Get changed files to filter jobs
-    timeout-minutes: 30
+    timeout-minutes: 10
     outputs:
-      update-aqua-checksums: ${{steps.changes.outputs.update-aqua-checksums}}
       renovate-config-validator: ${{steps.changes.outputs.renovate-config-validator}}
       ghalint: ${{steps.changes.outputs.ghalint}}
+      preset: ${{steps.changes.outputs.preset}}
     runs-on: ubuntu-latest
     permissions: {}
     steps:
@@ -20,32 +20,27 @@ jobs:
         id: changes
         with:
           filters: |
-            update-aqua-checksums:
-              - aqua.yaml
-              - aqua/*.yaml
-              - aqua-checksums.json
-              - .github/workflows/test.yaml
             renovate-config-validator:
               - renovate.json5
-            validate:
+            preset:
               - "*.json"
             ghalint:
               - .github/workflows/*.yaml
               - aqua/ghalint.yaml
 
-  update-aqua-checksums:
-    # Update aqua-checksums.json and push a commit
-    needs: path-filter
-    if: needs.path-filter.outputs.update-aqua-checksums == 'true'
-    uses: aquaproj/update-checksum-workflow/.github/workflows/update-checksum.yaml@8bce60cc4475128360bc32f00707abb874ca4a91 # v1.0.3
-    permissions:
-      contents: read
-    with:
-      aqua_version: v2.43.0
-      prune: true
-    secrets:
-      gh_app_id: ${{secrets.APP_ID}}
-      gh_app_private_key: ${{secrets.APP_PRIVATE_KEY}}
+  status-check:
+    # This job is used for main branch's branch protection rule's status check.
+    # If all dependent jobs succeed or are skipped this job succeeds.
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    needs:
+      - renovate-config-validator
+      - validate-presets
+      - ghalint
+    permissions: {}
+    if: failure()
+    steps:
+      - run: exit 1
 
   renovate-config-validator:
     # Validate Renovate Configuration by renovate-config-validator.
@@ -55,41 +50,11 @@ jobs:
     permissions:
       contents: read
 
-  enable-automerge:
-    # Enable automerge to merge pull requests from Renovate automatically.
-    timeout-minutes: 30
-    runs-on: ubuntu-latest
-    needs:
-      - status-check
-    permissions:
-      contents: write # For enable automerge
-      pull-requests: write # For enable automerge
-    if: |
-      ! failure() && ! cancelled() && github.event.pull_request.user.login == 'renovate[bot]' && contains(github.event.pull_request.body, ' **Automerge**: Enabled.')
-    steps:
-      - name: Generate token
-        id: generate_token
-        uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2.1.0
-        with:
-          app_id: ${{secrets.APP_ID}}
-          private_key: ${{secrets.APP_PRIVATE_KEY}}
-          permissions: >-
-            {
-              "contents": "write",
-              "pull-requests": "write"
-            }
-          repositories: >-
-            [
-              "${{github.event.repository.name}}"
-            ]
-      - run: gh -R "$GITHUB_REPOSITORY" pr merge --squash --auto --delete-branch "$PR_NUMBER"
-        env:
-          GITHUB_TOKEN: ${{steps.generate_token.outputs.token}} # Use GitHub App to trigger GitHub Actions Workflow by merge commit.
-          PR_NUMBER: ${{github.event.pull_request.number}}
-
   validate-presets:
-    timeout-minutes: 30
+    timeout-minutes: 15
     runs-on: ubuntu-latest
+    needs: path-filter
+    if: needs.path-filter.outputs.preset == 'true'
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
@@ -107,37 +72,9 @@ jobs:
             fi
           done
 
-  jsonnetfmt:
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
-          persist-credentials: false
-      - uses: aquaproj/aqua-installer@e2d0136abcf70b7a2f6f505720640750557c4b33 # v3.1.1
-        with:
-          aqua_version: v2.43.0
-      - run: jsonnetfmt --test jsonnet/*.jsonnet jsonnet/*.libsonnet
-
-  status-check:
-    # This job is used for main branch's branch protection rule's status check.
-    # If all dependent jobs succeed or are skipped this job succeeds.
-    timeout-minutes: 30
-    runs-on: ubuntu-latest
-    needs:
-      - update-aqua-checksums
-      - validate-presets
-      - renovate-config-validator
-      - ghalint
-      - jsonnet
-    permissions: {}
-    if: failure()
-    steps:
-      - run: exit 1
-
   ghalint:
     # Validate GitHub Actions Workflows by ghalint.
-    timeout-minutes: 30
+    timeout-minutes: 15
     needs: path-filter
     if: needs.path-filter.outputs.ghalint == 'true'
     runs-on: ubuntu-latest
@@ -154,23 +91,3 @@ jobs:
       - run: ghalint run
         env:
           GHALINT_LOG_COLOR: always
-
-  jsonnet:
-    timeout-minutes: 30
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
-          persist-credentials: false
-      - uses: aquaproj/aqua-installer@e2d0136abcf70b7a2f6f505720640750557c4b33 # v3.1.1
-        with:
-          aqua_version: v2.43.0
-      - run: jsonnet --version
-      - run: |
-          bash scripts/generate.sh
-          git add .
-          if ! git diff --cached --exit-code; then
-            echo "Please run 'bash scripts/generate.sh'" >&2
-            echo "::error title=Please run 'bash scripts/generate.sh'::"
-            exit 1
-          fi
