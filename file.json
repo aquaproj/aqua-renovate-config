@@ -1,0 +1,510 @@
+{
+   "customManagers": [
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+            " +(?:name|'name'|\"name\") *: +(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)@(?<currentValue>[^'\" \\n]+)\""
+         ]
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:ref|'ref'|\"ref\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+            " +(?:ref|'ref'|\"ref\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+            " +(?:ref|'ref'|\"ref\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)"
+         ]
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "go",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>golang\\.org/[^\\n]+)",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>golang\\.org/[^\\n]+)",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>golang\\.org/[^\\n]+)",
+            " +(?:name|'name'|\"name\") *: +(?<depName>golang\\.org/[^\\n]+)@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'(?<depName>golang\\.org/[^\\n]+)@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"(?<depName>golang\\.org/[^\\n]+)@(?<currentValue>[^'\" \\n]+)\""
+         ]
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "go",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>_go/(?<packageName>[^#\\n]+)(?:#.*)?)",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>_go/(?<packageName>[^#\\n]+)(?:#.*)?)",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>_go/(?<packageName>[^#\\n]+)(?:#.*)?)",
+            " +(?:name|'name'|\"name\") *: +(?<depName>_go/(?<packageName>[^#\\n]+)(?:#.*)?)@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'(?<depName>_go/(?<packageName>[^#\\n]+)(?:#.*)?)@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"(?<depName>_go/(?<packageName>[^#\\n]+)(?:#.*)?)@(?<currentValue>[^'\" \\n]+)\""
+         ]
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "crate",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>crates\\.io/(?<packageName>[^\\n]+))",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>crates\\.io/(?<packageName>[^\\n]+))",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>crates\\.io/(?<packageName>[^\\n]+))",
+            " +(?:name|'name'|\"name\") *: +(?<depName>crates\\.io/(?<packageName>[^\\n]+))@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'(?<depName>crates\\.io/(?<packageName>[^\\n]+))@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"(?<depName>crates\\.io/(?<packageName>[^\\n]+))@(?<currentValue>[^'\" \\n]+)\""
+         ],
+         "versioningTemplate": "semver"
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "gitlab-releases",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>gitlab\\.com/(?<packageName>[^\\n]+))",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>gitlab\\.com/(?<packageName>[^\\n]+))",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>gitlab\\.com/(?<packageName>[^\\n]+))",
+            " +(?:name|'name'|\"name\") *: +(?<depName>gitlab\\.com/(?<packageName>[^\\n]+))@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'(?<depName>gitlab\\.com/(?<packageName>[^\\n]+))@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"(?<depName>gitlab\\.com/(?<packageName>[^\\n]+))@(?<currentValue>[^'\" \\n]+)\""
+         ]
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "gitea-releases",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>gitea\\.com/(?<packageName>[^\\n]+))",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>gitea\\.com/(?<packageName>[^\\n]+))",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>gitea\\.com/(?<packageName>[^\\n]+))",
+            " +(?:name|'name'|\"name\") *: +(?<depName>gitea\\.com/(?<packageName>[^\\n]+))@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'(?<depName>gitea\\.com/(?<packageName>[^\\n]+))@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"(?<depName>gitea\\.com/(?<packageName>[^\\n]+))@(?<currentValue>[^'\" \\n]+)\""
+         ]
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "oven-sh/bun",
+         "extractVersionTemplate": "^bun-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +bun-(?<currentValue>[^'\" \\n]+) +# renovate: depName=oven-sh/bun[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'bun-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=oven-sh/bun[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"bun-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=oven-sh/bun[ \\n]",
+            " +(?:name|'name'|\"name\") *: +oven-sh/bun@bun-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'oven-sh/bun@bun-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"oven-sh/bun@bun-(?<currentValue>[^'\" \\n]+)\""
+         ]
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-tags",
+         "depNameTemplate": "golang/go",
+         "extractVersionTemplate": "^go(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +(go)?(?<currentValue>[^'\" \\n]+) +# renovate: depName=golang/go[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'(go)?(?<currentValue>[^'\" \\n]+)' +# renovate: depName=golang/go[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"(go)?(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=golang/go[ \\n]",
+            " +(?:name|'name'|\"name\") *: +golang/go@(go)?(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'golang/go@(go)?(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"golang/go@(go)?(?<currentValue>[^'\" \\n]+)\""
+         ],
+         "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?$"
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "golang/tools/gopls",
+         "extractVersionTemplate": "^gopls/(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +gopls/(?<currentValue>[^'\" \\n]+) +# renovate: depName=golang/tools/gopls[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'gopls/(?<currentValue>[^'\" \\n]+)' +# renovate: depName=golang/tools/gopls[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"gopls/(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=golang/tools/gopls[ \\n]",
+            " +(?:name|'name'|\"name\") *: +golang/tools/gopls@gopls/(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'golang/tools/gopls@gopls/(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"golang/tools/gopls@gopls/(?<currentValue>[^'\" \\n]+)\""
+         ],
+         "packageNameTemplate": "golang/tools"
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "ipinfo/cli",
+         "extractVersionTemplate": "^ipinfo-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +ipinfo-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'ipinfo-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=ipinfo/cli[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"ipinfo-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=ipinfo/cli[ \\n]",
+            " +(?:name|'name'|\"name\") *: +ipinfo/cli@ipinfo-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'ipinfo/cli@ipinfo-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"ipinfo/cli@ipinfo-(?<currentValue>[^'\" \\n]+)\""
+         ]
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "ipinfo/cli/cidr2ip",
+         "extractVersionTemplate": "^cidr2ip-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +cidr2ip-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/cidr2ip[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'cidr2ip-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=ipinfo/cli/cidr2ip[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"cidr2ip-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=ipinfo/cli/cidr2ip[ \\n]",
+            " +(?:name|'name'|\"name\") *: +ipinfo/cli/cidr2ip@cidr2ip-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'ipinfo/cli/cidr2ip@cidr2ip-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"ipinfo/cli/cidr2ip@cidr2ip-(?<currentValue>[^'\" \\n]+)\""
+         ],
+         "packageNameTemplate": "ipinfo/cli"
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "ipinfo/cli/cidr2range",
+         "extractVersionTemplate": "^cidr2range-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +cidr2range-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/cidr2range[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'cidr2range-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=ipinfo/cli/cidr2range[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"cidr2range-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=ipinfo/cli/cidr2range[ \\n]",
+            " +(?:name|'name'|\"name\") *: +ipinfo/cli/cidr2range@cidr2range-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'ipinfo/cli/cidr2range@cidr2range-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"ipinfo/cli/cidr2range@cidr2range-(?<currentValue>[^'\" \\n]+)\""
+         ],
+         "packageNameTemplate": "ipinfo/cli"
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "ipinfo/cli/range2cidr",
+         "extractVersionTemplate": "^range2cidr-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +range2cidr-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/range2cidr[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'range2cidr-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=ipinfo/cli/range2cidr[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"range2cidr-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=ipinfo/cli/range2cidr[ \\n]",
+            " +(?:name|'name'|\"name\") *: +ipinfo/cli/range2cidr@range2cidr-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'ipinfo/cli/range2cidr@range2cidr-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"ipinfo/cli/range2cidr@range2cidr-(?<currentValue>[^'\" \\n]+)\""
+         ],
+         "packageNameTemplate": "ipinfo/cli"
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "ipinfo/cli/prips",
+         "extractVersionTemplate": "^prips-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +prips-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/prips[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'prips-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=ipinfo/cli/prips[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"prips-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=ipinfo/cli/prips[ \\n]",
+            " +(?:name|'name'|\"name\") *: +ipinfo/cli/prips@prips-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'ipinfo/cli/prips@prips-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"ipinfo/cli/prips@prips-(?<currentValue>[^'\" \\n]+)\""
+         ],
+         "packageNameTemplate": "ipinfo/cli"
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "ipinfo/cli/splitcidr",
+         "extractVersionTemplate": "^splitcidr-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +splitcidr-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/splitcidr[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'splitcidr-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=ipinfo/cli/splitcidr[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"splitcidr-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=ipinfo/cli/splitcidr[ \\n]",
+            " +(?:name|'name'|\"name\") *: +ipinfo/cli/splitcidr@splitcidr-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'ipinfo/cli/splitcidr@splitcidr-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"ipinfo/cli/splitcidr@splitcidr-(?<currentValue>[^'\" \\n]+)\""
+         ],
+         "packageNameTemplate": "ipinfo/cli"
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "ipinfo/cli/randip",
+         "extractVersionTemplate": "^randip-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +randip-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/randip[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'randip-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=ipinfo/cli/randip[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"randip-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=ipinfo/cli/randip[ \\n]",
+            " +(?:name|'name'|\"name\") *: +ipinfo/cli/randip@randip-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'ipinfo/cli/randip@randip-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"ipinfo/cli/randip@randip-(?<currentValue>[^'\" \\n]+)\""
+         ],
+         "packageNameTemplate": "ipinfo/cli"
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "ipinfo/cli/grepip",
+         "extractVersionTemplate": "^grepip-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +grepip-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/grepip[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'grepip-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=ipinfo/cli/grepip[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"grepip-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=ipinfo/cli/grepip[ \\n]",
+            " +(?:name|'name'|\"name\") *: +ipinfo/cli/grepip@grepip-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'ipinfo/cli/grepip@grepip-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"ipinfo/cli/grepip@grepip-(?<currentValue>[^'\" \\n]+)\""
+         ],
+         "packageNameTemplate": "ipinfo/cli"
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "ipinfo/cli/range2ip",
+         "extractVersionTemplate": "^range2ip-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +range2ip-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/range2ip[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'range2ip-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=ipinfo/cli/range2ip[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"range2ip-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=ipinfo/cli/range2ip[ \\n]",
+            " +(?:name|'name'|\"name\") *: +ipinfo/cli/range2ip@range2ip-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'ipinfo/cli/range2ip@range2ip-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"ipinfo/cli/range2ip@range2ip-(?<currentValue>[^'\" \\n]+)\""
+         ],
+         "packageNameTemplate": "ipinfo/cli"
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "kubernetes/kubectl-convert",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=kubernetes/kubectl-convert[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=kubernetes/kubectl-convert[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=kubernetes/kubectl-convert[ \\n]",
+            " +(?:name|'name'|\"name\") *: +kubernetes/kubectl-convert@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'kubernetes/kubectl-convert@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"kubernetes/kubectl-convert@(?<currentValue>[^'\" \\n]+)\""
+         ],
+         "packageNameTemplate": "kubernetes/kubernetes"
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-tags",
+         "depNameTemplate": "kubernetes/kubectl",
+         "extractVersionTemplate": "^kubernetes-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +v(?<currentValue>[^'\" \\n]+) +# renovate: depName=kubernetes/kubectl[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'v(?<currentValue>[^'\" \\n]+)' +# renovate: depName=kubernetes/kubectl[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"v(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=kubernetes/kubectl[ \\n]",
+            " +(?:name|'name'|\"name\") *: +kubernetes/kubectl@v(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'kubernetes/kubectl@v(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"kubernetes/kubectl@v(?<currentValue>[^'\" \\n]+)\""
+         ]
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "kubernetes-sigs/kustomize",
+         "extractVersionTemplate": "^kustomize/(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +kustomize/(?<currentValue>[^'\" \\n]+) +# renovate: depName=kubernetes-sigs/kustomize[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'kustomize/(?<currentValue>[^'\" \\n]+)' +# renovate: depName=kubernetes-sigs/kustomize[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"kustomize/(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=kubernetes-sigs/kustomize[ \\n]",
+            " +(?:name|'name'|\"name\") *: +kubernetes-sigs/kustomize@kustomize/(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'kubernetes-sigs/kustomize@kustomize/(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"kubernetes-sigs/kustomize@kustomize/(?<currentValue>[^'\" \\n]+)\""
+         ]
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "mongodb/mongodb-atlas-cli/atlascli",
+         "extractVersionTemplate": "^atlascli/(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +atlascli/(?<currentValue>[^'\" \\n]+) +# renovate: depName=mongodb/mongodb-atlas-cli/atlascli[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'atlascli/(?<currentValue>[^'\" \\n]+)' +# renovate: depName=mongodb/mongodb-atlas-cli/atlascli[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"atlascli/(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=mongodb/mongodb-atlas-cli/atlascli[ \\n]",
+            " +(?:name|'name'|\"name\") *: +mongodb/mongodb-atlas-cli/atlascli@atlascli/(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'mongodb/mongodb-atlas-cli/atlascli@atlascli/(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"mongodb/mongodb-atlas-cli/atlascli@atlascli/(?<currentValue>[^'\" \\n]+)\""
+         ],
+         "packageNameTemplate": "mongodb/mongodb-atlas-cli"
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "orf/gping",
+         "extractVersionTemplate": "^gping-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +gping-(?<currentValue>[^'\" \\n]+) +# renovate: depName=orf/gping[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'gping-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=orf/gping[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"gping-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=orf/gping[ \\n]",
+            " +(?:name|'name'|\"name\") *: +orf/gping@gping-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'orf/gping@gping-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"orf/gping@gping-(?<currentValue>[^'\" \\n]+)\""
+         ]
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "jqlang/jq",
+         "extractVersionTemplate": "^jq-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +jq-(?<currentValue>[^'\" \\n]+) +# renovate: depName=jqlang/jq[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'jq-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=jqlang/jq[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"jq-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=jqlang/jq[ \\n]",
+            " +(?:name|'name'|\"name\") *: +jqlang/jq@jq-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'jqlang/jq@jq-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"jqlang/jq@jq-(?<currentValue>[^'\" \\n]+)\""
+         ]
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "apache/maven",
+         "extractVersionTemplate": "^maven-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +maven-(?<currentValue>[^'\" \\n]+) +# renovate: depName=apache/maven[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'maven-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=apache/maven[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"maven-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=apache/maven[ \\n]",
+            " +(?:name|'name'|\"name\") *: +apache/maven@maven-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'apache/maven@maven-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"apache/maven@maven-(?<currentValue>[^'\" \\n]+)\""
+         ]
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "grpc/grpc-go/protoc-gen-go-grpc",
+         "extractVersionTemplate": "^cmd/protoc-gen-go-grpc/(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+) +# renovate: depName=grpc/grpc-go/protoc-gen-go-grpc[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)' +# renovate: depName=grpc/grpc-go/protoc-gen-go-grpc[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=grpc/grpc-go/protoc-gen-go-grpc[ \\n]",
+            " +(?:name|'name'|\"name\") *: +grpc/grpc-go/protoc-gen-go-grpc@cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'grpc/grpc-go/protoc-gen-go-grpc@cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"grpc/grpc-go/protoc-gen-go-grpc@cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+)\""
+         ],
+         "packageNameTemplate": "grpc/grpc-go"
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-tags",
+         "depNameTemplate": "awslabs/mountpoint-s3",
+         "extractVersionTemplate": "^mountpoint-s3-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +mountpoint-s3-(?<currentValue>[^'\" \\n]+) +# renovate: depName=awslabs/mountpoint-s3[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'mountpoint-s3-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=awslabs/mountpoint-s3[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"mountpoint-s3-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=awslabs/mountpoint-s3[ \\n]",
+            " +(?:name|'name'|\"name\") *: +awslabs/mountpoint-s3@mountpoint-s3-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'awslabs/mountpoint-s3@mountpoint-s3-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"awslabs/mountpoint-s3@mountpoint-s3-(?<currentValue>[^'\" \\n]+)\""
+         ]
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "npm",
+         "depNameTemplate": "trunk-io/launcher",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=trunk-io/launcher[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=trunk-io/launcher[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=trunk-io/launcher[ \\n]",
+            " +(?:name|'name'|\"name\") *: +trunk-io/launcher@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'trunk-io/launcher@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"trunk-io/launcher@(?<currentValue>[^'\" \\n]+)\""
+         ],
+         "packageNameTemplate": "@trunkio/launcher"
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "bitwarden/clients",
+         "extractVersionTemplate": "^cli-(?<version>.*)$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +cli-(?<currentValue>[^'\" \\n]+) +# renovate: depName=bitwarden/clients[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'cli-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=bitwarden/clients[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"cli-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=bitwarden/clients[ \\n]",
+            " +(?:name|'name'|\"name\") *: +bitwarden/clients@cli-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'bitwarden/clients@cli-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"bitwarden/clients@cli-(?<currentValue>[^'\" \\n]+)\""
+         ]
+      }
+   ]
+}
