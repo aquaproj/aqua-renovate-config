@@ -15,6 +15,7 @@ jobs:
         with:
           aqua_version: v2.43.0
       - run: aqua upc -prune
+      - run: git ls-files | nllint -s -f
       - run: jsonnetfmt jsonnet/*.jsonnet jsonnet/*.libsonnet
       - run: bash scripts/generate.sh
       - uses: autofix-ci/action@2891949f3779a1cafafae1523058501de3d4e944 # v1.3.1
