@@ -6,6 +6,7 @@
   ],
   customManagers: [
     {
+      customType: "regex",
       fileMatch: ["README\\.md"],
       matchStrings: [
         "(version|ref): \"?(?<currentValue>.*)\"? +# renovate: depName=(?<depName>.*)"
@@ -13,6 +14,7 @@
       datasourceTemplate: "github-releases",
     },
     {
+      customType: "regex",
       fileMatch: ["README\\.md"],
       "matchStrings": [
         "\"github>aquaproj/aqua-renovate-config#(?<currentValue>[^\" \\n\\(]+)",
@@ -23,6 +25,7 @@
       "depNameTemplate": "aquaproj/aqua-renovate-config"
     },
     {
+      customType: "regex",
       fileMatch: ["README\\.md"],
       "matchStrings": [
         " +['\"]?aqua_version['\"]? *: +['\"]?(?<currentValue>[^'\" \\n]+)['\"]?"
@@ -31,6 +34,7 @@
       "datasourceTemplate": "github-releases"
     },
     {
+      customType: "regex",
       fileMatch: ["README\\.md"],
       "matchStrings": [
         "raw\\.githubusercontent\\.com/aquaproj/aqua-installer/(?<currentValue>.*?)/aqua-installer"
