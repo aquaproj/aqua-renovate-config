@@ -505,6 +505,23 @@
             " +(?:name|'name'|\"name\") *: +'bitwarden/clients@cli-(?<currentValue>[^'\" \\n]+)'",
             " +(?:name|'name'|\"name\") *: +\"bitwarden/clients@cli-(?<currentValue>[^'\" \\n]+)\""
          ]
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "external-secrets/external-secrets/esoctl",
+         "extractVersionTemplate": "^(?<version>.*)-esoctl$",
+         "fileMatch": [
+            "{{arg0}}"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+)-esoctl +# renovate: depName=external-secrets/external-secrets/esoctl[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)-esoctl' +# renovate: depName=external-secrets/external-secrets/esoctl[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)-esoctl\" +# renovate: depName=external-secrets/external-secrets/esoctl[ \\n]",
+            " +(?:name|'name'|\"name\") *: +external-secrets/external-secrets/esoctl@(?<currentValue>[^'\" \\n]+)-esoctl",
+            " +(?:name|'name'|\"name\") *: +'external-secrets/external-secrets/esoctl@(?<currentValue>[^'\" \\n]+)-esoctl'",
+            " +(?:name|'name'|\"name\") *: +\"external-secrets/external-secrets/esoctl@(?<currentValue>[^'\" \\n]+)-esoctl\""
+         ]
       }
    ]
 }
