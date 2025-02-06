@@ -1,14 +1,9 @@
 {
   extends: [
-    "config:recommended",
-    "helpers:pinGitHubActionDigests",
+    "github>suzuki-shunsuke/renovate-config#3.0.0",
+    "github>suzuki-shunsuke/renovate-config:nolimit#3.0.0",
     "github>aquaproj/aqua-renovate-config#2.6.0",
   ],
-  automerge: true,
-  platformAutomerge: true,
-  prHourlyLimit: 0,
-  prConcurrentLimit: 0,
-  branchConcurrentLimit: 0,
   customManagers: [
     {
       fileMatch: ["README\\.md"],
