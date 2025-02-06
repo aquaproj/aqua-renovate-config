@@ -26,6 +26,14 @@
     datasourceTemplate: 'github-releases',
     depNameTemplate: depName,
   },
+  suffixRegexManager(depName, suffix):: {
+    customType: 'regex',
+    fileMatch: $.aquaYAMLFileMatch,
+    matchStrings: $.aquaPackageMatchStringsWithSuffix(depName, suffix),
+    extractVersionTemplate: '^(?<version>.*)%s$' % suffix,
+    datasourceTemplate: 'github-releases',
+    depNameTemplate: depName,
+  },
   ipinfo(name):: $.prefixRegexManager('ipinfo/cli/' + name, name + '-') + {
     packageNameTemplate: 'ipinfo/cli',
   },
@@ -38,6 +46,15 @@
     ' +%s *: +%s@%s%s' % [$.wrapQuote('name'), depName, prefix, $.currentValue],
     " +%s *: +'%s@%s%s'" % [$.wrapQuote('name'), depName, prefix, $.currentValue],
     ' +%s *: +"%s@%s%s"' % [$.wrapQuote('name'), depName, prefix, $.currentValue],
+  ],
+  aquaPackageMatchStringsWithSuffix(depName, suffix):: [
+    ' +%s *: +%s%s +# renovate: depName=%s[ \\n]' % [$.wrapQuote('version'), $.currentValue, suffix, depName],
+    " +%s *: +'%s%s' +# renovate: depName=%s[ \\n]" % [$.wrapQuote('version'), $.currentValue, suffix, depName],
+    ' +%s *: +"%s%s" +# renovate: depName=%s[ \\n]' % [$.wrapQuote('version'), $.currentValue, suffix, depName],
+
+    ' +%s *: +%s@%s%s' % [$.wrapQuote('name'), depName, $.currentValue, suffix],
+    " +%s *: +'%s@%s%s'" % [$.wrapQuote('name'), depName, $.currentValue, suffix],
+    ' +%s *: +"%s@%s%s"' % [$.wrapQuote('name'), depName, $.currentValue, suffix],
   ],
 
   aquaRenovateConfigPreset: {
@@ -226,5 +243,6 @@
       datasourceTemplate: 'npm',
     },
     $.prefixRegexManager('bitwarden/clients', 'cli-'),
+    $.suffixRegexManager('external-secrets/external-secrets/esoctl', '-esoctl'),
   ]),
 }
