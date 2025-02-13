@@ -29,6 +29,10 @@ local utils = import 'utils.libsonnet';
         'external-secrets/external-secrets/esoctl',
       ],
     },
+    {
+      matchPackageNames: ['aquaproj/aqua-renovate-config'],
+      groupName: 'aquaproj/aqua-renovate-config',
+    },
   ],
   customManagers: [
     {
