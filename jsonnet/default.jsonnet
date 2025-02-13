@@ -32,7 +32,7 @@ local utils = import 'utils.libsonnet';
     {
       matchPackageNames: ['aquaproj/aqua-renovate-config'],
       groupName: 'aquaproj/aqua-renovate-config',
-    }
+    },
   ],
   customManagers: [
     {
