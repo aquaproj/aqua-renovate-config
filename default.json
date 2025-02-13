@@ -584,7 +584,7 @@
             "catenacyber/perfsprint",
             "golang/vuln/govulncheck"
          ],
-         "matchPaths": [
+         "matchFileNames": [
             "**/.aqua.yaml",
             "**/.aqua.yml",
             "**/aqua.yaml",
@@ -596,7 +596,7 @@
          "matchDatasources": [
             "github-tags"
          ],
-         "matchPaths": [
+         "matchFileNames": [
             "**/.aqua.yaml",
             "**/.aqua.yml",
             "**/aqua.yaml",
@@ -618,7 +618,7 @@
             "catenacyber/perfsprint",
             "golang/vuln/govulncheck"
          ],
-         "matchPaths": [
+         "matchFileNames": [
             "**/.aqua.yaml",
             "**/.aqua.yml",
             "**/aqua.yaml",
