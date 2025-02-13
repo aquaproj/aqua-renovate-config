@@ -506,5 +506,13 @@
             " +(?:name|'name'|\"name\") *: +\"bitwarden/clients@cli-(?<currentValue>[^'\" \\n]+)\""
          ]
       }
+   ],
+   "packageRules": [
+      {
+         "allowedVersions": "/-esoctl$/",
+         "matchDepNames": [
+            "external-secrets/external-secrets/esoctl"
+         ]
+      }
    ]
 }
