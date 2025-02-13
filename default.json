@@ -630,6 +630,12 @@
          "matchDepNames": [
             "external-secrets/external-secrets/esoctl"
          ]
+      },
+      {
+         "groupName": "aquaproj/aqua-renovate-config",
+         "matchPackageNames": [
+            "aquaproj/aqua-renovate-config"
+         ]
       }
    ]
 }
