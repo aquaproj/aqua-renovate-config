@@ -26,14 +26,6 @@
     datasourceTemplate: 'github-releases',
     depNameTemplate: depName,
   },
-  prefixPackageRule(depName, prefix):: {
-    matchDepNames: [depName],
-    allowedVersions: '/^%s/' % prefix,
-  },
-  suffixPackageRule(depName, suffix):: {
-    matchDepNames: [depName],
-    allowedVersions: '/%s$/' % suffix,
-  },
   ipinfo(name):: $.prefixRegexManager('ipinfo/cli/' + name, name + '-') + {
     packageNameTemplate: 'ipinfo/cli',
   },
