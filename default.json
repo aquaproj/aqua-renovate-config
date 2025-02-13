@@ -41,9 +41,9 @@
             "^\\.renovaterc$"
          ],
          "matchStrings": [
-            "\"github>aquaproj/aqua-renovate-config#(?<currentValue>[^\" \\n\\(]+)",
-            "\"github>aquaproj/aqua-renovate-config:.*#(?<currentValue>[^\" \\n\\(]+)",
-            "\"github>aquaproj/aqua-renovate-config/.*#(?<currentValue>[^\" \\n\\(]+)"
+            "['\"]github>aquaproj/aqua-renovate-config#(?<currentValue>[^'\" \\n\\(]+)",
+            "['\"]github>aquaproj/aqua-renovate-config:.*#(?<currentValue>[^'\" \\n\\(]+)",
+            "['\"]github>aquaproj/aqua-renovate-config/.*#(?<currentValue>[^'\" \\n\\(]+)"
          ]
       },
       {
