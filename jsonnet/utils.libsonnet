@@ -53,9 +53,9 @@
     // Update aqua-renovate-config
     customType: 'regex',
     matchStrings: [
-      '"github>aquaproj/aqua-renovate-config#(?<currentValue>[^" \\n\\(]+)',
-      '"github>aquaproj/aqua-renovate-config:.*#(?<currentValue>[^" \\n\\(]+)',
-      '"github>aquaproj/aqua-renovate-config/.*#(?<currentValue>[^" \\n\\(]+)',
+      '[\'"]github>aquaproj/aqua-renovate-config#(?<currentValue>[^\'" \\n\\(]+)',
+      '[\'"]github>aquaproj/aqua-renovate-config:.*#(?<currentValue>[^\'" \\n\\(]+)',
+      '[\'"]github>aquaproj/aqua-renovate-config/.*#(?<currentValue>[^\'" \\n\\(]+)',
     ],
     datasourceTemplate: 'github-releases',
     depNameTemplate: 'aquaproj/aqua-renovate-config',
