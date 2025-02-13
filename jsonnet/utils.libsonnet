@@ -26,14 +26,6 @@
     datasourceTemplate: 'github-releases',
     depNameTemplate: depName,
   },
-  suffixRegexManager(depName, suffix):: {
-    customType: 'regex',
-    fileMatch: $.aquaYAMLFileMatch,
-    matchStrings: $.aquaPackageMatchStringsWithSuffix(depName, suffix),
-    extractVersionTemplate: '^(?<version>.*)%s$' % suffix,
-    datasourceTemplate: 'github-releases',
-    depNameTemplate: depName,
-  },
   prefixPackageRule(depName, prefix):: {
     matchDepNames: [depName],
     allowedVersions: '/^%s/' % prefix,
@@ -251,6 +243,5 @@
       datasourceTemplate: 'npm',
     },
     $.prefixRegexManager('bitwarden/clients', 'cli-'),
-    $.suffixRegexManager('external-secrets/external-secrets/esoctl', '-esoctl'),
   ]),
 }

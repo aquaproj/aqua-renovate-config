@@ -23,7 +23,12 @@ local utils = import 'utils.libsonnet';
       matchDatasources: ['github-tags'],
       enabled: true,
     },
-    utils.suffixPackageRule('external-secrets/external-secrets/esoctl', '-esoctl'),
+    {
+      allowedVersions: '/-esoctl$/',
+      matchDepNames: [
+        'external-secrets/external-secrets/esoctl',
+      ],
+    },
   ],
   customManagers: [
     {
