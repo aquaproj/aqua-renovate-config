@@ -31,7 +31,7 @@ local utils = import 'utils.libsonnet';
       ],
     },
     {
-      allowedVersions: "/^cmd\\/protoc-gen-go-grpc\\//",
+      allowedVersions: '/^cmd\\/protoc-gen-go-grpc\\//',
       matchFileNames: utils.aquaYAMLMatchPaths,
       matchDepNames: [
         'grpc/grpc-go/protoc-gen-go-grpc',
