@@ -25,8 +25,16 @@ local utils = import 'utils.libsonnet';
     },
     {
       allowedVersions: '/-esoctl$/',
+      matchFileNames: utils.aquaYAMLMatchPaths,
       matchDepNames: [
         'external-secrets/external-secrets/esoctl',
+      ],
+    },
+    {
+      allowedVersions: '/^cmd\\/protoc-gen-go-grpc\\//',
+      matchFileNames: utils.aquaYAMLMatchPaths,
+      matchDepNames: [
+        'grpc/grpc-go/protoc-gen-go-grpc',
       ],
     },
     {

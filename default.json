@@ -629,6 +629,24 @@
          "allowedVersions": "/-esoctl$/",
          "matchDepNames": [
             "external-secrets/external-secrets/esoctl"
+         ],
+         "matchFileNames": [
+            "**/.aqua.yaml",
+            "**/.aqua.yml",
+            "**/aqua.yaml",
+            "**/aqua.yml"
+         ]
+      },
+      {
+         "allowedVersions": "/^cmd\\/protoc-gen-go-grpc\\//",
+         "matchDepNames": [
+            "grpc/grpc-go/protoc-gen-go-grpc"
+         ],
+         "matchFileNames": [
+            "**/.aqua.yaml",
+            "**/.aqua.yml",
+            "**/aqua.yaml",
+            "**/aqua.yml"
          ]
       },
       {
