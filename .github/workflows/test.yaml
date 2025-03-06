@@ -1,10 +1,7 @@
 ---
 name: test
-
 on: pull_request
-
 permissions: {}
-
 jobs:
   path-filter:
     # Get changed files to filter jobs
@@ -27,20 +24,6 @@ jobs:
             ghalint:
               - .github/workflows/*.yaml
               - aqua/ghalint.yaml
-
-  status-check:
-    # This job is used for main branch's branch protection rule's status check.
-    # If all dependent jobs succeed or are skipped this job succeeds.
-    timeout-minutes: 10
-    runs-on: ubuntu-latest
-    needs:
-      - renovate-config-validator
-      - validate-presets
-      - ghalint
-    permissions: {}
-    if: failure()
-    steps:
-      - run: exit 1
 
   renovate-config-validator:
     # Validate Renovate Configuration by renovate-config-validator.
