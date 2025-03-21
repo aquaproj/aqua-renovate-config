@@ -3,74 +3,16 @@ name: test
 on: pull_request
 permissions: {}
 jobs:
-  path-filter:
-    # Get changed files to filter jobs
-    timeout-minutes: 10
-    outputs:
-      renovate-config-validator: ${{steps.changes.outputs.renovate-config-validator}}
-      ghalint: ${{steps.changes.outputs.ghalint}}
-      preset: ${{steps.changes.outputs.preset}}
-    runs-on: ubuntu-latest
-    permissions: {}
-    steps:
-      - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3.0.2
-        id: changes
-        with:
-          filters: |
-            renovate-config-validator:
-              - renovate.json5
-            preset:
-              - "*.json"
-            ghalint:
-              - .github/workflows/*.yaml
-              - aqua/ghalint.yaml
-
-  renovate-config-validator:
-    # Validate Renovate Configuration by renovate-config-validator.
-    uses: suzuki-shunsuke/renovate-config-validator-workflow/.github/workflows/validate.yaml@e8effbd185cbe3874cddef63f48b8bdcfc9ada55 # v0.2.4
-    needs: path-filter
-    if: needs.path-filter.outputs.renovate-config-validator == 'true'
+  test:
+    uses: ./.github/workflows/workflow_call_test.yaml
     permissions:
       contents: read
-
-  validate-presets:
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-    needs: path-filter
-    if: needs.path-filter.outputs.preset == 'true'
-    steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
-          persist-credentials: false
-      - uses: aquaproj/aqua-installer@e2d0136abcf70b7a2f6f505720640750557c4b33 # v3.1.1
-        with:
-          aqua_version: v2.46.0
-      - run: ci-info run | sed "s/^export //" >> "$GITHUB_ENV"
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-      - run: |
-          grep -E "^[^/]+\.json$" "$CI_INFO_TEMP_DIR/pr_all_filenames.txt" | grep -v aqua-checksums.json | while read -r file; do
-            if [ -f "$file" ]; then
-              RENOVATE_CONFIG_FILE="$file" npx --package renovate -c renovate-config-validator
-            fi
-          done
-
-  ghalint:
-    # Validate GitHub Actions Workflows by ghalint.
-    timeout-minutes: 15
-    needs: path-filter
-    if: needs.path-filter.outputs.ghalint == 'true'
-    runs-on: ubuntu-latest
+  status-check:
+    runs-on: ubuntu-24.04
+    if: failure()
+    timeout-minutes: 10
     permissions: {}
+    needs:
+      - test
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
-          persist-credentials: false
-      - uses: aquaproj/aqua-installer@e2d0136abcf70b7a2f6f505720640750557c4b33 # v3.1.1
-        with:
-          aqua_version: v2.46.0
-        env:
-          AQUA_GITHUB_TOKEN: ${{github.token}}
-      - run: ghalint run
-        env:
-          GHALINT_LOG_COLOR: always
+      - run: exit 1
