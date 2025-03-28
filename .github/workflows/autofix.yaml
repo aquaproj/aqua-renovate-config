@@ -20,4 +20,4 @@ jobs:
           git ls-files | grep -E "\.jsonnet$" | xargs -n 1 jsonnetfmt -i
           git ls-files | grep -E "\.libsonnet$" | xargs -n 1 jsonnetfmt -i
       - run: bash scripts/generate.sh
-      - uses: autofix-ci/action@2891949f3779a1cafafae1523058501de3d4e944 # v1.3.1
+      - uses: suzuki-shunsuke/autofixci-action@a148ca710fd8bf5d9959d5d7604018ce8a77bad0 # v1.3.2-1
