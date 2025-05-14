@@ -31,6 +31,13 @@ local utils = import 'utils.libsonnet';
       ],
     },
     {
+      allowedVersions: '/^wash-v/',
+      matchFileNames: utils.aquaYAMLMatchPaths,
+      matchDepNames: [
+        'wasmCloud/wasmCloud/wash',
+      ],
+    },
+    {
       allowedVersions: '/^cmd\\/protoc-gen-go-grpc\\//',
       matchFileNames: utils.aquaYAMLMatchPaths,
       matchDepNames: [
