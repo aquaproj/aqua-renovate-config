@@ -235,5 +235,8 @@
       datasourceTemplate: 'npm',
     },
     $.prefixRegexManager('bitwarden/clients', 'cli-'),
+    $.prefixRegexManager('wasmCloud/wasmCloud/wash', 'wash-v') + {
+      packageNameTemplate: 'wasmCloud/wasmCloud',
+    },
   ]),
 }
