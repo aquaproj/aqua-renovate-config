@@ -566,6 +566,24 @@
             " +(?:name|'name'|\"name\") *: +'bitwarden/clients@cli-(?<currentValue>[^'\" \\n]+)'",
             " +(?:name|'name'|\"name\") *: +\"bitwarden/clients@cli-(?<currentValue>[^'\" \\n]+)\""
          ]
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "wasmCloud/wasmCloud/wash",
+         "extractVersionTemplate": "^wash-v(?<version>.*)$",
+         "fileMatch": [
+            "\\.?aqua\\.ya?ml"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +wash-v(?<currentValue>[^'\" \\n]+) +# renovate: depName=wasmCloud/wasmCloud/wash[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'wash-v(?<currentValue>[^'\" \\n]+)' +# renovate: depName=wasmCloud/wasmCloud/wash[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"wash-v(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=wasmCloud/wasmCloud/wash[ \\n]",
+            " +(?:name|'name'|\"name\") *: +wasmCloud/wasmCloud/wash@wash-v(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'wasmCloud/wasmCloud/wash@wash-v(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"wasmCloud/wasmCloud/wash@wash-v(?<currentValue>[^'\" \\n]+)\""
+         ],
+         "packageNameTemplate": "wasmCloud/wasmCloud"
       }
    ],
    "packageRules": [
