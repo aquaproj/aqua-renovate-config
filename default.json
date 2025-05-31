@@ -654,6 +654,36 @@
             "**/aqua.yaml",
             "**/aqua.yml"
          ]
+      },
+      {
+         "allowedVersions": "/^wash-v/",
+         "matchDepNames": [
+            "wasmCloud/wasmCloud/wash"
+         ],
+         "matchFileNames": [
+            "**/.aqua.yaml",
+            "**/.aqua.yml",
+            "**/aqua.yaml",
+            "**/aqua.yml"
+         ]
+      },
+      {
+         "allowedVersions": "/^cmd\\/protoc-gen-go-grpc\\//",
+         "matchDepNames": [
+            "grpc/grpc-go/protoc-gen-go-grpc"
+         ],
+         "matchFileNames": [
+            "**/.aqua.yaml",
+            "**/.aqua.yml",
+            "**/aqua.yaml",
+            "**/aqua.yml"
+         ]
+      },
+      {
+         "groupName": "aquaproj/aqua-renovate-config",
+         "matchPackageNames": [
+            "aquaproj/aqua-renovate-config"
+         ]
       }
    ]
 }

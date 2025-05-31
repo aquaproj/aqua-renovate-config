@@ -269,5 +269,23 @@
         'external-secrets/external-secrets/esoctl',
       ],
     },
+    {
+      allowedVersions: '/^wash-v/',
+      matchFileNames: matchFileNames,
+      matchDepNames: [
+        'wasmCloud/wasmCloud/wash',
+      ],
+    },
+    {
+      allowedVersions: '/^cmd\\/protoc-gen-go-grpc\\//',
+      matchFileNames: matchFileNames,
+      matchDepNames: [
+        'grpc/grpc-go/protoc-gen-go-grpc',
+      ],
+    },
+    {
+      matchPackageNames: ['aquaproj/aqua-renovate-config'],
+      groupName: 'aquaproj/aqua-renovate-config',
+    },
   ],
 }

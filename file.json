@@ -581,6 +581,30 @@
          "matchFileNames": [
             "{{arg0}}"
          ]
+      },
+      {
+         "allowedVersions": "/^wash-v/",
+         "matchDepNames": [
+            "wasmCloud/wasmCloud/wash"
+         ],
+         "matchFileNames": [
+            "{{arg0}}"
+         ]
+      },
+      {
+         "allowedVersions": "/^cmd\\/protoc-gen-go-grpc\\//",
+         "matchDepNames": [
+            "grpc/grpc-go/protoc-gen-go-grpc"
+         ],
+         "matchFileNames": [
+            "{{arg0}}"
+         ]
+      },
+      {
+         "groupName": "aquaproj/aqua-renovate-config",
+         "matchPackageNames": [
+            "aquaproj/aqua-renovate-config"
+         ]
       }
    ]
 }
