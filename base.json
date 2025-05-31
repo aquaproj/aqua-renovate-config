@@ -1,7 +1,6 @@
 {
    "customManagers": [
       {
-         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
@@ -16,7 +15,6 @@
          ]
       },
       {
-         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"

@@ -2,14 +2,13 @@ local utils = import 'utils.libsonnet';
 
 {
   packageRules: utils.packageRules(utils.aquaYAMLMatchPaths),
-  customManagers: [
+  customManagers: utils.setCustomTypeRegex([
     {
       // Update aqua-installer action
-      customType: 'regex',
-      fileMatch: [
-        '^action\\.ya?ml$',
-        '^\\.github/.*\\.ya?ml$',
-        '^\\.circleci/config\\.yml$',
+      managerFilePatterns: [
+        '/^action\\.ya?ml$/',
+        '/^\\.github/.*\\.ya?ml$/',
+        '/^\\.circleci/config\\.yml$/',
       ],
       matchStrings: [
         ' +%s *: +%s' % [utils.wrapQuote('aqua_version'), utils.currentValue],
@@ -22,10 +21,9 @@ local utils = import 'utils.libsonnet';
     },
     {
       // Update aqua-installer action
-      customType: 'regex',
-      fileMatch: [
-        '^\\.devcontainer\\.json$',
-        '^\\.devcontainer/devcontainer\\.json$',
+      managerFilePatterns: [
+        '/^\\.devcontainer\\.json$/',
+        '/^\\.devcontainer/devcontainer\\.json$/',
       ],
       matchStrings: [
         // "aqua_version": "v2.27.0"
@@ -36,16 +34,16 @@ local utils = import 'utils.libsonnet';
       datasourceTemplate: 'github-releases',
     },
     utils.aquaRenovateConfigPreset {
-      fileMatch: [
-        '^renovate\\.json5?$',
-        '^\\.github/renovate\\.json5?$',
-        '^\\.gitlab/renovate\\.json5?$',
-        '^\\.renovaterc\\.json$',
-        '^\\.renovaterc$',
+      managerFilePatterns: [
+        '/^renovate\\.json5?$/',
+        '/^\\.github/renovate\\.json5?$/',
+        '/^\\.gitlab/renovate\\.json5?$/',
+        '/^\\.renovaterc\\.json$/',
+        '/^\\.renovaterc$/',
       ],
     },
     utils.packageRegexManager {
       datasourceTemplate: 'github-tags',
     },
-  ] + utils.customManagers,
+  ]) + utils.customManagers,
 }

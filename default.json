@@ -4,10 +4,10 @@
          "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "aquaproj/aqua",
-         "fileMatch": [
-            "^action\\.ya?ml$",
-            "^\\.github/.*\\.ya?ml$",
-            "^\\.circleci/config\\.yml$"
+         "managerFilePatterns": [
+            "/^action\\.ya?ml$/",
+            "/^\\.github/.*\\.ya?ml$/",
+            "/^\\.circleci/config\\.yml$/"
          ],
          "matchStrings": [
             " +(?:aqua_version|'aqua_version'|\"aqua_version\") *: +(?<currentValue>[^'\" \\n]+)",
@@ -20,9 +20,9 @@
          "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "aquaproj/aqua",
-         "fileMatch": [
-            "^\\.devcontainer\\.json$",
-            "^\\.devcontainer/devcontainer\\.json$"
+         "managerFilePatterns": [
+            "/^\\.devcontainer\\.json$/",
+            "/^\\.devcontainer/devcontainer\\.json$/"
          ],
          "matchStrings": [
             " +\"aqua_version\" *: +\"(?<currentValue>[^'\" \\n]+)\""
@@ -33,12 +33,12 @@
          "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "aquaproj/aqua-renovate-config",
-         "fileMatch": [
-            "^renovate\\.json5?$",
-            "^\\.github/renovate\\.json5?$",
-            "^\\.gitlab/renovate\\.json5?$",
-            "^\\.renovaterc\\.json$",
-            "^\\.renovaterc$"
+         "managerFilePatterns": [
+            "/^renovate\\.json5?$/",
+            "/^\\.github/renovate\\.json5?$/",
+            "/^\\.gitlab/renovate\\.json5?$/",
+            "/^\\.renovaterc\\.json$/",
+            "/^\\.renovaterc$/"
          ],
          "matchStrings": [
             "['\"]github>aquaproj/aqua-renovate-config#(?<currentValue>[^'\" \\n\\(]+)",
