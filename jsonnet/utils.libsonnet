@@ -15,7 +15,7 @@
     'catenacyber/perfsprint',
     'golang/vuln/govulncheck',
   ],
-  aquaYAMLFileMatch: ['\\.?aqua\\.ya?ml'],
+  aquaYAMLFileMatch: ['/\\.?aqua\\.ya?ml/'],
   wrapQuote(s):: "(?:%s|'%s'|\"%s\")" % [s, s, s],
   currentValue: "(?<currentValue>[^'\" \\n]+)",
   prefixRegexManager(depName, prefix):: {
