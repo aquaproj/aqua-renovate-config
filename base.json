@@ -3,7 +3,7 @@
       {
          "datasourceTemplate": "github-releases",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
@@ -17,7 +17,7 @@
       {
          "datasourceTemplate": "github-releases",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:ref|'ref'|\"ref\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",

@@ -50,7 +50,7 @@
          "customType": "regex",
          "datasourceTemplate": "github-tags",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
@@ -65,7 +65,7 @@
          "customType": "regex",
          "datasourceTemplate": "github-releases",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
@@ -80,7 +80,7 @@
          "customType": "regex",
          "datasourceTemplate": "github-releases",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:ref|'ref'|\"ref\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
@@ -92,7 +92,7 @@
          "customType": "regex",
          "datasourceTemplate": "go",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>golang\\.org/[^\\n]+)",
@@ -107,7 +107,7 @@
          "customType": "regex",
          "datasourceTemplate": "go",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>_go/(?<packageName>[^#\\n]+)(?:#.*)?)",
@@ -122,7 +122,7 @@
          "customType": "regex",
          "datasourceTemplate": "crate",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>crates\\.io/(?<packageName>[^\\n]+))",
@@ -138,7 +138,7 @@
          "customType": "regex",
          "datasourceTemplate": "gitlab-releases",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>gitlab\\.com/(?<packageName>[^\\n]+))",
@@ -153,7 +153,7 @@
          "customType": "regex",
          "datasourceTemplate": "gitea-releases",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>gitea\\.com/(?<packageName>[^\\n]+))",
@@ -170,7 +170,7 @@
          "depNameTemplate": "oven-sh/bun",
          "extractVersionTemplate": "^bun-(?<version>.*)$",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +bun-(?<currentValue>[^'\" \\n]+) +# renovate: depName=oven-sh/bun[ \\n]",
@@ -187,7 +187,7 @@
          "depNameTemplate": "golang/go",
          "extractVersionTemplate": "^go(?<version>.*)$",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +(go)?(?<currentValue>[^'\" \\n]+) +# renovate: depName=golang/go[ \\n]",
@@ -205,7 +205,7 @@
          "depNameTemplate": "golang/tools/gopls",
          "extractVersionTemplate": "^gopls/(?<version>.*)$",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +gopls/(?<currentValue>[^'\" \\n]+) +# renovate: depName=golang/tools/gopls[ \\n]",
@@ -223,7 +223,7 @@
          "depNameTemplate": "ipinfo/cli",
          "extractVersionTemplate": "^ipinfo-(?<version>.*)$",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +ipinfo-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli[ \\n]",
@@ -240,7 +240,7 @@
          "depNameTemplate": "ipinfo/cli/cidr2ip",
          "extractVersionTemplate": "^cidr2ip-(?<version>.*)$",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +cidr2ip-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/cidr2ip[ \\n]",
@@ -258,7 +258,7 @@
          "depNameTemplate": "ipinfo/cli/cidr2range",
          "extractVersionTemplate": "^cidr2range-(?<version>.*)$",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +cidr2range-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/cidr2range[ \\n]",
@@ -276,7 +276,7 @@
          "depNameTemplate": "ipinfo/cli/range2cidr",
          "extractVersionTemplate": "^range2cidr-(?<version>.*)$",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +range2cidr-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/range2cidr[ \\n]",
@@ -294,7 +294,7 @@
          "depNameTemplate": "ipinfo/cli/prips",
          "extractVersionTemplate": "^prips-(?<version>.*)$",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +prips-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/prips[ \\n]",
@@ -312,7 +312,7 @@
          "depNameTemplate": "ipinfo/cli/splitcidr",
          "extractVersionTemplate": "^splitcidr-(?<version>.*)$",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +splitcidr-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/splitcidr[ \\n]",
@@ -330,7 +330,7 @@
          "depNameTemplate": "ipinfo/cli/randip",
          "extractVersionTemplate": "^randip-(?<version>.*)$",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +randip-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/randip[ \\n]",
@@ -348,7 +348,7 @@
          "depNameTemplate": "ipinfo/cli/grepip",
          "extractVersionTemplate": "^grepip-(?<version>.*)$",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +grepip-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/grepip[ \\n]",
@@ -366,7 +366,7 @@
          "depNameTemplate": "ipinfo/cli/range2ip",
          "extractVersionTemplate": "^range2ip-(?<version>.*)$",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +range2ip-(?<currentValue>[^'\" \\n]+) +# renovate: depName=ipinfo/cli/range2ip[ \\n]",
@@ -383,7 +383,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "kubernetes/kubectl-convert",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=kubernetes/kubectl-convert[ \\n]",
@@ -401,7 +401,7 @@
          "depNameTemplate": "kubernetes/kubectl",
          "extractVersionTemplate": "^kubernetes-(?<version>.*)$",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +v(?<currentValue>[^'\" \\n]+) +# renovate: depName=kubernetes/kubectl[ \\n]",
@@ -418,7 +418,7 @@
          "depNameTemplate": "kubernetes-sigs/kustomize",
          "extractVersionTemplate": "^kustomize/(?<version>.*)$",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +kustomize/(?<currentValue>[^'\" \\n]+) +# renovate: depName=kubernetes-sigs/kustomize[ \\n]",
@@ -435,7 +435,7 @@
          "depNameTemplate": "mongodb/mongodb-atlas-cli/atlascli",
          "extractVersionTemplate": "^atlascli/(?<version>.*)$",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +atlascli/(?<currentValue>[^'\" \\n]+) +# renovate: depName=mongodb/mongodb-atlas-cli/atlascli[ \\n]",
@@ -453,7 +453,7 @@
          "depNameTemplate": "orf/gping",
          "extractVersionTemplate": "^gping-(?<version>.*)$",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +gping-(?<currentValue>[^'\" \\n]+) +# renovate: depName=orf/gping[ \\n]",
@@ -470,7 +470,7 @@
          "depNameTemplate": "jqlang/jq",
          "extractVersionTemplate": "^jq-(?<version>.*)$",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +jq-(?<currentValue>[^'\" \\n]+) +# renovate: depName=jqlang/jq[ \\n]",
@@ -487,7 +487,7 @@
          "depNameTemplate": "apache/maven",
          "extractVersionTemplate": "^maven-(?<version>.*)$",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +maven-(?<currentValue>[^'\" \\n]+) +# renovate: depName=apache/maven[ \\n]",
@@ -504,7 +504,7 @@
          "depNameTemplate": "grpc/grpc-go/protoc-gen-go-grpc",
          "extractVersionTemplate": "^cmd/protoc-gen-go-grpc/(?<version>.*)$",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +cmd/protoc-gen-go-grpc/(?<currentValue>[^'\" \\n]+) +# renovate: depName=grpc/grpc-go/protoc-gen-go-grpc[ \\n]",
@@ -522,7 +522,7 @@
          "depNameTemplate": "awslabs/mountpoint-s3",
          "extractVersionTemplate": "^mountpoint-s3-(?<version>.*)$",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +mountpoint-s3-(?<currentValue>[^'\" \\n]+) +# renovate: depName=awslabs/mountpoint-s3[ \\n]",
@@ -538,7 +538,7 @@
          "datasourceTemplate": "npm",
          "depNameTemplate": "trunk-io/launcher",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=trunk-io/launcher[ \\n]",
@@ -556,7 +556,7 @@
          "depNameTemplate": "bitwarden/clients",
          "extractVersionTemplate": "^cli-(?<version>.*)$",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +cli-(?<currentValue>[^'\" \\n]+) +# renovate: depName=bitwarden/clients[ \\n]",
@@ -573,7 +573,7 @@
          "depNameTemplate": "wasmCloud/wasmCloud/wash",
          "extractVersionTemplate": "^wash-v(?<version>.*)$",
          "managerFilePatterns": [
-            "\\.?aqua\\.ya?ml"
+            "/\\.?aqua\\.ya?ml/"
          ],
          "matchStrings": [
             " +(?:version|'version'|\"version\") *: +wash-v(?<currentValue>[^'\" \\n]+) +# renovate: depName=wasmCloud/wasmCloud/wash[ \\n]",
