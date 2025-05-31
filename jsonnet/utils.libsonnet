@@ -94,7 +94,7 @@
     datasourceTemplate: 'github-releases',
   },
   argFileMatch: {
-    fileMatch: ['{{arg0}}'],
+    managerFilePatterns: ['{{arg0}}'],
   },
   fileMatches(fileMatch, managers):: [
     manager {
@@ -239,4 +239,35 @@
       packageNameTemplate: 'wasmCloud/wasmCloud',
     },
   ]),
+
+  packageRules(matchFileNames):: [
+    // Some packages are updated by github-tags datasource.
+    // So disable github-releases against those packages.
+    {
+      matchDepNames: $.githubTagsPackages,
+      matchFileNames: matchFileNames,
+      matchDatasources: ['github-releases'],
+      enabled: false,
+    },
+    // By default github-tags is disabled.
+    {
+      matchFileNames: matchFileNames,
+      matchDatasources: ['github-tags'],
+      enabled: false,
+    },
+    // github-tags is enabled against only those packages.
+    {
+      matchDepNames: $.githubTagsPackages,
+      matchFileNames: matchFileNames,
+      matchDatasources: ['github-tags'],
+      enabled: true,
+    },
+    {
+      allowedVersions: '/-esoctl$/',
+      matchFileNames: matchFileNames,
+      matchDepNames: [
+        'external-secrets/external-secrets/esoctl',
+      ],
+    },
+  ],
 }

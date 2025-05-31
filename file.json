@@ -527,9 +527,59 @@
    ],
    "packageRules": [
       {
+         "enabled": false,
+         "matchDatasources": [
+            "github-releases"
+         ],
+         "matchDepNames": [
+            "golang/go",
+            "golang/tools",
+            "kubernetes/kubectl",
+            "twistedpair/google-cloud-sdk",
+            "awslabs/mountpoint-s3",
+            "aws/aws-cli",
+            "catenacyber/perfsprint",
+            "golang/vuln/govulncheck"
+         ],
+         "matchFileNames": [
+            "{{arg0}}"
+         ]
+      },
+      {
+         "enabled": false,
+         "matchDatasources": [
+            "github-tags"
+         ],
+         "matchFileNames": [
+            "{{arg0}}"
+         ]
+      },
+      {
+         "enabled": true,
+         "matchDatasources": [
+            "github-tags"
+         ],
+         "matchDepNames": [
+            "golang/go",
+            "golang/tools",
+            "kubernetes/kubectl",
+            "twistedpair/google-cloud-sdk",
+            "awslabs/mountpoint-s3",
+            "aws/aws-cli",
+            "catenacyber/perfsprint",
+            "golang/vuln/govulncheck"
+         ],
+         "matchFileNames": [
+            "{{arg0}}"
+         ]
+      },
+      {
          "allowedVersions": "/-esoctl$/",
          "matchDepNames": [
             "external-secrets/external-secrets/esoctl"
+         ],
+         "matchFileNames": [
+            "{{arg0}}"
          ]
       }
    ]

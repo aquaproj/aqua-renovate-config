@@ -1,54 +1,7 @@
 local utils = import 'utils.libsonnet';
 
 {
-  packageRules: [
-    // Some packages are updated by github-tags datasource.
-    // So disable github-releases against those packages.
-    {
-      matchDepNames: utils.githubTagsPackages,
-      matchFileNames: utils.aquaYAMLMatchPaths,
-      matchDatasources: ['github-releases'],
-      enabled: false,
-    },
-    // By default github-tags is disabled.
-    {
-      matchFileNames: utils.aquaYAMLMatchPaths,
-      matchDatasources: ['github-tags'],
-      enabled: false,
-    },
-    // github-tags is enabled against only those packages.
-    {
-      matchDepNames: utils.githubTagsPackages,
-      matchFileNames: utils.aquaYAMLMatchPaths,
-      matchDatasources: ['github-tags'],
-      enabled: true,
-    },
-    {
-      allowedVersions: '/-esoctl$/',
-      matchFileNames: utils.aquaYAMLMatchPaths,
-      matchDepNames: [
-        'external-secrets/external-secrets/esoctl',
-      ],
-    },
-    {
-      allowedVersions: '/^wash-v/',
-      matchFileNames: utils.aquaYAMLMatchPaths,
-      matchDepNames: [
-        'wasmCloud/wasmCloud/wash',
-      ],
-    },
-    {
-      allowedVersions: '/^cmd\\/protoc-gen-go-grpc\\//',
-      matchFileNames: utils.aquaYAMLMatchPaths,
-      matchDepNames: [
-        'grpc/grpc-go/protoc-gen-go-grpc',
-      ],
-    },
-    {
-      matchPackageNames: ['aquaproj/aqua-renovate-config'],
-      groupName: 'aquaproj/aqua-renovate-config',
-    },
-  ],
+  packageRules: utils.packageRules(utils.aquaYAMLMatchPaths),
   customManagers: [
     {
       // Update aqua-installer action
