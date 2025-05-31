@@ -98,7 +98,7 @@
   },
   fileMatches(fileMatch, managers):: [
     manager {
-      fileMatch: fileMatch,
+      managerFilePatterns: fileMatch,
     }
     for manager in managers
   ],
