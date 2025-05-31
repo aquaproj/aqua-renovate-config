@@ -49,7 +49,7 @@
       {
          "customType": "regex",
          "datasourceTemplate": "github-tags",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -64,7 +64,7 @@
       {
          "customType": "regex",
          "datasourceTemplate": "github-releases",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -79,7 +79,7 @@
       {
          "customType": "regex",
          "datasourceTemplate": "github-releases",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -91,7 +91,7 @@
       {
          "customType": "regex",
          "datasourceTemplate": "go",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -106,7 +106,7 @@
       {
          "customType": "regex",
          "datasourceTemplate": "go",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -121,7 +121,7 @@
       {
          "customType": "regex",
          "datasourceTemplate": "crate",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -137,7 +137,7 @@
       {
          "customType": "regex",
          "datasourceTemplate": "gitlab-releases",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -152,7 +152,7 @@
       {
          "customType": "regex",
          "datasourceTemplate": "gitea-releases",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -169,7 +169,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "oven-sh/bun",
          "extractVersionTemplate": "^bun-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -186,7 +186,7 @@
          "datasourceTemplate": "github-tags",
          "depNameTemplate": "golang/go",
          "extractVersionTemplate": "^go(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -204,7 +204,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "golang/tools/gopls",
          "extractVersionTemplate": "^gopls/(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -222,7 +222,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli",
          "extractVersionTemplate": "^ipinfo-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -239,7 +239,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/cidr2ip",
          "extractVersionTemplate": "^cidr2ip-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -257,7 +257,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/cidr2range",
          "extractVersionTemplate": "^cidr2range-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -275,7 +275,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/range2cidr",
          "extractVersionTemplate": "^range2cidr-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -293,7 +293,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/prips",
          "extractVersionTemplate": "^prips-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -311,7 +311,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/splitcidr",
          "extractVersionTemplate": "^splitcidr-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -329,7 +329,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/randip",
          "extractVersionTemplate": "^randip-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -347,7 +347,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/grepip",
          "extractVersionTemplate": "^grepip-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -365,7 +365,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/range2ip",
          "extractVersionTemplate": "^range2ip-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -382,7 +382,7 @@
          "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "kubernetes/kubectl-convert",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -400,7 +400,7 @@
          "datasourceTemplate": "github-tags",
          "depNameTemplate": "kubernetes/kubectl",
          "extractVersionTemplate": "^kubernetes-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -417,7 +417,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "kubernetes-sigs/kustomize",
          "extractVersionTemplate": "^kustomize/(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -434,7 +434,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "mongodb/mongodb-atlas-cli/atlascli",
          "extractVersionTemplate": "^atlascli/(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -452,7 +452,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "orf/gping",
          "extractVersionTemplate": "^gping-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -469,7 +469,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "jqlang/jq",
          "extractVersionTemplate": "^jq-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -486,7 +486,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "apache/maven",
          "extractVersionTemplate": "^maven-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -503,7 +503,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "grpc/grpc-go/protoc-gen-go-grpc",
          "extractVersionTemplate": "^cmd/protoc-gen-go-grpc/(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -521,7 +521,7 @@
          "datasourceTemplate": "github-tags",
          "depNameTemplate": "awslabs/mountpoint-s3",
          "extractVersionTemplate": "^mountpoint-s3-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -537,7 +537,7 @@
          "customType": "regex",
          "datasourceTemplate": "npm",
          "depNameTemplate": "trunk-io/launcher",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -555,7 +555,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "bitwarden/clients",
          "extractVersionTemplate": "^cli-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -572,7 +572,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "wasmCloud/wasmCloud/wash",
          "extractVersionTemplate": "^wash-v(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [

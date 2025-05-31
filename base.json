@@ -3,7 +3,7 @@
       {
          "customType": "regex",
          "datasourceTemplate": "github-releases",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
@@ -18,7 +18,7 @@
       {
          "customType": "regex",
          "datasourceTemplate": "github-releases",
-         "fileMatch": [
+         "managerFilePatterns": [
             "\\.?aqua\\.ya?ml"
          ],
          "matchStrings": [
