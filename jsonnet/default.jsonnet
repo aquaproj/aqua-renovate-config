@@ -6,7 +6,7 @@ local utils = import 'utils.libsonnet';
     {
       // Update aqua-installer action
       managerFilePatterns: [
-        '/^action\\.ya?ml$/',
+        '/action\\.ya?ml$/',
         '/^\\.github/.*\\.ya?ml$/',
         '/^\\.circleci/config\\.yml$/',
       ],
@@ -44,7 +44,7 @@ local utils = import 'utils.libsonnet';
     },
     utils.packageRegexManager {
       datasourceTemplate: 'github-tags',
-      managerFilePatterns: ['/\\.?aqua\\.ya?ml/'],
+      managerFilePatterns: ['/\\.?aqua\\.ya?ml$/'],
     },
-  ]) + utils.fileMatches(['/\\.?aqua\\.ya?ml/'], utils.customManagers),
+  ]) + utils.fileMatches(['/\\.?aqua\\.ya?ml$/'], utils.customManagers),
 }
