@@ -15,12 +15,10 @@
     'catenacyber/perfsprint',
     'golang/vuln/govulncheck',
   ],
-  aquaYAMLFileMatch: ['\\.?aqua\\.ya?ml'],
+  aquaYAMLFileMatch: ['/\\.?aqua\\.ya?ml/'],
   wrapQuote(s):: "(?:%s|'%s'|\"%s\")" % [s, s, s],
   currentValue: "(?<currentValue>[^'\" \\n]+)",
   prefixRegexManager(depName, prefix):: {
-    customType: 'regex',
-    fileMatch: $.aquaYAMLFileMatch,
     matchStrings: $.aquaPackageMatchStrings(depName, prefix),
     extractVersionTemplate: '^%s(?<version>.*)$' % prefix,
     datasourceTemplate: 'github-releases',
@@ -51,7 +49,6 @@
 
   aquaRenovateConfigPreset: {
     // Update aqua-renovate-config
-    customType: 'regex',
     matchStrings: [
       '[\'"]github>aquaproj/aqua-renovate-config#(?<currentValue>[^\'" \\n\\(]+)',
       '[\'"]github>aquaproj/aqua-renovate-config:.*#(?<currentValue>[^\'" \\n\\(]+)',
@@ -70,8 +67,6 @@
   giteaDepName: '(?<depName>gitea\\.com/(?<packageName>[^\\n]+))',
 
   registryRegexManager: {
-    customType: 'regex',
-    fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
       ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('ref'), $.currentValue, $.depName],
       " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('ref'), $.currentValue, $.depName],
@@ -80,8 +75,6 @@
     datasourceTemplate: 'github-releases',
   },
   packageRegexManager: {
-    customType: 'regex',
-    fileMatch: $.aquaYAMLFileMatch,
     matchStrings: [
       ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.depName],
       " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.depName],
@@ -94,11 +87,11 @@
     datasourceTemplate: 'github-releases',
   },
   argFileMatch: {
-    fileMatch: ['{{arg0}}'],
+    managerFilePatterns: ['{{arg0}}'],
   },
   fileMatches(fileMatch, managers):: [
     manager {
-      fileMatch: fileMatch,
+      managerFilePatterns: fileMatch,
     }
     for manager in managers
   ],
@@ -115,7 +108,6 @@
     {
       // golang.org
       datasourceTemplate: 'go',
-      fileMatch: $.aquaYAMLFileMatch,
       matchStrings: [
         ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.golangOrgDepName],
         " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.golangOrgDepName],
@@ -129,7 +121,6 @@
     {
       // Go module
       datasourceTemplate: 'go',
-      fileMatch: $.aquaYAMLFileMatch,
       matchStrings: [
         ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.goModuleDepName],
         " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.goModuleDepName],
@@ -143,7 +134,6 @@
     {
       // Rust crates.io
       datasourceTemplate: 'crate',
-      fileMatch: $.aquaYAMLFileMatch,
       matchStrings: [
         ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.crateDepName],
         " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.crateDepName],
@@ -160,7 +150,6 @@
     {
       // Gitlab
       datasourceTemplate: 'gitlab-releases',
-      fileMatch: $.aquaYAMLFileMatch,
       matchStrings: [
         ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.gitlabDepName],
         " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.gitlabDepName],
@@ -174,7 +163,6 @@
     {
       // Gitea
       datasourceTemplate: 'gitea-releases',
-      fileMatch: $.aquaYAMLFileMatch,
       matchStrings: [
         ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.giteaDepName],
         " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.giteaDepName],
@@ -206,7 +194,6 @@
     {
       depNameTemplate: 'kubernetes/kubectl-convert',
       datasourceTemplate: 'github-releases',
-      fileMatch: $.aquaYAMLFileMatch,
       matchStrings: $.aquaPackageMatchStrings(self.depNameTemplate, ''),
       packageNameTemplate: 'kubernetes/kubernetes',
     },
@@ -231,7 +218,6 @@
       packageNameTemplate: '@trunkio/launcher',
       depNameTemplate: 'trunk-io/launcher',
       matchStrings: $.aquaPackageMatchStrings('trunk-io/launcher', ''),
-      fileMatch: $.aquaYAMLFileMatch,
       datasourceTemplate: 'npm',
     },
     $.prefixRegexManager('bitwarden/clients', 'cli-'),
@@ -239,4 +225,53 @@
       packageNameTemplate: 'wasmCloud/wasmCloud',
     },
   ]),
+
+  packageRules(matchFileNames):: [
+    // Some packages are updated by github-tags datasource.
+    // So disable github-releases against those packages.
+    {
+      matchDepNames: $.githubTagsPackages,
+      matchFileNames: matchFileNames,
+      matchDatasources: ['github-releases'],
+      enabled: false,
+    },
+    // By default github-tags is disabled.
+    {
+      matchFileNames: matchFileNames,
+      matchDatasources: ['github-tags'],
+      enabled: false,
+    },
+    // github-tags is enabled against only those packages.
+    {
+      matchDepNames: $.githubTagsPackages,
+      matchFileNames: matchFileNames,
+      matchDatasources: ['github-tags'],
+      enabled: true,
+    },
+    {
+      allowedVersions: '/-esoctl$/',
+      matchFileNames: matchFileNames,
+      matchDepNames: [
+        'external-secrets/external-secrets/esoctl',
+      ],
+    },
+    {
+      allowedVersions: '/^wash-v/',
+      matchFileNames: matchFileNames,
+      matchDepNames: [
+        'wasmCloud/wasmCloud/wash',
+      ],
+    },
+    {
+      allowedVersions: '/^cmd\\/protoc-gen-go-grpc\\//',
+      matchFileNames: matchFileNames,
+      matchDepNames: [
+        'grpc/grpc-go/protoc-gen-go-grpc',
+      ],
+    },
+    {
+      matchPackageNames: ['aquaproj/aqua-renovate-config'],
+      groupName: 'aquaproj/aqua-renovate-config',
+    },
+  ],
 }

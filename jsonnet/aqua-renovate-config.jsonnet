@@ -3,7 +3,7 @@ local utils = import 'utils.libsonnet';
 {
   customManagers: [
     utils.aquaRenovateConfigPreset {
-      fileMatch: [
+      managerFilePatterns: [
         '{{arg0}}',
       ],
     },
