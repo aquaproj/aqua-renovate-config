@@ -3,7 +3,7 @@
       {
          "customType": "regex",
          "datasourceTemplate": "github-releases",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -18,7 +18,7 @@
       {
          "customType": "regex",
          "datasourceTemplate": "github-releases",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -30,7 +30,7 @@
       {
          "customType": "regex",
          "datasourceTemplate": "go",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -45,7 +45,7 @@
       {
          "customType": "regex",
          "datasourceTemplate": "go",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -60,7 +60,7 @@
       {
          "customType": "regex",
          "datasourceTemplate": "crate",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -76,7 +76,7 @@
       {
          "customType": "regex",
          "datasourceTemplate": "gitlab-releases",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -91,7 +91,7 @@
       {
          "customType": "regex",
          "datasourceTemplate": "gitea-releases",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -108,7 +108,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "oven-sh/bun",
          "extractVersionTemplate": "^bun-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -125,7 +125,7 @@
          "datasourceTemplate": "github-tags",
          "depNameTemplate": "golang/go",
          "extractVersionTemplate": "^go(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -143,7 +143,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "golang/tools/gopls",
          "extractVersionTemplate": "^gopls/(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -161,7 +161,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli",
          "extractVersionTemplate": "^ipinfo-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -178,7 +178,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/cidr2ip",
          "extractVersionTemplate": "^cidr2ip-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -196,7 +196,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/cidr2range",
          "extractVersionTemplate": "^cidr2range-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -214,7 +214,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/range2cidr",
          "extractVersionTemplate": "^range2cidr-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -232,7 +232,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/prips",
          "extractVersionTemplate": "^prips-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -250,7 +250,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/splitcidr",
          "extractVersionTemplate": "^splitcidr-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -268,7 +268,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/randip",
          "extractVersionTemplate": "^randip-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -286,7 +286,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/grepip",
          "extractVersionTemplate": "^grepip-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -304,7 +304,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "ipinfo/cli/range2ip",
          "extractVersionTemplate": "^range2ip-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -321,7 +321,7 @@
          "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "kubernetes/kubectl-convert",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -339,7 +339,7 @@
          "datasourceTemplate": "github-tags",
          "depNameTemplate": "kubernetes/kubectl",
          "extractVersionTemplate": "^kubernetes-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -356,7 +356,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "kubernetes-sigs/kustomize",
          "extractVersionTemplate": "^kustomize/(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -373,7 +373,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "mongodb/mongodb-atlas-cli/atlascli",
          "extractVersionTemplate": "^atlascli/(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -391,7 +391,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "orf/gping",
          "extractVersionTemplate": "^gping-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -408,7 +408,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "jqlang/jq",
          "extractVersionTemplate": "^jq-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -425,7 +425,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "apache/maven",
          "extractVersionTemplate": "^maven-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -442,7 +442,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "grpc/grpc-go/protoc-gen-go-grpc",
          "extractVersionTemplate": "^cmd/protoc-gen-go-grpc/(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -460,7 +460,7 @@
          "datasourceTemplate": "github-tags",
          "depNameTemplate": "awslabs/mountpoint-s3",
          "extractVersionTemplate": "^mountpoint-s3-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -476,7 +476,7 @@
          "customType": "regex",
          "datasourceTemplate": "npm",
          "depNameTemplate": "trunk-io/launcher",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -494,7 +494,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "bitwarden/clients",
          "extractVersionTemplate": "^cli-(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -511,7 +511,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "wasmCloud/wasmCloud/wash",
          "extractVersionTemplate": "^wash-v(?<version>.*)$",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -527,9 +527,83 @@
    ],
    "packageRules": [
       {
+         "enabled": false,
+         "matchDatasources": [
+            "github-releases"
+         ],
+         "matchDepNames": [
+            "golang/go",
+            "golang/tools",
+            "kubernetes/kubectl",
+            "twistedpair/google-cloud-sdk",
+            "awslabs/mountpoint-s3",
+            "aws/aws-cli",
+            "catenacyber/perfsprint",
+            "golang/vuln/govulncheck"
+         ],
+         "matchFileNames": [
+            "{{arg0}}"
+         ]
+      },
+      {
+         "enabled": false,
+         "matchDatasources": [
+            "github-tags"
+         ],
+         "matchFileNames": [
+            "{{arg0}}"
+         ]
+      },
+      {
+         "enabled": true,
+         "matchDatasources": [
+            "github-tags"
+         ],
+         "matchDepNames": [
+            "golang/go",
+            "golang/tools",
+            "kubernetes/kubectl",
+            "twistedpair/google-cloud-sdk",
+            "awslabs/mountpoint-s3",
+            "aws/aws-cli",
+            "catenacyber/perfsprint",
+            "golang/vuln/govulncheck"
+         ],
+         "matchFileNames": [
+            "{{arg0}}"
+         ]
+      },
+      {
          "allowedVersions": "/-esoctl$/",
          "matchDepNames": [
             "external-secrets/external-secrets/esoctl"
+         ],
+         "matchFileNames": [
+            "{{arg0}}"
+         ]
+      },
+      {
+         "allowedVersions": "/^wash-v/",
+         "matchDepNames": [
+            "wasmCloud/wasmCloud/wash"
+         ],
+         "matchFileNames": [
+            "{{arg0}}"
+         ]
+      },
+      {
+         "allowedVersions": "/^cmd\\/protoc-gen-go-grpc\\//",
+         "matchDepNames": [
+            "grpc/grpc-go/protoc-gen-go-grpc"
+         ],
+         "matchFileNames": [
+            "{{arg0}}"
+         ]
+      },
+      {
+         "groupName": "aquaproj/aqua-renovate-config",
+         "matchPackageNames": [
+            "aquaproj/aqua-renovate-config"
          ]
       }
    ]

@@ -4,7 +4,7 @@
          "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "aquaproj/aqua-installer",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
@@ -16,7 +16,7 @@
          "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "aquaproj/aqua",
-         "fileMatch": [
+         "managerFilePatterns": [
             "{{arg0}}"
          ],
          "matchStrings": [
