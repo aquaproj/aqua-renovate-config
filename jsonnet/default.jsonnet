@@ -44,6 +44,7 @@ local utils = import 'utils.libsonnet';
     },
     utils.packageRegexManager {
       datasourceTemplate: 'github-tags',
+      managerFilePatterns: ["/\\.?aqua\\.ya?ml/"],
     },
-  ]) + utils.customManagers,
+  ]) + utils.fileMatches(["/\\.?aqua\\.ya?ml/"], utils.customManagers),
 }

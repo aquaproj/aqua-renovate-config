@@ -19,7 +19,6 @@
   wrapQuote(s):: "(?:%s|'%s'|\"%s\")" % [s, s, s],
   currentValue: "(?<currentValue>[^'\" \\n]+)",
   prefixRegexManager(depName, prefix):: {
-    managerFilePatterns: $.aquaYAMLFileMatch,
     matchStrings: $.aquaPackageMatchStrings(depName, prefix),
     extractVersionTemplate: '^%s(?<version>.*)$' % prefix,
     datasourceTemplate: 'github-releases',
@@ -68,7 +67,6 @@
   giteaDepName: '(?<depName>gitea\\.com/(?<packageName>[^\\n]+))',
 
   registryRegexManager: {
-    managerFilePatterns: $.aquaYAMLFileMatch,
     matchStrings: [
       ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('ref'), $.currentValue, $.depName],
       " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('ref'), $.currentValue, $.depName],
@@ -77,7 +75,6 @@
     datasourceTemplate: 'github-releases',
   },
   packageRegexManager: {
-    managerFilePatterns: $.aquaYAMLFileMatch,
     matchStrings: [
       ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.depName],
       " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.depName],
@@ -111,7 +108,6 @@
     {
       // golang.org
       datasourceTemplate: 'go',
-      managerFilePatterns: $.aquaYAMLFileMatch,
       matchStrings: [
         ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.golangOrgDepName],
         " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.golangOrgDepName],
@@ -125,7 +121,6 @@
     {
       // Go module
       datasourceTemplate: 'go',
-      managerFilePatterns: $.aquaYAMLFileMatch,
       matchStrings: [
         ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.goModuleDepName],
         " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.goModuleDepName],
@@ -139,7 +134,6 @@
     {
       // Rust crates.io
       datasourceTemplate: 'crate',
-      managerFilePatterns: $.aquaYAMLFileMatch,
       matchStrings: [
         ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.crateDepName],
         " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.crateDepName],
@@ -156,7 +150,6 @@
     {
       // Gitlab
       datasourceTemplate: 'gitlab-releases',
-      managerFilePatterns: $.aquaYAMLFileMatch,
       matchStrings: [
         ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.gitlabDepName],
         " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.gitlabDepName],
@@ -170,7 +163,6 @@
     {
       // Gitea
       datasourceTemplate: 'gitea-releases',
-      managerFilePatterns: $.aquaYAMLFileMatch,
       matchStrings: [
         ' +%s *: +%s +# renovate: depName=%s' % [$.wrapQuote('version'), $.currentValue, $.giteaDepName],
         " +%s *: +'%s' +# renovate: depName=%s" % [$.wrapQuote('version'), $.currentValue, $.giteaDepName],
@@ -202,7 +194,6 @@
     {
       depNameTemplate: 'kubernetes/kubectl-convert',
       datasourceTemplate: 'github-releases',
-      managerFilePatterns: $.aquaYAMLFileMatch,
       matchStrings: $.aquaPackageMatchStrings(self.depNameTemplate, ''),
       packageNameTemplate: 'kubernetes/kubernetes',
     },
@@ -227,7 +218,6 @@
       packageNameTemplate: '@trunkio/launcher',
       depNameTemplate: 'trunk-io/launcher',
       matchStrings: $.aquaPackageMatchStrings('trunk-io/launcher', ''),
-      managerFilePatterns: $.aquaYAMLFileMatch,
       datasourceTemplate: 'npm',
     },
     $.prefixRegexManager('bitwarden/clients', 'cli-'),
