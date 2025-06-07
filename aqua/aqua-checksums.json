@@ -31,36 +31,6 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/suzuki-shunsuke/ci-info/v2.3.2/ci-info_2.3.2_darwin_amd64.tar.gz",
-      "checksum": "36A12C7598513E5C9405BC61EEE1EA78AFF4F7A07033815C3FCE32CBF77C4CE5",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/suzuki-shunsuke/ci-info/v2.3.2/ci-info_2.3.2_darwin_arm64.tar.gz",
-      "checksum": "40BE50A5B11C7467DD5A37AB75A2C87F21D8A0BC45FA529EA87812BA64D97140",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/suzuki-shunsuke/ci-info/v2.3.2/ci-info_2.3.2_linux_amd64.tar.gz",
-      "checksum": "F39DA9A1F7A488E675C649030A8911DC057E835BBEE25CEE2BC3846947665AE2",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/suzuki-shunsuke/ci-info/v2.3.2/ci-info_2.3.2_linux_arm64.tar.gz",
-      "checksum": "7AFCA91B9A278D0F63F0B7D4920AB224C6BB52C69CDE2AB41440E48901AEF273",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/suzuki-shunsuke/ci-info/v2.3.2/ci-info_2.3.2_windows_amd64.tar.gz",
-      "checksum": "559897A9131FD4048D3F740F8551B7AFE6FD4BCFF1901AC31FC746BC2EA6B99B",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/suzuki-shunsuke/ci-info/v2.3.2/ci-info_2.3.2_windows_arm64.tar.gz",
-      "checksum": "EDCB7574DAAE5931652CC4211D0819282441A4DD19F37BE825E29B58EE4A30BD",
-      "algorithm": "sha256"
-    },
-    {
       "id": "github_release/github.com/suzuki-shunsuke/ghalint/v1.4.1/ghalint_1.4.1_darwin_amd64.tar.gz",
       "checksum": "AD0D5893D9A4B38F6F8D35DC003A2BEEA63FA2EA48FF91DDD301773AB5711B21",
       "algorithm": "sha256"
@@ -122,8 +92,8 @@
     },
     {
       "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.376.0/registry.yaml",
-      "checksum": "4926416A880A4B472E41A30C34539133A3E393F2B27FBA408DA1126BB7898859F8315725777F46EBB7D38709B789AE9BAD78746C2FEF2267255425C6A2F39067",
-      "algorithm": "sha512"
+      "checksum": "0C4BC5CD15FDE98B096CDE89DD5E18BACD44CF8C36B707167616CDEB018B032D",
+      "algorithm": "sha256"
     }
   ]
 }
