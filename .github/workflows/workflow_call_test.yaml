@@ -10,7 +10,7 @@ jobs:
       renovate-config-validator: ${{steps.changes.outputs.renovate-config-validator}}
       ghalint: ${{steps.changes.outputs.ghalint}}
       preset: ${{steps.changes.outputs.preset}}
-      preset_files: ${{steps.changes.outputs.preset_files}}
+      changed_presets_files: ${{steps.changes.outputs.changed_presets_files}}
     runs-on: ubuntu-latest
     permissions: {}
     steps:
@@ -43,7 +43,7 @@ jobs:
     if: needs.path-filter.outputs.preset == 'true'
     uses: ./.github/workflows/workflow_call_validate_presets.yaml
     with:
-      files: ${{ needs.path-filter.outputs.preset_files }}
+      files: ${{ needs.path-filter.outputs.changed_presets_files }}
 
   ghalint:
     needs: path-filter
