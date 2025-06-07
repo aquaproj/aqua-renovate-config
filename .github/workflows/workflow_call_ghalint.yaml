@@ -1,0 +1,21 @@
+---
+name: ghalint
+on: workflow_call
+jobs:
+  ghalint:
+    # Validate GitHub Actions Workflows by ghalint.
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: aquaproj/aqua-installer@9ebf656952a20c45a5d66606f083ff34f58b8ce0 # v4.0.0
+        with:
+          aqua_version: v2.51.2
+        env:
+          AQUA_GITHUB_TOKEN: ${{github.token}}
+      - run: ghalint run
+        env:
+          GHALINT_LOG_COLOR: always

@@ -1,0 +1,28 @@
+---
+name: Validate Presets
+on: workflow_call
+jobs:
+  validate-presets:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: aquaproj/aqua-installer@9ebf656952a20c45a5d66606f083ff34f58b8ce0 # v4.0.0
+        with:
+          aqua_version: v2.51.2
+      - run: ci-info run | sed "s/^export //" >> "$GITHUB_ENV"
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          # node-version: 24.1.0
+          node-version: 22.16.0
+      - run: |
+          grep -E "^[^/]+\.json$" "$CI_INFO_TEMP_DIR/pr_all_filenames.txt" | grep -v aqua-checksums.json | while read -r file; do
+            if [ -f "$file" ]; then
+              RENOVATE_CONFIG_FILE="$file" npx --package renovate -c renovate-config-validator
+            fi
+          done
