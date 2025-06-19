@@ -5,7 +5,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "aquaproj/aqua-installer",
          "managerFilePatterns": [
-            "{{arg0}}"
+            "/{{arg0}}/"
          ],
          "matchStrings": [
             "raw\\.githubusercontent\\.com/aquaproj/aqua-installer/(?<currentValue>[^'\" \\n]+)/aqua-installer"
@@ -17,7 +17,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "aquaproj/aqua",
          "managerFilePatterns": [
-            "{{arg0}}"
+            "/{{arg0}}/"
          ],
          "matchStrings": [
             "aqua-installer +(\\| +(ba|z)?sh +-s +-- +)?(-i +\\S+ +)?-v +(?<currentValue>[^'\" \\n]+)\\s",
