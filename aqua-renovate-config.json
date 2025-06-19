@@ -4,7 +4,7 @@
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "aquaproj/aqua-renovate-config",
          "managerFilePatterns": [
-            "{{arg0}}"
+            "/{{arg0}}/"
          ],
          "matchStrings": [
             "['\"]github>aquaproj/aqua-renovate-config#(?<currentValue>[^'\" \\n\\(]+)",

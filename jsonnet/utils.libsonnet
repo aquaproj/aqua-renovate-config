@@ -87,7 +87,7 @@
     datasourceTemplate: 'github-releases',
   },
   argFileMatch: {
-    managerFilePatterns: ['{{arg0}}'],
+    managerFilePatterns: ['/{{arg0}}/'],
   },
   fileMatches(fileMatch, managers):: [
     manager {
