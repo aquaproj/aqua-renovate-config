@@ -202,6 +202,7 @@
       datasourceTemplate: 'github-tags',
     },
     $.prefixRegexManager('kubernetes-sigs/kustomize', 'kustomize/'),
+    $.prefixRegexManager('openai/codex', 'rust-'),
     $.prefixRegexManager('mongodb/mongodb-atlas-cli/atlascli', 'atlascli/') + {
       packageNameTemplate: 'mongodb/mongodb-atlas-cli',
     },

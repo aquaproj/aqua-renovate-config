@@ -432,6 +432,23 @@
       {
          "customType": "regex",
          "datasourceTemplate": "github-releases",
+         "depNameTemplate": "openai/codex",
+         "extractVersionTemplate": "^rust-(?<version>.*)$",
+         "managerFilePatterns": [
+            "/\\.?aqua\\.ya?ml$/"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +rust-(?<currentValue>[^'\" \\n]+) +# renovate: depName=openai/codex[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'rust-(?<currentValue>[^'\" \\n]+)' +# renovate: depName=openai/codex[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"rust-(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=openai/codex[ \\n]",
+            " +(?:name|'name'|\"name\") *: +openai/codex@rust-(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'openai/codex@rust-(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"openai/codex@rust-(?<currentValue>[^'\" \\n]+)\""
+         ]
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
          "depNameTemplate": "mongodb/mongodb-atlas-cli/atlascli",
          "extractVersionTemplate": "^atlascli/(?<version>.*)$",
          "managerFilePatterns": [
