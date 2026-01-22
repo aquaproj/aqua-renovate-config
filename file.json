@@ -556,7 +556,8 @@
             "awslabs/mountpoint-s3",
             "aws/aws-cli",
             "catenacyber/perfsprint",
-            "golang/vuln/govulncheck"
+            "golang/vuln/govulncheck",
+            "anthropics/claude-code"
          ],
          "matchFileNames": [
             "/{{arg0}}/"
@@ -584,7 +585,8 @@
             "awslabs/mountpoint-s3",
             "aws/aws-cli",
             "catenacyber/perfsprint",
-            "golang/vuln/govulncheck"
+            "golang/vuln/govulncheck",
+            "anthropics/claude-code"
          ],
          "matchFileNames": [
             "/{{arg0}}/"

@@ -14,6 +14,7 @@
     'aws/aws-cli',
     'catenacyber/perfsprint',
     'golang/vuln/govulncheck',
+    'anthropics/claude-code',
   ],
   aquaYAMLFileMatch: ['/\\.?aqua\\.ya?ml/'],
   wrapQuote(s):: "(?:%s|'%s'|\"%s\")" % [s, s, s],
