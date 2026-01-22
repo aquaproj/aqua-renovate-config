@@ -617,7 +617,8 @@
             "awslabs/mountpoint-s3",
             "aws/aws-cli",
             "catenacyber/perfsprint",
-            "golang/vuln/govulncheck"
+            "golang/vuln/govulncheck",
+            "anthropics/claude-code"
          ],
          "matchFileNames": [
             "**/.aqua.yaml",
@@ -651,7 +652,8 @@
             "awslabs/mountpoint-s3",
             "aws/aws-cli",
             "catenacyber/perfsprint",
-            "golang/vuln/govulncheck"
+            "golang/vuln/govulncheck",
+            "anthropics/claude-code"
          ],
          "matchFileNames": [
             "**/.aqua.yaml",
