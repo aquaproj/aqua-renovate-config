@@ -183,7 +183,7 @@
       },
       {
          "customType": "regex",
-         "datasourceTemplate": "github-releases",
+         "datasourceTemplate": "github-tags",
          "depNameTemplate": "apache/ant",
          "extractVersionTemplate": "^rel/(?<version>.*)$",
          "managerFilePatterns": [
