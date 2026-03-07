@@ -183,6 +183,23 @@
       },
       {
          "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "apache/ant",
+         "extractVersionTemplate": "^rel/(?<version>.*)$",
+         "managerFilePatterns": [
+            "/\\.?aqua\\.ya?ml$/"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +rel/(?<currentValue>[^'\" \\n]+) +# renovate: depName=apache/ant[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'rel/(?<currentValue>[^'\" \\n]+)' +# renovate: depName=apache/ant[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"rel/(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=apache/ant[ \\n]",
+            " +(?:name|'name'|\"name\") *: +apache/ant@rel/(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'apache/ant@rel/(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"apache/ant@rel/(?<currentValue>[^'\" \\n]+)\""
+         ]
+      },
+      {
+         "customType": "regex",
          "datasourceTemplate": "github-tags",
          "depNameTemplate": "golang/go",
          "extractVersionTemplate": "^go(?<version>.*)$",
