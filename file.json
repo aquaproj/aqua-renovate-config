@@ -574,7 +574,8 @@
             "aws/aws-cli",
             "catenacyber/perfsprint",
             "golang/vuln/govulncheck",
-            "anthropics/claude-code"
+            "anthropics/claude-code",
+            "apache/ant"
          ],
          "matchFileNames": [
             "/{{arg0}}/"
@@ -603,7 +604,8 @@
             "aws/aws-cli",
             "catenacyber/perfsprint",
             "golang/vuln/govulncheck",
-            "anthropics/claude-code"
+            "anthropics/claude-code",
+            "apache/ant"
          ],
          "matchFileNames": [
             "/{{arg0}}/"

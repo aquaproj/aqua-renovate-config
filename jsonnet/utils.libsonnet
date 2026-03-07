@@ -15,6 +15,7 @@
     'catenacyber/perfsprint',
     'golang/vuln/govulncheck',
     'anthropics/claude-code',
+    'apache/ant',
   ],
   aquaYAMLFileMatch: ['/\\.?aqua\\.ya?ml/'],
   wrapQuote(s):: "(?:%s|'%s'|\"%s\")" % [s, s, s],
