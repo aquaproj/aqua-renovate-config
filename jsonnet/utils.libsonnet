@@ -176,7 +176,9 @@
       ],
     },
     $.prefixRegexManager('oven-sh/bun', 'bun-'),
-    $.prefixRegexManager('apache/ant', 'rel/'),
+    $.prefixRegexManager('apache/ant', 'rel/') + {
+      datasourceTemplate: 'github-tags',
+    },
     $.prefixRegexManager('golang/go', '(go)?') + {
       extractVersionTemplate: '^go(?<version>.*)$',
       datasourceTemplate: 'github-tags',
