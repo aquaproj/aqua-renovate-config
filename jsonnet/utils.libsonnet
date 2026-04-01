@@ -16,6 +16,7 @@
     'golang/vuln/govulncheck',
     'anthropics/claude-code',
     'apache/ant',
+    'getdbt.com/dbt-fusion',
   ],
   aquaYAMLFileMatch: ['/\\.?aqua\\.ya?ml/'],
   wrapQuote(s):: "(?:%s|'%s'|\"%s\")" % [s, s, s],
@@ -230,6 +231,12 @@
     $.prefixRegexManager('wasmCloud/wasmCloud/wash', 'wash-v') + {
       packageNameTemplate: 'wasmCloud/wasmCloud',
     },
+    {
+      packageNameTemplate: 'ryan-pip/dbt-fusion-versions',
+      depNameTemplate: 'getdbt.com/dbt-fusion',
+      matchStrings: $.aquaPackageMatchStrings('getdbt.com/dbt-fusion', ''),
+      datasourceTemplate: 'github-tags',
+    },
   ]),
 
   packageRules(matchFileNames):: [
@@ -278,6 +285,11 @@
     {
       matchPackageNames: ['aquaproj/aqua-renovate-config'],
       groupName: 'aquaproj/aqua-renovate-config',
+    },
+    {
+      matchPackageNames: ['ryan-pip/dbt-fusion-versions'],
+      versioning: 'semver',
+      changelogUrl: 'https://github.com/dbt-labs/dbt-fusion/blob/main/CHANGELOG.md',
     },
   ],
 }
