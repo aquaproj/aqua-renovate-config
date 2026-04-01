@@ -618,6 +618,23 @@
             " +(?:name|'name'|\"name\") *: +\"wasmCloud/wasmCloud/wash@wash-v(?<currentValue>[^'\" \\n]+)\""
          ],
          "packageNameTemplate": "wasmCloud/wasmCloud"
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-tags",
+         "depNameTemplate": "getdbt.com/dbt-fusion",
+         "managerFilePatterns": [
+            "/\\.?aqua\\.ya?ml$/"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=getdbt.com/dbt-fusion[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=getdbt.com/dbt-fusion[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=getdbt.com/dbt-fusion[ \\n]",
+            " +(?:name|'name'|\"name\") *: +getdbt.com/dbt-fusion@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'getdbt.com/dbt-fusion@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"getdbt.com/dbt-fusion@(?<currentValue>[^'\" \\n]+)\""
+         ],
+         "packageNameTemplate": "ryan-pip/dbt-fusion-versions"
       }
    ],
    "packageRules": [
@@ -636,7 +653,8 @@
             "catenacyber/perfsprint",
             "golang/vuln/govulncheck",
             "anthropics/claude-code",
-            "apache/ant"
+            "apache/ant",
+            "getdbt.com/dbt-fusion"
          ],
          "matchFileNames": [
             "**/.aqua.yaml",
@@ -672,7 +690,8 @@
             "catenacyber/perfsprint",
             "golang/vuln/govulncheck",
             "anthropics/claude-code",
-            "apache/ant"
+            "apache/ant",
+            "getdbt.com/dbt-fusion"
          ],
          "matchFileNames": [
             "**/.aqua.yaml",
@@ -722,6 +741,13 @@
          "matchPackageNames": [
             "aquaproj/aqua-renovate-config"
          ]
+      },
+      {
+         "changelogUrl": "https://github.com/dbt-labs/dbt-fusion/blob/main/CHANGELOG.md",
+         "matchPackageNames": [
+            "ryan-pip/dbt-fusion-versions"
+         ],
+         "versioning": "semver"
       }
    ]
 }
