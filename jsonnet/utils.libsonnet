@@ -228,9 +228,6 @@
       datasourceTemplate: 'npm',
     },
     $.prefixRegexManager('bitwarden/clients', 'cli-'),
-    $.prefixRegexManager('wasmCloud/wasmCloud/wash', 'wash-v') + {
-      packageNameTemplate: 'wasmCloud/wasmCloud',
-    },
     {
       packageNameTemplate: 'ryan-pip/dbt-fusion-versions',
       depNameTemplate: 'getdbt.com/dbt-fusion',
@@ -266,13 +263,6 @@
       matchFileNames: matchFileNames,
       matchDepNames: [
         'external-secrets/external-secrets/esoctl',
-      ],
-    },
-    {
-      allowedVersions: '/^wash-v/',
-      matchFileNames: matchFileNames,
-      matchDepNames: [
-        'wasmCloud/wasmCloud/wash',
       ],
     },
     {
