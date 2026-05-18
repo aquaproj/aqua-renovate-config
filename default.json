@@ -603,24 +603,6 @@
       },
       {
          "customType": "regex",
-         "datasourceTemplate": "github-releases",
-         "depNameTemplate": "wasmCloud/wasmCloud/wash",
-         "extractVersionTemplate": "^wash-v(?<version>.*)$",
-         "managerFilePatterns": [
-            "/\\.?aqua\\.ya?ml$/"
-         ],
-         "matchStrings": [
-            " +(?:version|'version'|\"version\") *: +wash-v(?<currentValue>[^'\" \\n]+) +# renovate: depName=wasmCloud/wasmCloud/wash[ \\n]",
-            " +(?:version|'version'|\"version\") *: +'wash-v(?<currentValue>[^'\" \\n]+)' +# renovate: depName=wasmCloud/wasmCloud/wash[ \\n]",
-            " +(?:version|'version'|\"version\") *: +\"wash-v(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=wasmCloud/wasmCloud/wash[ \\n]",
-            " +(?:name|'name'|\"name\") *: +wasmCloud/wasmCloud/wash@wash-v(?<currentValue>[^'\" \\n]+)",
-            " +(?:name|'name'|\"name\") *: +'wasmCloud/wasmCloud/wash@wash-v(?<currentValue>[^'\" \\n]+)'",
-            " +(?:name|'name'|\"name\") *: +\"wasmCloud/wasmCloud/wash@wash-v(?<currentValue>[^'\" \\n]+)\""
-         ],
-         "packageNameTemplate": "wasmCloud/wasmCloud"
-      },
-      {
-         "customType": "regex",
          "datasourceTemplate": "github-tags",
          "depNameTemplate": "getdbt.com/dbt-fusion",
          "managerFilePatterns": [
@@ -704,18 +686,6 @@
          "allowedVersions": "/-esoctl$/",
          "matchDepNames": [
             "external-secrets/external-secrets/esoctl"
-         ],
-         "matchFileNames": [
-            "**/.aqua.yaml",
-            "**/.aqua.yml",
-            "**/aqua.yaml",
-            "**/aqua.yml"
-         ]
-      },
-      {
-         "allowedVersions": "/^wash-v/",
-         "matchDepNames": [
-            "wasmCloud/wasmCloud/wash"
          ],
          "matchFileNames": [
             "**/.aqua.yaml",
