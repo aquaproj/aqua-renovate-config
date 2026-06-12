@@ -234,6 +234,12 @@
       matchStrings: $.aquaPackageMatchStrings('getdbt.com/dbt-fusion', ''),
       datasourceTemplate: 'github-tags',
     },
+    {
+      packageNameTemplate: 'jasonlyle88/sqlcl-releases',
+      depNameTemplate: 'oracle.com/sqlcl',
+      matchStrings: $.aquaPackageMatchStrings('oracle.com/sqlcl', ''),
+      datasourceTemplate: 'github-releases',
+    },
   ]),
 
   packageRules(matchFileNames):: [

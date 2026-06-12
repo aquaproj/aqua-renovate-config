@@ -556,6 +556,23 @@
             " +(?:name|'name'|\"name\") *: +\"getdbt.com/dbt-fusion@(?<currentValue>[^'\" \\n]+)\""
          ],
          "packageNameTemplate": "ryan-pip/dbt-fusion-versions"
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-releases",
+         "depNameTemplate": "oracle.com/sqlcl",
+         "managerFilePatterns": [
+            "/{{arg0}}/"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=oracle.com/sqlcl[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=oracle.com/sqlcl[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=oracle.com/sqlcl[ \\n]",
+            " +(?:name|'name'|\"name\") *: +oracle.com/sqlcl@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'oracle.com/sqlcl@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"oracle.com/sqlcl@(?<currentValue>[^'\" \\n]+)\""
+         ],
+         "packageNameTemplate": "jasonlyle88/sqlcl-releases"
       }
    ],
    "packageRules": [
