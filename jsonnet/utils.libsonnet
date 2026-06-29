@@ -107,8 +107,8 @@
 
   customManagers: $.setCustomTypeRegex([
     $.packageRegexManager,
-    $.packageRegexManager + {
-      datasourceTemplate: 'github-tags'
+    $.packageRegexManager {
+      datasourceTemplate: 'github-tags',
     },
     $.registryRegexManager,
     {
