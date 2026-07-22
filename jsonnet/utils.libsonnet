@@ -107,6 +107,9 @@
 
   customManagers: $.setCustomTypeRegex([
     $.packageRegexManager,
+    $.packageRegexManager {
+      datasourceTemplate: 'github-tags',
+    },
     $.registryRegexManager,
     {
       // golang.org
