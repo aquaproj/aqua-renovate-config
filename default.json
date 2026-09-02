@@ -48,7 +48,7 @@
       },
       {
          "customType": "regex",
-         "datasourceTemplate": "github-tags",
+         "datasourceTemplate": "github-releases",
          "managerFilePatterns": [
             "/\\.?aqua\\.ya?ml$/"
          ],
@@ -63,7 +63,7 @@
       },
       {
          "customType": "regex",
-         "datasourceTemplate": "github-releases",
+         "datasourceTemplate": "github-tags",
          "managerFilePatterns": [
             "/\\.?aqua\\.ya?ml$/"
          ],
