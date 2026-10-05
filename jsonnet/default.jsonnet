@@ -42,9 +42,5 @@ local utils = import 'utils.libsonnet';
         '/^\\.renovaterc$/',
       ],
     },
-    utils.packageRegexManager {
-      datasourceTemplate: 'github-tags',
-      managerFilePatterns: ['/\\.?aqua\\.ya?ml$/'],
-    },
   ]) + utils.fileMatches(['/\\.?aqua\\.ya?ml$/'], utils.customManagers),
 }
