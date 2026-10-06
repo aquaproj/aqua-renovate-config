@@ -11,7 +11,7 @@ jobs:
       ghalint: ${{steps.changes.outputs.ghalint}}
       preset: ${{steps.changes.outputs.preset}}
       changed_presets_files: ${{steps.changes.outputs.changed_presets_files}}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     permissions: {}
     steps:
       - uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d # v4.0.3
