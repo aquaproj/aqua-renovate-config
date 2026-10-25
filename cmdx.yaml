@@ -14,6 +14,11 @@ tasks:
         required: true
         validate:
           - regexp: "^\\d+\\.\\d+.\\d+(-\\d+)?$"
+  - name: test
+    short: t
+    description: Test presets by Renovate's dry-run
+    usage: Test presets by Renovate's dry-run
+    script: bash scripts/test.sh
   - name: generate
     short: g
     description: Generate presets from Jsonnet
