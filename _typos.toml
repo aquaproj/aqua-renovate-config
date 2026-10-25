@@ -1,0 +1,3 @@
+[default.extend-words]
+# (ba|z)?sh in regular expressions
+ba = "ba"

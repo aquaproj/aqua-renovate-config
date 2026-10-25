@@ -1,0 +1,188 @@
+[
+  {
+    "manager": "regex",
+    "packageFile": "install.sh",
+    "depName": "aquaproj/aqua-installer",
+    "packageName": "aquaproj/aqua-installer",
+    "currentValue": "v4.0.5",
+    "currentDigest": "96a9bc20066c5bf5e275b41019cfc165b25f4e2e",
+    "datasource": "github-tags",
+    "replaceString": "raw.githubusercontent.com/aquaproj/aqua-installer/96a9bc20066c5bf5e275b41019cfc165b25f4e2e/aqua-installer # v4.0.5"
+  },
+  {
+    "manager": "regex",
+    "packageFile": "install.sh",
+    "depName": "aquaproj/aqua-installer",
+    "packageName": "aquaproj/aqua-installer",
+    "currentValue": "v4.0.5",
+    "currentDigest": "96a9bc20066c5bf5e275b41019cfc165b25f4e2e",
+    "datasource": "github-tags",
+    "replaceString": "raw.githubusercontent.com/aquaproj/aqua-installer/96a9bc20066c5bf5e275b41019cfc165b25f4e2e/aqua-installer\" # v4.0.5"
+  },
+  {
+    "manager": "regex",
+    "packageFile": "install.sh",
+    "depName": "aquaproj/aqua-installer",
+    "packageName": "aquaproj/aqua-installer",
+    "currentValue": "v4.0.5",
+    "currentDigest": "96a9bc20066c5bf5e275b41019cfc165b25f4e2e",
+    "datasource": "github-tags",
+    "replaceString": "raw.githubusercontent.com/aquaproj/aqua-installer/96a9bc20066c5bf5e275b41019cfc165b25f4e2e/aqua-installer' # v4.0.5"
+  },
+  {
+    "manager": "regex",
+    "packageFile": "install.sh",
+    "depName": "aquaproj/aqua-installer",
+    "packageName": "aquaproj/aqua-installer",
+    "currentValue": "v4.0.5",
+    "datasource": "github-releases",
+    "replaceString": "raw.githubusercontent.com/aquaproj/aqua-installer/v4.0.5/aqua-installer"
+  },
+  {
+    "manager": "regex",
+    "packageFile": "install.sh",
+    "depName": "aquaproj/aqua-installer",
+    "packageName": "aquaproj/aqua-installer",
+    "currentValue": "v4.0.5",
+    "datasource": "github-releases",
+    "replaceString": "raw.githubusercontent.com/aquaproj/aqua-installer/v4.0.5/aqua-installer"
+  },
+  {
+    "manager": "regex",
+    "packageFile": "install.sh",
+    "depName": "aquaproj/aqua-installer",
+    "packageName": "aquaproj/aqua-installer",
+    "currentValue": "96a9bc20066c5bf5e275b41019cfc165b25f4e2e",
+    "datasource": "github-releases",
+    "replaceString": "raw.githubusercontent.com/aquaproj/aqua-installer/96a9bc20066c5bf5e275b41019cfc165b25f4e2e/aqua-installer"
+  },
+  {
+    "manager": "regex",
+    "packageFile": "install.sh",
+    "depName": "aquaproj/aqua-installer",
+    "packageName": "aquaproj/aqua-installer",
+    "currentValue": "96a9bc20066c5bf5e275b41019cfc165b25f4e2e",
+    "datasource": "github-releases",
+    "replaceString": "raw.githubusercontent.com/aquaproj/aqua-installer/96a9bc20066c5bf5e275b41019cfc165b25f4e2e/aqua-installer"
+  },
+  {
+    "manager": "regex",
+    "packageFile": "install.sh",
+    "depName": "aquaproj/aqua-installer",
+    "packageName": "aquaproj/aqua-installer",
+    "currentValue": "96a9bc20066c5bf5e275b41019cfc165b25f4e2e",
+    "datasource": "github-releases",
+    "replaceString": "raw.githubusercontent.com/aquaproj/aqua-installer/96a9bc20066c5bf5e275b41019cfc165b25f4e2e/aqua-installer"
+  },
+  {
+    "manager": "regex",
+    "packageFile": "install.sh",
+    "depName": "aquaproj/aqua-installer",
+    "packageName": "aquaproj/aqua-installer",
+    "currentValue": "96a9bc20066c5bf5e275b41019cfc165b25f4e2e",
+    "datasource": "github-releases",
+    "replaceString": "raw.githubusercontent.com/aquaproj/aqua-installer/96a9bc20066c5bf5e275b41019cfc165b25f4e2e/aqua-installer"
+  },
+  {
+    "manager": "regex",
+    "packageFile": "install.sh",
+    "depName": "aquaproj/aqua",
+    "packageName": "aquaproj/aqua",
+    "currentValue": "v2.60.1",
+    "datasource": "github-releases",
+    "replaceString": "aqua-installer | bash -s -- -v v2.60.1\n"
+  },
+  {
+    "manager": "regex",
+    "packageFile": "install.sh",
+    "depName": "aquaproj/aqua",
+    "packageName": "aquaproj/aqua",
+    "currentValue": "v2.60.1",
+    "datasource": "github-releases",
+    "replaceString": "aqua-installer -v v2.60.1\n"
+  },
+  {
+    "manager": "regex",
+    "packageFile": "install.sh",
+    "depName": "aquaproj/aqua",
+    "packageName": "aquaproj/aqua",
+    "currentValue": "v2.60.1",
+    "datasource": "github-releases",
+    "replaceString": "aqua-installer -i /tmp/aqua -v v2.60.1\n"
+  },
+  {
+    "manager": "regex",
+    "packageFile": "install.sh",
+    "depName": "aquaproj/aqua",
+    "packageName": "aquaproj/aqua",
+    "currentValue": "v2.60.1",
+    "datasource": "github-releases",
+    "replaceString": "aqua-installer -v 'v2.60.1'\n"
+  },
+  {
+    "manager": "regex",
+    "packageFile": "install.sh",
+    "depName": "aquaproj/aqua",
+    "packageName": "aquaproj/aqua",
+    "currentValue": "v2.60.1",
+    "datasource": "github-releases",
+    "replaceString": "aqua-installer -v \"v2.60.1\"\n"
+  },
+  {
+    "manager": "regex",
+    "packageFile": "main.js",
+    "depName": "aquaproj/aqua-installer",
+    "packageName": "aquaproj/aqua-installer",
+    "currentValue": "v4.0.5",
+    "currentDigest": "96a9bc20066c5bf5e275b41019cfc165b25f4e2e",
+    "datasource": "github-tags",
+    "replaceString": "raw.githubusercontent.com/aquaproj/aqua-installer/96a9bc20066c5bf5e275b41019cfc165b25f4e2e/aqua-installer\"; // v4.0.5"
+  },
+  {
+    "manager": "regex",
+    "packageFile": "main.js",
+    "depName": "aquaproj/aqua-installer",
+    "packageName": "aquaproj/aqua-installer",
+    "currentValue": "v4.0.5",
+    "currentDigest": "96a9bc20066c5bf5e275b41019cfc165b25f4e2e",
+    "datasource": "github-tags",
+    "replaceString": "raw.githubusercontent.com/aquaproj/aqua-installer/96a9bc20066c5bf5e275b41019cfc165b25f4e2e/aqua-installer`; // v4.0.5"
+  },
+  {
+    "manager": "regex",
+    "packageFile": "main.js",
+    "depName": "aquaproj/aqua-installer",
+    "packageName": "aquaproj/aqua-installer",
+    "currentValue": "v4.0.5",
+    "currentDigest": "96a9bc20066c5bf5e275b41019cfc165b25f4e2e",
+    "datasource": "github-tags",
+    "replaceString": "raw.githubusercontent.com/aquaproj/aqua-installer/96a9bc20066c5bf5e275b41019cfc165b25f4e2e/aqua-installer\", // v4.0.5"
+  },
+  {
+    "manager": "regex",
+    "packageFile": "main.js",
+    "depName": "aquaproj/aqua-installer",
+    "packageName": "aquaproj/aqua-installer",
+    "currentValue": "96a9bc20066c5bf5e275b41019cfc165b25f4e2e",
+    "datasource": "github-releases",
+    "replaceString": "raw.githubusercontent.com/aquaproj/aqua-installer/96a9bc20066c5bf5e275b41019cfc165b25f4e2e/aqua-installer"
+  },
+  {
+    "manager": "regex",
+    "packageFile": "main.js",
+    "depName": "aquaproj/aqua-installer",
+    "packageName": "aquaproj/aqua-installer",
+    "currentValue": "96a9bc20066c5bf5e275b41019cfc165b25f4e2e",
+    "datasource": "github-releases",
+    "replaceString": "raw.githubusercontent.com/aquaproj/aqua-installer/96a9bc20066c5bf5e275b41019cfc165b25f4e2e/aqua-installer"
+  },
+  {
+    "manager": "regex",
+    "packageFile": "main.js",
+    "depName": "aquaproj/aqua-installer",
+    "packageName": "aquaproj/aqua-installer",
+    "currentValue": "96a9bc20066c5bf5e275b41019cfc165b25f4e2e",
+    "datasource": "github-releases",
+    "replaceString": "raw.githubusercontent.com/aquaproj/aqua-installer/96a9bc20066c5bf5e275b41019cfc165b25f4e2e/aqua-installer"
+  }
+]

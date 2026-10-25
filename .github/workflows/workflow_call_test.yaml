@@ -7,36 +7,35 @@ jobs:
     # Get changed files to filter jobs
     timeout-minutes: 10
     outputs:
-      renovate-config-validator: ${{steps.changes.outputs.renovate-config-validator}}
-      ghalint: ${{steps.changes.outputs.ghalint}}
       preset: ${{steps.changes.outputs.preset}}
+      test-presets: ${{steps.changes.outputs.test-presets}}
       changed_presets_files: ${{steps.changes.outputs.changed_presets_files}}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     permissions: {}
     steps:
-      - uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d # v4.0.1
+      - uses: dorny/paths-filter@ceb8a2b8f2d89434be7ff52d3de7ec3738c5cc9d # v4.0.3
         id: changes
         with:
           list-files: shell
           filters: |
-            renovate-config-validator:
-              - renovate.json5
-              - .github/workflows/workflow_call_renovate_config_validator.yaml
             preset:
               - "*.json"
               - ./.github/workflows/workflow_call_validate_presets.yaml
+            test-presets:
+              - "*.json"
+              - tests/**
+              - scripts/test.sh
+              - .github/workflows/workflow_call_test_presets.yaml
             changed_presets:
               - "*.json"
-            ghalint:
-              - .github/workflows/*.yaml
-              - aqua/ghalint.yaml
 
-  renovate-config-validator:
-    needs: path-filter
-    if: needs.path-filter.outputs.renovate-config-validator == 'true'
-    uses: ./.github/workflows/workflow_call_renovate_config_validator.yaml
+  test-workflow:
+    uses: suzuki-shunsuke/test-workflow/.github/workflows/test.yaml@51ece8dcaabff59820bfb2053c56e3cb281cf7b2 # v0.0.1
+    with:
+      aqua_version: v2.65.2
     permissions:
       contents: read
+      pull-requests: read
 
   validate-presets:
     needs: path-filter
@@ -45,7 +44,7 @@ jobs:
     with:
       files: ${{ needs.path-filter.outputs.changed_presets_files }}
 
-  ghalint:
+  test-presets:
     needs: path-filter
-    if: needs.path-filter.outputs.ghalint == 'true'
-    uses: ./.github/workflows/workflow_call_ghalint.yaml
+    if: needs.path-filter.outputs.test-presets == 'true'
+    uses: ./.github/workflows/workflow_call_test_presets.yaml
