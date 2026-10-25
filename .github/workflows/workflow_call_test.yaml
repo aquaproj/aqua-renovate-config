@@ -7,8 +7,6 @@ jobs:
     # Get changed files to filter jobs
     timeout-minutes: 10
     outputs:
-      renovate-config-validator: ${{steps.changes.outputs.renovate-config-validator}}
-      ghalint: ${{steps.changes.outputs.ghalint}}
       preset: ${{steps.changes.outputs.preset}}
       test-presets: ${{steps.changes.outputs.test-presets}}
       changed_presets_files: ${{steps.changes.outputs.changed_presets_files}}
@@ -20,9 +18,6 @@ jobs:
         with:
           list-files: shell
           filters: |
-            renovate-config-validator:
-              - renovate.json5
-              - .github/workflows/workflow_call_renovate_config_validator.yaml
             preset:
               - "*.json"
               - ./.github/workflows/workflow_call_validate_presets.yaml
@@ -33,16 +28,14 @@ jobs:
               - .github/workflows/workflow_call_test_presets.yaml
             changed_presets:
               - "*.json"
-            ghalint:
-              - .github/workflows/*.yaml
-              - aqua/ghalint.yaml
 
-  renovate-config-validator:
-    needs: path-filter
-    if: needs.path-filter.outputs.renovate-config-validator == 'true'
-    uses: ./.github/workflows/workflow_call_renovate_config_validator.yaml
+  test-workflow:
+    uses: suzuki-shunsuke/test-workflow/.github/workflows/test.yaml@51ece8dcaabff59820bfb2053c56e3cb281cf7b2 # v0.0.1
+    with:
+      aqua_version: v2.65.2
     permissions:
       contents: read
+      pull-requests: read
 
   validate-presets:
     needs: path-filter
@@ -55,8 +48,3 @@ jobs:
     needs: path-filter
     if: needs.path-filter.outputs.test-presets == 'true'
     uses: ./.github/workflows/workflow_call_test_presets.yaml
-
-  ghalint:
-    needs: path-filter
-    if: needs.path-filter.outputs.ghalint == 'true'
-    uses: ./.github/workflows/workflow_call_ghalint.yaml
