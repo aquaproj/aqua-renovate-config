@@ -7,7 +7,7 @@
   ],
   customManagers: [
     {
-      // Versions of Renovate and Node.js used by scripts/test.sh
+      // Node.js used by scripts/test.sh
       customType: 'regex',
       managerFilePatterns: [
         '/^scripts\\/test\\.sh$/',

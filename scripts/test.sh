@@ -10,9 +10,17 @@
 
 set -euo pipefail
 
-renovate_version=44.160.1 # renovate: depName=renovate
+# The latest Renovate is used because the hosted Renovate app, which most users use, is always the latest.
 # Renovate requires Node.js 24
 node_version=24.22.0 # renovate: depName=node
+
+renovate() {
+	# The lower bound prevents npx from using an older Renovate installed globally.
+	# With a bare "renovate" or "renovate@latest", npx used the global Renovate v37.
+	npx -y -p "node@$node_version" -p "renovate@>=44" -- renovate "$@"
+}
+
+echo "[INFO] Renovate $(renovate --version)" >&2
 
 if [ $# -eq 0 ]; then
 	for dir in tests/*/; do
@@ -34,7 +42,6 @@ for preset in "$@"; do
 	(
 		cd "$work/repo"
 		LOG_FORMAT=json LOG_LEVEL=info RENOVATE_CONFIG_FILE=../config.json \
-			npx -y -p "node@$node_version" -p "renovate@$renovate_version" -- \
 			renovate --platform=local --dry-run=extract --onboarding=false --require-config=ignored
 	) >"$work/log.json"
 	# Drop fields depending on a token such as skipReason
