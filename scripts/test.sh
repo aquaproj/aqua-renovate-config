@@ -12,7 +12,7 @@ set -euo pipefail
 
 # The latest Renovate is used because the hosted Renovate app, which most users use, is always the latest.
 # Renovate requires Node.js 24
-node_version=24.22.0 # renovate: depName=node
+node_version=24.22.1 # renovate: depName=node
 
 renovate() {
 	# The lower bound prevents npx from using an older Renovate installed globally.
