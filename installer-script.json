@@ -2,6 +2,18 @@
    "customManagers": [
       {
          "customType": "regex",
+         "datasourceTemplate": "github-tags",
+         "depNameTemplate": "aquaproj/aqua-installer",
+         "managerFilePatterns": [
+            "/{{arg0}}/"
+         ],
+         "matchStrings": [
+            "raw\\.githubusercontent\\.com/aquaproj/aqua-installer/(?<currentDigest>[0-9a-f]{40})/aqua-installer['\"`]?[;,]? +(?:#|//) +(?<currentValue>[^'\" \\n]+)"
+         ],
+         "versioningTemplate": "semver"
+      },
+      {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "depNameTemplate": "aquaproj/aqua-installer",
          "managerFilePatterns": [
