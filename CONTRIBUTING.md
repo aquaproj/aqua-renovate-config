@@ -23,7 +23,7 @@ bash scripts/generate.sh
 
 ### Why Jsonnet?
 
-To improve the maintenability by making the configuration DRY.
+To improve the maintainability by making the configuration DRY.
 Jsonnet supports code comment while JSON doesn't.
 
 ## Test
