@@ -10,6 +10,7 @@ jobs:
       renovate-config-validator: ${{steps.changes.outputs.renovate-config-validator}}
       ghalint: ${{steps.changes.outputs.ghalint}}
       preset: ${{steps.changes.outputs.preset}}
+      test-presets: ${{steps.changes.outputs.test-presets}}
       changed_presets_files: ${{steps.changes.outputs.changed_presets_files}}
     runs-on: ubuntu-26.04
     permissions: {}
@@ -25,6 +26,11 @@ jobs:
             preset:
               - "*.json"
               - ./.github/workflows/workflow_call_validate_presets.yaml
+            test-presets:
+              - "*.json"
+              - tests/**
+              - scripts/test.sh
+              - .github/workflows/workflow_call_test_presets.yaml
             changed_presets:
               - "*.json"
             ghalint:
@@ -44,6 +50,11 @@ jobs:
     uses: ./.github/workflows/workflow_call_validate_presets.yaml
     with:
       files: ${{ needs.path-filter.outputs.changed_presets_files }}
+
+  test-presets:
+    needs: path-filter
+    if: needs.path-filter.outputs.test-presets == 'true'
+    uses: ./.github/workflows/workflow_call_test_presets.yaml
 
   ghalint:
     needs: path-filter

@@ -7,6 +7,17 @@
   ],
   customManagers: [
     {
+      // Versions of Renovate and Node.js used by scripts/test.sh
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^scripts\\/test\\.sh$/',
+      ],
+      matchStrings: [
+        '_version=(?<currentValue>\\S+) +# renovate: depName=(?<depName>\\S+)',
+      ],
+      datasourceTemplate: 'npm',
+    },
+    {
       customType: 'regex',
       managerFilePatterns: [
         '/README\\.md/',
