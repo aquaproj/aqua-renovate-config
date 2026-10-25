@@ -17,6 +17,21 @@
       },
       {
          "customType": "regex",
+         "datasourceTemplate": "github-tags",
+         "managerFilePatterns": [
+            "/{{arg0}}/"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)",
+            " +(?:name|'name'|\"name\") *: +(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"(?<depName>(?<packageName>[^'\" _.@/\\n]+/[^'\" @/\\n]+)(/[^'\" /@\\n]+)*)@(?<currentValue>[^'\" \\n]+)\""
+         ]
+      },
+      {
+         "customType": "regex",
          "datasourceTemplate": "github-releases",
          "managerFilePatterns": [
             "/{{arg0}}/"
