@@ -588,6 +588,23 @@
             " +(?:name|'name'|\"name\") *: +\"oracle.com/sqlcl@(?<currentValue>[^'\" \\n]+)\""
          ],
          "packageNameTemplate": "jasonlyle88/sqlcl-releases"
+      },
+      {
+         "customType": "regex",
+         "datasourceTemplate": "github-tags",
+         "depNameTemplate": "google.com/cloud-sdk",
+         "managerFilePatterns": [
+            "/{{arg0}}/"
+         ],
+         "matchStrings": [
+            " +(?:version|'version'|\"version\") *: +(?<currentValue>[^'\" \\n]+) +# renovate: depName=google.com/cloud-sdk[ \\n]",
+            " +(?:version|'version'|\"version\") *: +'(?<currentValue>[^'\" \\n]+)' +# renovate: depName=google.com/cloud-sdk[ \\n]",
+            " +(?:version|'version'|\"version\") *: +\"(?<currentValue>[^'\" \\n]+)\" +# renovate: depName=google.com/cloud-sdk[ \\n]",
+            " +(?:name|'name'|\"name\") *: +google.com/cloud-sdk@(?<currentValue>[^'\" \\n]+)",
+            " +(?:name|'name'|\"name\") *: +'google.com/cloud-sdk@(?<currentValue>[^'\" \\n]+)'",
+            " +(?:name|'name'|\"name\") *: +\"google.com/cloud-sdk@(?<currentValue>[^'\" \\n]+)\""
+         ],
+         "packageNameTemplate": "google-cloud-sdk-unofficial/google-cloud-sdk"
       }
    ],
    "packageRules": [
@@ -607,7 +624,8 @@
             "golang/vuln/govulncheck",
             "anthropics/claude-code",
             "apache/ant",
-            "getdbt.com/dbt-fusion"
+            "getdbt.com/dbt-fusion",
+            "google.com/cloud-sdk"
          ],
          "matchFileNames": [
             "/{{arg0}}/"
@@ -638,7 +656,8 @@
             "golang/vuln/govulncheck",
             "anthropics/claude-code",
             "apache/ant",
-            "getdbt.com/dbt-fusion"
+            "getdbt.com/dbt-fusion",
+            "google.com/cloud-sdk"
          ],
          "matchFileNames": [
             "/{{arg0}}/"

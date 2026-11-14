@@ -17,6 +17,7 @@
     'anthropics/claude-code',
     'apache/ant',
     'getdbt.com/dbt-fusion',
+    'google.com/cloud-sdk',
   ],
   aquaYAMLFileMatch: ['/\\.?aqua\\.ya?ml/'],
   wrapQuote(s):: "(?:%s|'%s'|\"%s\")" % [s, s, s],
@@ -242,6 +243,12 @@
       depNameTemplate: 'oracle.com/sqlcl',
       matchStrings: $.aquaPackageMatchStrings('oracle.com/sqlcl', ''),
       datasourceTemplate: 'github-releases',
+    },
+    {
+      packageNameTemplate: 'google-cloud-sdk-unofficial/google-cloud-sdk',
+      depNameTemplate: 'google.com/cloud-sdk',
+      matchStrings: $.aquaPackageMatchStrings('google.com/cloud-sdk', ''),
+      datasourceTemplate: 'github-tags',
     },
   ]),
 
